@@ -10,8 +10,10 @@ How to use test wrapper:
 
 all possible usages for current test wrapper in example - 
 
+JAVA code:
+
 	IIvaWrapper w = Wrapper.getWrapper(WrapperTypes.TEST);
-        String item = w.getMediaItem(0);
+	String item = w.getMediaItem(0);
 	System.out.println(item);
 	item = w.getMediaItem(1);
 	System.out.println(item);
@@ -29,3 +31,17 @@ all possible usages for current test wrapper in example -
 	item = w.getMedias(0, 0, "2", null, null);
 	System.out.println(item);
 
+WEB Service links:
+http://dstworks.com:8080/IvaWrapperWeb/getMedias?category=2    (possible values: 1, 2)
+http://dstworks.com:8080/IvaWrapperWeb/getMediaItem?n=2        (possible values: 0, 1, 2, 3, 4, 5)
+
+JavaScript code for test:
+
+function reqListener () {
+	console.log(this.responseText);
+};
+
+var oReq = new XMLHttpRequest();
+oReq.onload = reqListener;
+oReq.open("get", "http://dstworks.com:8080/IvaWrapperWeb/getMediaItem?n=2", true);
+oReq.send();
