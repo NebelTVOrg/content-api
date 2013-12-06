@@ -32,16 +32,20 @@ JAVA code:
 	System.out.println(item);
 
 WEB Service links:
-http://dstworks.com:8080/IvaWrapperWeb/getMedias?category=2    (possible values: 1, 2)
-http://dstworks.com:8080/IvaWrapperWeb/getMediaItem?n=2        (possible values: 0, 1, 2, 3, 4, 5)
 
-JavaScript code for test:
+ http://dstworks.com:8080/IvaWrapperWeb/getMedias?category=2    (possible values: 1, 2)
+ http://dstworks.com:8080/IvaWrapperWeb/getMediaItem?n=2        (possible values: 0, 1, 2, 3, 4, 5)
 
-function reqListener () {
-	console.log(this.responseText);
-};
 
-var oReq = new XMLHttpRequest();
-oReq.onload = reqListener;
-oReq.open("get", "http://dstworks.com:8080/IvaWrapperWeb/getMediaItem?n=2", true);
-oReq.send();
+
+JAVASCRIPT code:
+
+	function reqListener () {
+		console.log(this.responseText);
+	};
+
+	var oReq = new XMLHttpRequest();
+	oReq.onload = reqListener;
+	oReq.open("get", "http://dstworks.com:8080/IvaWrapperWeb/getMediaItem?n=2", true);
+	oReq.send();
+
