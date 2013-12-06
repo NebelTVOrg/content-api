@@ -82,12 +82,12 @@ class TestWrapper implements IIvaWrapper {
     }
 
     @Override
-    public String getMedias(int n, int skip, String category, String viewType, String viewTypePeriod) {
+    public String getMedias(Integer n, Integer skip, String category, String viewType, String viewTypePeriod) {
         return mediasData.get(category);
     }
 
     @Override
-    public String getMediaItem(int id) {
+    public String getMediaItem(Integer id) {
         return mediaItems.get(id);
     }
 

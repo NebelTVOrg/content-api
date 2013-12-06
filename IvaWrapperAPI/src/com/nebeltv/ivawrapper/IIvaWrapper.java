@@ -28,7 +28,7 @@ public interface IIvaWrapper {
      * date [probably, not like mm/dd/yy, but 'minute ago', 'hour ago', today',
      * 'yesterday' and so forth] descr - media description
      */
-    public String getMedias(int n, int skip, String category, String viewType, String viewTypePeriod);
+    public String getMedias(Integer n, Integer skip, String category, String viewType, String viewTypePeriod);
 
     /**
      * Method: getMediaItem
@@ -41,5 +41,5 @@ public interface IIvaWrapper {
      * 'minute ago', 'hour ago', today', 'yesterday' and so forth] descr - media
      * description
      */
-    public String getMediaItem(int id);
+    public String getMediaItem(Integer id);
 }

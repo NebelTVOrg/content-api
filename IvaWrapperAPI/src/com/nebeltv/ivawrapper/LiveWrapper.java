@@ -10,12 +10,12 @@ class LiveWrapper implements IIvaWrapper {
     }
 
     @Override
-    public String getMedias(int n, int skip, String category, String viewType, String viewTypePeriod) {
+    public String getMedias(Integer n, Integer skip, String category, String viewType, String viewTypePeriod) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public String getMediaItem(int id) {
+    public String getMediaItem(Integer id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
