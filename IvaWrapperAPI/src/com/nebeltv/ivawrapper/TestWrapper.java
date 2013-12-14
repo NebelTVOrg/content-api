@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  *
- * @author dmitry
+ * @author dst
  */
 class TestWrapper implements IIvaWrapper {
 

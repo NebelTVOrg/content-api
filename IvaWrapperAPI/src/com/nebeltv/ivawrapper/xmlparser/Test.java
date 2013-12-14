@@ -1,78 +1,84 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.nebeltv.ivawrapper.xmlparser;
 
-import com.nebeltv.ivawrapper.ClientConnectionRelease;
+import com.nebeltv.ivawrapper.xmlparser.nodes.Feed;
+import com.nebeltv.ivawrapper.xmlparser.nodes.Entry;
+import com.nebeltv.ivawrapper.ConnectionHelper;
+import com.nebeltv.ivawrapper.LiveWrapper;
 import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
 import com.thoughtworks.xstream.io.xml.XppDriver;
 import com.thoughtworks.xstream.io.xml.XppReader;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.Reader;
 
 /**
  *
- * @author dmitry
+ * @author dst
  */
 public class Test {
 
-    public static String getContents(File aFile) {
-        //...checks on aFile are elided
-        StringBuilder contents = new StringBuilder();
+	public static String getContents(File aFile) {
+		String fileData = "";
+		try {
+			final FileReader reader = new FileReader(aFile);
+			fileData = getReaderString(reader);
+		} catch (FileNotFoundException ex) {
+			System.out.println(ex);
+		}
+		return fileData;
+	}
 
-        try {
-            //use buffering, reading one line at a time
-            //FileReader always assumes default encoding is OK!
-            BufferedReader input = new BufferedReader(new FileReader(aFile));
-            try {
-                String line = null; //not declared within while loop
-        /*
-                 * readLine is a bit quirky :
-                 * it returns the content of a line MINUS the newline.
-                 * it returns null only for the END of the stream.
-                 * it returns an empty String if two newlines appear in a row.
-                 */
-                while ((line = input.readLine()) != null) {
-                    contents.append(line);
-                }
-            } finally {
-                input.close();
-            }
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+	public static void main(String[] args) throws Exception {
+		final String mediaItem = new LiveWrapper().getMediaItem(749049);
+		System.out.println("json item 749049: \n" + mediaItem);
+	}
 
-        return contents.toString();
-    }
+	public static void test1() throws Exception {
 
-    public static void main(String[] args) throws Exception {
+		XStream xStream = new XStream(new XppDriver());
+		xStream.alias("entry", Entry.class);
+		xStream.alias("feed", Feed.class);
+		xStream.autodetectAnnotations(true);
+		xStream.ignoreUnknownElements();
 
-        XStream xStream = new XStream(new XppDriver());
-        xStream.registerConverter(new FeedConverter());
-        xStream.registerConverter(new EntryConverter());
-        xStream.alias("entry", Entry.class);
-        xStream.alias("feed", Feed.class);
-        xStream.alias("id", Feed.class);
-        //FileInputStream file = new FileInputStream("/home/dmitry/workspace/content-api/IvaWrapperAPI/src/resources/newXMLDocument.xml");
-        //InputStreamReader inputStreamReader = new InputStreamReader(file);
+		String url = "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)?"
+						+ "$expand=Poster,Description,Director&Developerid=2A702798-6DBA-417D-A8BC-175CAEFFD2D6";//B43BF933-5CB5-434A-B0A8-717FC149FBED";
 
-        InputStreamReader inputStreamReader = new InputStreamReader(ClientConnectionRelease.getStream());
-        XppReader reader = new XppReader(inputStreamReader);
-//        String xml = getContents(file);
-//        int begin = xml.indexOf("<entry>");
-//        int end = xml.lastIndexOf("</entry>");
-//        xml = xml.substring(begin, end + 8);
-//        Entry person = (Entry) xStream.fromXML(xml);
+		XppReader reader = ConnectionHelper.getXppStreamReader(url);
 
-        Object entry = xStream.unmarshal(reader);
-        System.out.println();
-    }
+		Feed feed;
+		Object result = xStream.unmarshal(reader);
+		if (result instanceof Feed) {
+			feed = (Feed) result;
+		} else if (result instanceof Entry) {
+			feed = new Feed();
+			feed.addEntry((Entry) result);
+		} else {
+			feed = new Feed();
+		}
+		System.out.println(feed.toString());
+
+		//System.out.println("xml response: " + getReaderString(ConnectionHelper.getStreamReader(url)));
+	}
+
+	/**
+	 *
+	 * @param reader
+	 * @return
+	 */
+	public static String getReaderString(final Reader reader) {
+		StringBuilder contents = new StringBuilder();
+		BufferedReader input = new BufferedReader(reader);
+		try {
+			String line;
+			while ((line = input.readLine()) != null) {
+				contents.append(line);
+			}
+		} catch (IOException exception) {
+		}
+		return contents.toString();
+	}
 }

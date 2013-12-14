@@ -6,7 +6,7 @@ package com.nebeltv.ivawrapper;
 
 /**
  *
- * @author dmitry
+ * @author dst
  */
 public interface IIvaWrapper {
 

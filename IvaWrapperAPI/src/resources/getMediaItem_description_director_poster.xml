@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?><entry xml:base="http://api.internetvideoarchive.com/1.0/DataService/" xmlns="http://www.w3.org/2005/Atom" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+	<id>http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)</id>
+	<category term="MediaModel.EntertainmentProgram" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+	<link rel="edit" title="EntertainmentProgram" href="EntertainmentPrograms(749049)" />
+	<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/VideoAssets" type="application/atom+xml;type=feed" title="VideoAssets" href="EntertainmentPrograms(749049)/VideoAssets" />
+	<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Language" type="application/atom+xml;type=entry" title="Language" href="EntertainmentPrograms(749049)/Language" />
+	<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/SongCategory" type="application/atom+xml;type=entry" title="SongCategory" href="EntertainmentPrograms(749049)/SongCategory" />
+	<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/SongRiaa" type="application/atom+xml;type=entry" title="SongRiaa" href="EntertainmentPrograms(749049)/SongRiaa" />
+	<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/SongWarning" type="application/atom+xml;type=entry" title="SongWarning" href="EntertainmentPrograms(749049)/SongWarning" />
+	<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/MovieMpaa" type="application/atom+xml;type=entry" title="MovieMpaa" href="EntertainmentPrograms(749049)/MovieMpaa" />
+	<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/MovieCategory" type="application/atom+xml;type=entry" title="MovieCategory" href="EntertainmentPrograms(749049)/MovieCategory" />
+	<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/TvCategory" type="application/atom+xml;type=entry" title="TvCategory" href="EntertainmentPrograms(749049)/TvCategory" />
+	<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/TvRating" type="application/atom+xml;type=entry" title="TvRating" href="EntertainmentPrograms(749049)/TvRating" />
+	<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Country" type="application/atom+xml;type=entry" title="Country" href="EntertainmentPrograms(749049)/Country" />
+	<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/ReleaseEvents" type="application/atom+xml;type=feed" title="ReleaseEvents" href="EntertainmentPrograms(749049)/ReleaseEvents" />
+	<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/GameWarning" type="application/atom+xml;type=entry" title="GameWarning" href="EntertainmentPrograms(749049)/GameWarning" />
+	<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/GameCategory" type="application/atom+xml;type=entry" title="GameCategory" href="EntertainmentPrograms(749049)/GameCategory" />
+	<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Description" type="application/atom+xml;type=entry" title="Description" href="EntertainmentPrograms(749049)/Description">
+		<m:inline>
+			<entry>
+				<id>http://api.internetvideoarchive.com/1.0/DataService/Descriptions(749049)</id>
+				<category term="MediaModel.Description" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+				<link rel="edit" title="Description" href="Descriptions(749049)" />
+				<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/EntertainmentProgram" type="application/atom+xml;type=entry" title="EntertainmentProgram" href="Descriptions(749049)/EntertainmentProgram" />
+				<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/VideoAsset" type="application/atom+xml;type=entry" title="VideoAsset" href="Descriptions(749049)/VideoAsset" />
+				<title type="text">In a universe as vast as it is mysterious, a small but powerful force has existed for centuries. Protectors of peace and justice, they are called the Green Lantern Corps. A brotherhood of warriors sworn to keep intergalactic order, each Green Lantern wears a ring that grants him superpowers. But when a new enemy called Parallax threatens to destroy the balance of power in the Universe, their fate and the fate of Earth lie in the hands of their newest recruit, the first human ever selected: Hal Jordan (Ryan Reynolds). Hal is a gifted and cocky test pilot, but the Green Lanterns have little respect for humans, who have never harnessed the infinite powers of the ring before. But Hal is clearly the missing piece to the puzzle, and along with his determination and willpower, he has one thing no member of the Corps has ever had: humanity. With the encouragement of fellow pilot and childhood sweetheart Carol Ferris (Blake Lively), if Hal can quickly master his new powers and find the courage to overcome his fears, he may prove to be not only the key to defeating Parallax...he will become the greatest Green Lantern of all.</title>
+				<updated>2013-12-13T22:31:44Z</updated>
+				<author>
+					<name />
+				</author>
+				<content type="application/xml">
+					<m:properties>
+						<d:PublishedId m:type="Edm.Int32">749049</d:PublishedId>
+						<d:ItemDescription>In a universe as vast as it is mysterious, a small but powerful force has existed for centuries. Protectors of peace and justice, they are called the Green Lantern Corps. A brotherhood of warriors sworn to keep intergalactic order, each Green Lantern wears a ring that grants him superpowers. But when a new enemy called Parallax threatens to destroy the balance of power in the Universe, their fate and the fate of Earth lie in the hands of their newest recruit, the first human ever selected: Hal Jordan (Ryan Reynolds). Hal is a gifted and cocky test pilot, but the Green Lanterns have little respect for humans, who have never harnessed the infinite powers of the ring before. But Hal is clearly the missing piece to the puzzle, and along with his determination and willpower, he has one thing no member of the Corps has ever had: humanity. With the encouragement of fellow pilot and childhood sweetheart Carol Ferris (Blake Lively), if Hal can quickly master his new powers and find the courage to overcome his fears, he may prove to be not only the key to defeating Parallax...he will become the greatest Green Lantern of all.</d:ItemDescription>
+					</m:properties>
+				</content>
+			</entry>
+		</m:inline>
+	</link>
+	<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/ProgramToPerformerMaps" type="application/atom+xml;type=feed" title="ProgramToPerformerMaps" href="EntertainmentPrograms(749049)/ProgramToPerformerMaps" />
+	<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/VideoAssetScreenCapture" type="application/atom+xml;type=entry" title="VideoAssetScreenCapture" href="EntertainmentPrograms(749049)/VideoAssetScreenCapture" />
+	<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/TitleAkas" type="application/atom+xml;type=feed" title="TitleAkas" href="EntertainmentPrograms(749049)/TitleAkas" />
+	<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Copyrightholder" type="application/atom+xml;type=entry" title="Copyrightholder" href="EntertainmentPrograms(749049)/Copyrightholder" />
+	<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Director" type="application/atom+xml;type=entry" title="Director" href="EntertainmentPrograms(749049)/Director">
+		<m:inline>
+			<entry>
+				<id>http://api.internetvideoarchive.com/1.0/DataService/Performers(5504)</id>
+				<category term="MediaModel.Performer" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+				<link rel="edit" title="Performer" href="Performers(5504)" />
+				<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/PerformerScreenCapture" type="application/atom+xml;type=entry" title="PerformerScreenCapture" href="Performers(5504)/PerformerScreenCapture" />
+				<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/ProgramToPerformerMap" type="application/atom+xml;type=feed" title="ProgramToPerformerMap" href="Performers(5504)/ProgramToPerformerMap" />
+				<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/EntertainmentProgramsDirected" type="application/atom+xml;type=feed" title="EntertainmentProgramsDirected" href="Performers(5504)/EntertainmentProgramsDirected" />
+				<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/ImagesToTitleOrPerformerMaps" type="application/atom+xml;type=feed" title="ImagesToTitleOrPerformerMaps" href="Performers(5504)/ImagesToTitleOrPerformerMaps" />
+				<title type="text">Martin Campbell</title>
+				<updated>2013-12-13T22:31:44Z</updated>
+				<author>
+					<name />
+				</author>
+				<content type="application/xml">
+					<m:properties>
+						<d:PerformerID m:type="Edm.Int32">5504</d:PerformerID>
+						<d:LastName>Campbell</d:LastName>
+						<d:FirstName>Martin</d:FirstName>
+						<d:FullName>Martin Campbell</d:FullName>
+						<d:Datemodified m:type="Edm.DateTime">2011-09-07T18:18:39</d:Datemodified>
+						<d:NormalizedName>martin campbell</d:NormalizedName>
+					</m:properties>
+				</content>
+			</entry>
+		</m:inline>
+	</link>
+	<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Poster" type="application/atom+xml;type=entry" title="Poster" href="EntertainmentPrograms(749049)/Poster">
+		<m:inline>
+			<entry>
+				<id>http://api.internetvideoarchive.com/1.0/DataService/Posters(749049)</id>
+				<category term="MediaModel.Poster" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+				<link rel="edit" title="Poster" href="Posters(749049)" />
+				<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/EntertainmentProgram" type="application/atom+xml;type=entry" title="EntertainmentProgram" href="Posters(749049)/EntertainmentProgram" />
+				<title />
+				<updated>2013-12-13T22:31:44Z</updated>
+				<author>
+					<name />
+				</author>
+				<content type="application/xml">
+					<m:properties>
+						<d:PublishedId m:type="Edm.Int32">749049</d:PublishedId>
+						<d:DateAdded m:type="Edm.DateTime">2011-08-31T18:51:00</d:DateAdded>
+						<d:PosterUrl_125>http://content.internetvideoarchive.com/content/posters/6892/289468_495.jpg</d:PosterUrl_125>
+						<d:PosterUrl_172>http://content.internetvideoarchive.com/content/posters/6892/289468_335.jpg</d:PosterUrl_172>
+					</m:properties>
+				</content>
+			</entry>
+		</m:inline>
+	</link>
+	<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/MediaType" type="application/atom+xml;type=entry" title="MediaType" href="EntertainmentPrograms(749049)/MediaType" />
+	<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/ImageGalleryMaps" type="application/atom+xml;type=feed" title="ImageGalleryMaps" href="EntertainmentPrograms(749049)/ImageGalleryMaps" />
+	<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/RelatedEntertainmentPrograms" type="application/atom+xml;type=feed" title="RelatedEntertainmentPrograms" href="EntertainmentPrograms(749049)/RelatedEntertainmentPrograms" />
+	<link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/ProgramToGameFormatMaps" type="application/atom+xml;type=feed" title="ProgramToGameFormatMaps" href="EntertainmentPrograms(749049)/ProgramToGameFormatMaps" />
+	<title type="text">GREEN LANTERN</title>
+	<published>2013-10-28T11:39:00Z</published>
+	<updated>2013-12-13T22:31:44Z</updated>
+	<author>
+		<name />
+	</author>
+	<content type="application/xml">
+		<m:properties>
+			<d:Publishedid m:type="Edm.Int32">749049</d:Publishedid>
+			<d:Title>GREEN LANTERN</d:Title>
+			<d:DateCreated m:type="Edm.DateTime">2010-07-20T19:54:00</d:DateCreated>
+			<d:DateModified m:type="Edm.DateTime">2013-10-28T11:39:00</d:DateModified>
+			<d:FirstReleasedYear m:type="Edm.Int16">2011</d:FirstReleasedYear>
+			<d:GameCategoryId m:type="Edm.Int32">-1</d:GameCategoryId>
+			<d:GameWarningId m:type="Edm.Int32">-1</d:GameWarningId>
+			<d:MediaId m:type="Edm.Int32">0</d:MediaId>
+			<d:MusicAlbumTitle></d:MusicAlbumTitle>
+			<d:MusicCategoryId m:type="Edm.Int32">-1</d:MusicCategoryId>
+			<d:MusicRiaaId m:type="Edm.Int32">-1</d:MusicRiaaId>
+			<d:MusicWarningId m:type="Edm.Int32">-1</d:MusicWarningId>
+			<d:PromotesPublishedId m:type="Edm.Int32">-1</d:PromotesPublishedId>
+			<d:ProprietaryCustomerID m:type="Edm.Int32">-1</d:ProprietaryCustomerID>
+			<d:StreamLengthinseconds m:type="Edm.Int32">162</d:StreamLengthinseconds>
+			<d:MovieCategoryId m:type="Edm.Int32">1</d:MovieCategoryId>
+			<d:MovieMpaaId m:type="Edm.Int32">5</d:MovieMpaaId>
+			<d:MovieWarningId m:type="Edm.Int32">-1</d:MovieWarningId>
+			<d:BoxOfficeInMillions m:type="Edm.Double">116.6</d:BoxOfficeInMillions>
+			<d:MediaReceivedDate m:type="Edm.DateTime">2011-05-25T08:57:52</d:MediaReceivedDate>
+			<d:ExpirationDate m:type="Edm.DateTime" m:null="true" />
+			<d:CountryOforiginId m:type="Edm.Int16">0</d:CountryOforiginId>
+			<d:LanguageId m:type="Edm.Int16">0</d:LanguageId>
+			<d:OfficialSiteUrl>http://www.greenlantern.com</d:OfficialSiteUrl>
+			<d:OkToEncodeAndServe m:type="Edm.Boolean">true</d:OkToEncodeAndServe>
+			<d:IsATitle m:type="Edm.Boolean">true</d:IsATitle>
+			<d:Tagline></d:Tagline>
+			<d:Sequence m:type="Edm.Int16">-1</d:Sequence>
+			<d:OverallSequence m:type="Edm.Int16">-1</d:OverallSequence>
+			<d:DisplayTitle>Green Lantern</d:DisplayTitle>
+			<d:NormalizedTitle>green lantern</d:NormalizedTitle>
+			<d:TvCategoryid m:type="Edm.Int16">-1</d:TvCategoryid>
+			<d:TvRatingId m:type="Edm.Int16">-1</d:TvRatingId>
+			<d:HasIvaContent>true</d:HasIvaContent>
+			<d:HasYouTubeContent>false</d:HasYouTubeContent>
+			<d:CopyrightholderId m:type="Edm.Int32">332</d:CopyrightholderId>
+			<d:DirectorId m:type="Edm.Int32">5504</d:DirectorId>
+			<d:Rank1Day m:type="Edm.Int32">426</d:Rank1Day>
+			<d:Rank7Day m:type="Edm.Int32">474</d:Rank7Day>
+			<d:Rank30Day m:type="Edm.Int32">1000000</d:Rank30Day>
+			<d:RankAllTime m:type="Edm.Int32">36</d:RankAllTime>
+		</m:properties>
+	</content>
+</entry>

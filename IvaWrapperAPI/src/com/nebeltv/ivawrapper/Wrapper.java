@@ -7,7 +7,7 @@ package com.nebeltv.ivawrapper;
 
 /**
  *
- * @author dmitry
+ * @author dst
  */
 public class Wrapper {
 
