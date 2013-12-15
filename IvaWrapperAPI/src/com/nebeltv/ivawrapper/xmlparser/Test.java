@@ -32,7 +32,7 @@ public class Test {
 	}
 
 	public static void main(String[] args) throws Exception {
-		final String mediaItem = new LiveWrapper().getMediaItem(749049);
+		final String mediaItem = new LiveWrapper().getMedias(3, 0, "0", null, null);
 		System.out.println("json item 749049: \n" + mediaItem);
 	}
 

@@ -9,14 +9,12 @@ public class LiveWrapper implements IIvaWrapper {
 	public LiveWrapper() {
 	}
 
-	@Override
 	public String getMedias(Integer n, Integer skip, String category, String viewType, String viewTypePeriod) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		return new MediasBuilder(n, skip, category, viewType, viewTypePeriod).build().get();
 	}
 
 	@Override
 	public String getMediaItem(Integer id) {
 		return new MediaItemBuilder(id).build().get();
 	}
-
 }
