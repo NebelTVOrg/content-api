@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class MediaItemService extends HttpServlet {
 
-	private IIvaWrapper w = Wrapper.getWrapper(WrapperTypes.LIVE);
+	private final IIvaWrapper w = Wrapper.getWrapper(WrapperTypes.LIVE);
 
 	/**
 	 * Processes requests for both HTTP

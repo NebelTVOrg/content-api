@@ -15,7 +15,7 @@ public class WrapperUtils {
 	public static Integer getInt(final String number) {
 		try {
 			return Integer.parseInt(number);
-		} catch (Exception e) {
+		} catch (NumberFormatException e) {
 			System.out.println("e: " + e);
 		}
 		return null;

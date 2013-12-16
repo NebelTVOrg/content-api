@@ -32,8 +32,10 @@ public class Test {
 	}
 
 	public static void main(String[] args) throws Exception {
-		final String mediaItem = new LiveWrapper().getMedias(3, 0, "0", null, null);
-		System.out.println("json item 749049: \n" + mediaItem);
+		final String medias = new LiveWrapper().getMedias(3, 105, "1", null, null);
+		System.out.println("getMedias(3, 105, \"1\", null, null): \n" + medias);
+		final String mediaItem = new LiveWrapper().getMediaItem(13);
+		System.out.println("getMediaItem(13): \n" + mediaItem);
 	}
 
 	public static void test1() throws Exception {
