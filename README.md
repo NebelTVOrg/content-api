@@ -33,9 +33,9 @@ WEB Service links:
 
  - http://dstworks.com:8080/IvaWrapperWeb/getMedias?skip=100&n=3&category=0    
 	Possible values: 
-	n - up to 500 (entries)
-	skip - any integer
-	category - not provided, or any value from next grid - http://www.internetvideoarchive.com/media-type-map-to-mediaids/
+	 - n - up to 500 (entries)
+	 - skip - any integer
+	 - category - not provided, or any value from this table - http://www.internetvideoarchive.com/media-type-map-to-mediaids/
  
  - http://dstworks.com:8080/IvaWrapperWeb/getMediaItem?n=2
 	Possible values: 
