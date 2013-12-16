@@ -9,9 +9,7 @@ This module will be finally used as the part of native Android application (http
 
 Wrapper now in LIVE mode, and works with IVA services using free developer key.
 
-How to use live wrapper:
-
-all possible usages for current test wrapper in example - 
+How to use live wrapper (examples):
 
 JAVA code:
 
