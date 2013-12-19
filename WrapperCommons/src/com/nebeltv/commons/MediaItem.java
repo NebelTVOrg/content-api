@@ -1,4 +1,4 @@
-package com.nebeltv.ivawrapper;
+package com.nebeltv.commons;
 
 /**
  * <p>

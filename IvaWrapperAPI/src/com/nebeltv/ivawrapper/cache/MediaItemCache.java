@@ -5,7 +5,7 @@
  */
 package com.nebeltv.ivawrapper.cache;
 
-import com.nebeltv.ivawrapper.MediaItem;
+import com.nebeltv.commons.MediaItem;
 import java.util.HashMap;
 
 /**

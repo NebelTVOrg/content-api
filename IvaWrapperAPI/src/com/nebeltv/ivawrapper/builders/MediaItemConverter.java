@@ -5,7 +5,7 @@
  */
 package com.nebeltv.ivawrapper.builders;
 
-import com.nebeltv.ivawrapper.MediaItem;
+import com.nebeltv.commons.MediaItem;
 import com.nebeltv.ivawrapper.xmlparser.nodes.Entry;
 import com.nebeltv.ivawrapper.xmlparser.nodes.Link;
 import com.nebeltv.ivawrapper.xmlparser.nodes.Properties;

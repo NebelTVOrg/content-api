@@ -1,7 +1,7 @@
 package com.nebeltv.ivawrapper.builders;
 
 import com.nebeltv.ivawrapper.ConnectionHelper;
-import com.nebeltv.ivawrapper.MediaItem;
+import com.nebeltv.commons.MediaItem;
 import com.nebeltv.ivawrapper.cache.MediaItemCache;
 import com.nebeltv.ivawrapper.xmlparser.nodes.Entry;
 import com.nebeltv.ivawrapper.xmlparser.nodes.Feed;
@@ -26,7 +26,7 @@ public class MediaItemBuilder extends MediaItemConverter {
 	private final String queryUrl;
 	private Entry originalEntry;
 	private MediaItem item;
-	private String json;
+	private String json = "-1";
 	private final String id;
 
 	public MediaItemBuilder(String id) {
@@ -85,7 +85,9 @@ public class MediaItemBuilder extends MediaItemConverter {
 			executeQuery();
 			createMediaItem();
 		}
-		generateJson();
+		if (item != null) {
+			generateJson();
+		}
 		return this;
 	}
 
@@ -94,7 +96,9 @@ public class MediaItemBuilder extends MediaItemConverter {
 	}
 
 	private void createMediaItem() {
-		item = convertMediaItem(originalEntry);
-		MediaItemCache.addItem(item);
+		if (originalEntry != null) {
+			item = convertMediaItem(originalEntry);
+			MediaItemCache.addItem(item);
+		}
 	}
 }
