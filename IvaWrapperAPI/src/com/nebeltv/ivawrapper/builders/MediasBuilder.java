@@ -5,7 +5,7 @@
 package com.nebeltv.ivawrapper.builders;
 
 import com.nebeltv.ivawrapper.ConnectionHelper;
-import com.nebeltv.commons.MediaItem;
+import com.nebeltv.ivawrapper.entities.MediaItem;
 import com.nebeltv.ivawrapper.xmlparser.nodes.Entry;
 import com.nebeltv.ivawrapper.xmlparser.nodes.Feed;
 import com.thoughtworks.xstream.XStream;
@@ -30,8 +30,8 @@ public class MediasBuilder extends MediaItemConverter {
 	public static final String MEDIAS_QUERY_PART_2 = "$filter=MediaId eq {MediaId}&";
 	public static final String MEDIAS_QUERY_PART_3 = "$expand=Poster,Description,Director&Developerid=2A702798-6DBA-417D-A8BC-175CAEFFD2D6";//B43BF933-5CB5-434A-B0A8-717FC149FBED";
 	private String queryUrl;
-	private final List<Entry> entries = new ArrayList<>();
-	private final List<MediaItem> items = new ArrayList<>();
+	private final List<Entry> entries = new ArrayList<Entry>();
+	private final List<MediaItem> items = new ArrayList<MediaItem>();
 	private String json;
 
 	public MediasBuilder(Integer n, Integer skip, String category, String viewType, String viewTypePeriod) {

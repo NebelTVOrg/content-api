@@ -5,7 +5,7 @@
  */
 package com.nebeltv.ivawrapper.cache;
 
-import com.nebeltv.commons.MediaItem;
+import com.nebeltv.ivawrapper.entities.MediaItem;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,10 +17,10 @@ import java.util.Map;
  */
 public class MediasCache {
 
-	private static final HashMap<String, HashMap<List<Integer>, List<String>>> rangeByCategory = new HashMap<>();
+	private static final HashMap<String, HashMap<List<Integer>, List<String>>> rangeByCategory = new HashMap<String, HashMap<List<Integer>, List<String>>>();
 
 	private static List<Integer> getRange(Integer n, Integer skip) {
-		List<Integer> list = new ArrayList<>();
+		List<Integer> list = new ArrayList<Integer>();
 		list.add(skip);
 		list.add(skip + n);
 		return list;
@@ -60,11 +60,11 @@ public class MediasCache {
 		List<Integer> rangeToAdd = getRange(n, skip);
 		List<Integer> intersectLeft = null;
 		List<Integer> intersectRight = null;
-		List<List<Integer>> included = new ArrayList<>();
+		List<List<Integer>> included = new ArrayList<List<Integer>>();
 
 		HashMap<List<Integer>, List<String>> idByRange = rangeByCategory.get(category);
 		if (idByRange == null) {
-			idByRange = new HashMap<>();
+			idByRange = new HashMap<List<Integer>, List<String>>();
 			rangeByCategory.put(category, idByRange);
 		}
 
@@ -86,7 +86,7 @@ public class MediasCache {
 		}
 
 		if (intersectLeft == null && intersectRight == null && included.size() == 0) {
-			List<String> cashedMedias = new ArrayList<>();
+			List<String> cashedMedias = new ArrayList<String>();
 
 			for (MediaItem item : medias) {
 				MediaItemCache.addItem(item);
@@ -103,7 +103,7 @@ public class MediasCache {
 				int oldTo = intersectLeft.get(1);
 				int toSkip = oldTo - newFrom + 1;
 				List<String> cashedMedias = idByRange.get(intersectLeft);
-				List<Integer> newRange = new ArrayList<>(2);
+				List<Integer> newRange = new ArrayList<Integer>(2);
 				newRange.add(oldFrom);
 				newRange.add(newTo);
 
@@ -123,7 +123,7 @@ public class MediasCache {
 				int oldTo = intersectRight.get(1);
 				int toSkip = newTo - oldFrom + 1;
 				List<String> cashedMedias = idByRange.get(intersectRight);
-				List<Integer> newRange = new ArrayList<>(2);
+				List<Integer> newRange = new ArrayList<Integer>(2);
 				newRange.add(newFrom);
 				newRange.add(oldTo);
 
@@ -140,7 +140,7 @@ public class MediasCache {
 			//adds new items to MediaItemCache
 			if (included.size() > 0) {
 
-				List<String> cashedMedias = new ArrayList<>();
+				List<String> cashedMedias = new ArrayList<String>();
 
 				for (int i = 0; i < included.size(); i++) {
 					idByRange.remove(included.get(i));

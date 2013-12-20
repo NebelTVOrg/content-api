@@ -1,7 +1,7 @@
 package com.nebeltv.ivawrapper.builders;
 
 import com.nebeltv.ivawrapper.ConnectionHelper;
-import com.nebeltv.commons.MediaItem;
+import com.nebeltv.ivawrapper.entities.MediaItem;
 import com.nebeltv.ivawrapper.cache.MediaItemCache;
 import com.nebeltv.ivawrapper.xmlparser.nodes.Entry;
 import com.nebeltv.ivawrapper.xmlparser.nodes.Feed;

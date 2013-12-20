@@ -1,4 +1,5 @@
-import com.nebeltv.commons.MediaItem;
+import com.nebeltv.ivawrapper.Wrapper;
+import com.nebeltv.ivawrapper.WrapperTypes;
 import java.net.URLEncoder;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,9 +20,11 @@ public class IvaWrapperClient {
 
 	/**
 	 * @param args the command line arguments
+	 * @throws java.lang.Exception
 	 */
-	public static void main(String[] args) {
-		getMediaItem(1);
+	public static void main(String[] args) throws Exception {
+		System.out.println(getMediaItem(1));
+		System.out.println(getMedias(2, 5, "0", null, null));
 	}
 
 	/**
@@ -46,20 +49,29 @@ public class IvaWrapperClient {
 		return fixedURL.toString();
 	}
 
+	public static String getMediaItem(Integer id) throws Exception {
+		return Wrapper.getWrapper(WrapperTypes.LIVE).getMediaItem(id);
+	}
+
+	public static String getMedias(Integer n, Integer skip, String category, String viewType, String viewTypePeriod) throws Exception {
+		return Wrapper.getWrapper(WrapperTypes.LIVE).getMedias(n, skip, category, viewType, viewTypePeriod);
+	}
+
+	@Deprecated
 	public static String getString(String url) throws Exception {
 		return Request.Get(fixURL(url)).execute().returnContent().asString();
 	}
 
-	public static MediaItem getMediaItem(Integer id) {
-		if (id == null) {
-			return null;
-		}
-		try {
-			String item = getString(MEDIA_ITEM_SERVICE + id.toString());
-			System.out.println("item: " + item);
-			return new MediaItem();
-		} catch (Exception ex) {
-			Logger.getLogger(IvaWrapperClient.class.getName()).log(Level.SEVERE, null, ex);
+	@Deprecated
+	public static String getMediaItemUsingWebService(Integer id) {
+		if (id != null) {
+			try {
+				String item = getString(MEDIA_ITEM_SERVICE + id.toString());
+				System.out.println("item: " + item);
+				return item;
+			} catch (Exception ex) {
+				Logger.getLogger(IvaWrapperClient.class.getName()).log(Level.SEVERE, null, ex);
+			}
 		}
 		return null;
 	}

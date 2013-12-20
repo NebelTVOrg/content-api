@@ -24,7 +24,7 @@ public class Entry {
 	private Author author;
 
 	@XStreamImplicit(itemFieldName = "link")
-	private List<Link> links = new ArrayList<>();
+	private List<Link> links = new ArrayList<Link>();
 
 	/**
 	 * @return the publishedDate

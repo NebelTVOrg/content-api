@@ -22,7 +22,7 @@ public class Feed {
 	@XStreamImplicit(itemFieldName = "link")
 	private List<String> links;
 	@XStreamImplicit(itemFieldName = "entry")
-	private List<Entry> entries = new ArrayList<>();
+	private List<Entry> entries = new ArrayList<Entry>();
 
 	public void addEntry(Entry entry) {
 		entries.add(entry);

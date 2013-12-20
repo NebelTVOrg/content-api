@@ -50,7 +50,9 @@ public class IVAtest {
 
 		item = w.getMedias(0, 0, "1", null, null);
 		System.out.println(item);
-		item = w.getMedias(0, 0, "3", null, null);
+		item = w.getMedias(0, 10, "0", null, null);
+		System.out.println(item);
+		item = w.getMedias(2, 9, "0", null, null);
 		System.out.println(item);
 	}
 

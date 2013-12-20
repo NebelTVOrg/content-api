@@ -5,7 +5,7 @@
  */
 package com.nebeltv.ivawrapper.cache;
 
-import com.nebeltv.commons.MediaItem;
+import com.nebeltv.ivawrapper.entities.MediaItem;
 import java.util.HashMap;
 
 /**
@@ -14,7 +14,7 @@ import java.util.HashMap;
  */
 public class MediaItemCache {
 
-	private static final HashMap<String, MediaItem> itemById = new HashMap<>();
+	private static final HashMap<String, MediaItem> itemById = new HashMap<String, MediaItem>();
 
 	public static MediaItem getItem(String id) {
 		return itemById.get(id);
