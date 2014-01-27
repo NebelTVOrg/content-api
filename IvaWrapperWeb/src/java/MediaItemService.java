@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import com.nebeltv.ivawrapper.IIvaWrapper;
-import com.nebeltv.ivawrapper.Wrapper;
-import com.nebeltv.ivawrapper.WrapperTypes;
-import com.nebeltv.ivawrapper.WrapperUtils;
+import com.nebel_tv.content.wrapper.IWrapper;
+import com.nebel_tv.content.wrapper.Wrapper;
+import com.nebel_tv.content.wrapper.WrapperTypes;
+import com.nebel_tv.content.wrapper.WrapperUtils;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class MediaItemService extends HttpServlet {
 
-	private final IIvaWrapper w = Wrapper.getWrapper(WrapperTypes.LIVE);
+	private final IWrapper w = Wrapper.getWrapper(WrapperTypes.LIVE);
 
 	/**
 	 * Processes requests for both HTTP

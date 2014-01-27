@@ -4,9 +4,9 @@
 /IvaWrapperWeb/build/
 /IvaWrapperWeb/dist/
 
-/IVAtest/nbproject/private/
-/IVAtest/build/
-/IVAtest/dist/
+/IvaWrapperTest/nbproject/private/
+/IvaWrapperTest/build/
+/IvaWrapperTest/dist/
 
 /WrapperCommons/nbproject/private/
 /WrapperCommons/build/
@@ -15,8 +15,7 @@
 /AndroidClient/nbproject/private/
 /AndroidClient/build/
 /AndroidClient/dist/
+
 /ConnectionUtils/dist
-
 /ConnectionUtils/nbproject/private
-
 /ConnectionUtils/build/classes/com/nebeltv/ivawrapper

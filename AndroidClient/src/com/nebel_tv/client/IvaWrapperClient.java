@@ -1,7 +1,7 @@
 package com.nebel_tv.client;
 
-import com.nebeltv.ivawrapper.Wrapper;
-import com.nebeltv.ivawrapper.WrapperTypes;
+import com.nebel_tv.content.wrapper.Wrapper;
+import com.nebel_tv.content.wrapper.WrapperTypes;
 import java.net.URLEncoder;
 import java.util.logging.Level;
 import java.util.logging.Logger;
