@@ -35,34 +35,34 @@ public class MediaItemBuilder extends MediaItemConverter {
 	}
 
 	private void executeQuery() {
-		try {
-			XStream xStream = new XStream(new XppDriver());
-			xStream.alias("entry", Entry.class);
-			xStream.alias("feed", Feed.class);
-			xStream.autodetectAnnotations(true);
-			xStream.ignoreUnknownElements();
+            try {
+                    XStream xStream = new XStream(new XppDriver());
+                    xStream.alias("entry", Entry.class);
+                    xStream.alias("feed", Feed.class);
+                    xStream.autodetectAnnotations(true);
+                    xStream.ignoreUnknownElements();
 
-			XppReader reader = ConnectionHelper.getXppStreamReader(queryUrl);
+                    XppReader reader = ConnectionHelper.getXppStreamReader(queryUrl);
 
-			Feed feed;
-			// should be Entry, but lets check first
-			Object result = xStream.unmarshal(reader);
-			if (result instanceof Feed) {
-				feed = (Feed) result;
-			} else if (result instanceof Entry) {
-				feed = new Feed();
-				feed.addEntry((Entry) result);
-			} else {
-				feed = new Feed();
-			}
+                    Feed feed;
+                    // should be Entry, but lets check first
+                    Object result = xStream.unmarshal(reader);
+                    if (result instanceof Feed) {
+                            feed = (Feed) result;
+                    } else if (result instanceof Entry) {
+                            feed = new Feed();
+                            feed.addEntry((Entry) result);
+                    } else {
+                            feed = new Feed();
+                    }
 
-			//System.out.println(feed.toString());
-			if (feed.getEntries() != null && !feed.getEntries().isEmpty()) {
-				originalEntry = feed.getEntries().iterator().next();
-			}
-		} catch (Exception ex) {
-			System.out.println("ex: " + ex);
-		}
+                    //System.out.println(feed.toString());
+                    if (feed.getEntries() != null && !feed.getEntries().isEmpty()) {
+                            originalEntry = feed.getEntries().iterator().next();
+                    }
+            } catch (Exception ex) {
+                    System.out.println("ex: " + ex);
+            }
 	}
 
 	private void generateJson() {
