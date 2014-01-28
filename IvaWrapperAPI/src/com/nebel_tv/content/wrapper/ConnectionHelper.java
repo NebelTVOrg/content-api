@@ -16,7 +16,7 @@
  */
 package com.nebel_tv.content.wrapper;
 
-import com.nebeltv.ivawrapper.ConnectionUtils;
+import com.nebel_tv.content.utils.ConnectionUtils;
 import com.thoughtworks.xstream.io.xml.XppReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;

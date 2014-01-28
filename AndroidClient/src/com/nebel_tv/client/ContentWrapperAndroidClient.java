@@ -1,3 +1,19 @@
+/**
+ * Copyright (C) 2014 Nebel TV (http://nebel.tv)
+ *
+ * This program is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * this program. If not, see <http://www.gnu.org/licenses/>.
+ */
 package com.nebel_tv.client;
 
 import com.nebel_tv.content.wrapper.Wrapper;
@@ -8,10 +24,13 @@ import java.util.logging.Logger;
 import org.apache.http.client.fluent.Request;
 
 /**
- *
+ * Android client emulation 
  */
-public class IvaWrapperClient {
+public class ContentWrapperAndroidClient {
 
+    /**
+     * 
+     */    
     private static final String MEDIA_ITEM_SERVICE = "http://dstworks.com:8080/IvaWrapperWeb/getMediaItem?n=";
 
     /**
@@ -66,7 +85,7 @@ public class IvaWrapperClient {
                 System.out.println("item: " + item);
                 return item;
             } catch (Exception ex) {
-                Logger.getLogger(IvaWrapperClient.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ContentWrapperAndroidClient.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         return null;
