@@ -1,4 +1,4 @@
-content-api
+nebel.tv-content-api
 ===========
 Content API is simple JAVA interface for wrapping the IVA oData API (http://www.internetvideoarchive.com/data-apis/odata-api-1-0)  and return it query results to the javascript client in the JSON format. In future this wrapper will also implement simple caching functionality, so not every request to the IVA API will be executed against web server, but sometime may return cached item (images, query results, etc.).
 
@@ -29,18 +29,19 @@ JAVA code:
 	System.out.println(item);
 
 
-WEB Service links:
+Content Wrapper Web Service links:
 
- - http://dstworks.com:8080/IvaWrapperWeb/getMedias?skip=100&n=3&category=0    
+ - http://54.201.170.111:8080/IvaWrapperWeb/getMedias?skip=100&n=3&category=0    
 	Possible values: 
 	 - n - up to 500 (entries)
 	 - skip - any integer
 	 - category - not provided, or any value from this table - http://www.internetvideoarchive.com/media-type-map-to-mediaids/
  
- - http://dstworks.com:8080/IvaWrapperWeb/getMediaItem?n=2
-	Possible values: 
+ - http://[server]:8080/IvaWrapperWeb/getMediaItem?n=2
+	Possible values:
+	server - content API wrapper server
+	port - server port, 8080 by default
 	n - any valid publishedId
-
 
 
 JAVASCRIPT code:
@@ -51,17 +52,17 @@ JAVASCRIPT code:
 
 	var oReq = new XMLHttpRequest();
 	oReq.onload = reqListener;
-	oReq.open("get", "http://dstworks.com:8080/IvaWrapperWeb/getMediaItem?n=2", true);
+	oReq.open("get", "http://54.201.170.111:8080/IvaWrapperWeb/getMediaItem?n=2", true);
 	oReq.send();
 	
 	var oReq = new XMLHttpRequest();
 	oReq.onload = reqListener;
-	oReq.open("get", "http://dstworks.com:8080/IvaWrapperWeb/getMedias?skip=100&n=3&category=0", true);
+	oReq.open("get", "http://54.201.170.111:8080/IvaWrapperWeb/getMedias?skip=100&n=3&category=0", true);
 	oReq.send();
 	
 Expected results:
 	
-	http://dstworks.com:8080/IvaWrapperWeb/getMediaItem?n=2
+	http://54.201.170.111:8080/IvaWrapperWeb/getMediaItem?n=2
 	
 	{
 	  "media_id": "2",
@@ -73,7 +74,7 @@ Expected results:
 	}
 
 	
-	http://dstworks.com:8080/IvaWrapperWeb/getMedias?skip=100&n=3&category=0
+	http://54.201.170.111:8080/IvaWrapperWeb/getMedias?skip=100&n=3&category=0
 	
 	[
 	  {
