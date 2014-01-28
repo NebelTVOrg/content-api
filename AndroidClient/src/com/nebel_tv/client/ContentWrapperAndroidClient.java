@@ -31,7 +31,7 @@ public class ContentWrapperAndroidClient {
     /**
      * 
      */    
-    private static final String MEDIA_ITEM_SERVICE = "http://dstworks.com:8080/IvaWrapperWeb/getMediaItem?n=";
+    private static final String MEDIA_ITEM_SERVICE = "http://54.201.170.111:8080/IvaWrapperWeb/getMediaItem?n=";
 
     /**
      * @param args the command line arguments
