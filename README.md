@@ -39,9 +39,9 @@ Content Wrapper Web Service links:
  
  - http://[server]:8080/IvaWrapperWeb/getMediaItem?n=2
 	Possible values:
-	server - content API wrapper server
-	port - server port, 8080 by default
-	n - any valid publishedId
+	- server - content API wrapper server
+	- port - server port, 8080 by default
+	- n - any valid publishedId
 
 
 JAVASCRIPT code:
