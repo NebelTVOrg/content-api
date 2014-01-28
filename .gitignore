@@ -1,21 +1,23 @@
-/IvaWrapperAPI/build/
+﻿/IvaWrapperAPI/nbproject/private
+/IvaWrapperAPI/build
+/IvaWrapperAPI/dist
 
-/IvaWrapperWeb/nbproject/private/
-/IvaWrapperWeb/build/
-/IvaWrapperWeb/dist/
+/IvaWrapperWeb/nbproject/private
+/IvaWrapperWeb/build
+/IvaWrapperWeb/dist
 
-/IvaWrapperTest/nbproject/private/
-/IvaWrapperTest/build/
-/IvaWrapperTest/dist/
+/IvaWrapperTest/nbproject/private
+/IvaWrapperTest/build
+/IvaWrapperTest/dist
 
-/WrapperCommons/nbproject/private/
-/WrapperCommons/build/
-/WrapperCommons/dist/
+/WrapperCommons/nbproject/private
+/WrapperCommons/build
+/WrapperCommons/dist
 
-/AndroidClient/nbproject/private/
-/AndroidClient/build/
-/AndroidClient/dist/
+/AndroidClient/nbproject/private
+/AndroidClient/build
+/AndroidClient/dist
 
-/ConnectionUtils/dist
 /ConnectionUtils/nbproject/private
-/ConnectionUtils/build/classes/com/nebeltv/ivawrapper
+/ConnectionUtils/build
+/ConnectionUtils/dist
