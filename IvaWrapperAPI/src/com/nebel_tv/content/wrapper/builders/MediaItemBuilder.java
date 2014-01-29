@@ -35,9 +35,8 @@ import java.io.Writer;
  */
 public class MediaItemBuilder extends MediaItemConverter {
 
-    //B43BF933-5CB5-434A-B0A8-717FC149FBED";
     public static final String MEDIA_ITEM_QUERY = "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms({publishedId})?"
-            + "$expand=Poster,Description,Director&Developerid=2A702798-6DBA-417D-A8BC-175CAEFFD2D6";
+            + "$expand=Poster,Description,Director";
 
     private final String queryUrl;
     private Entry originalEntry;
