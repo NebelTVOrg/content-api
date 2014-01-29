@@ -21,16 +21,20 @@ import com.nebel_tv.content.wrapper.WrapperTypes;
 import java.net.URLEncoder;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.apache.http.client.fluent.Request;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.impl.client.DefaultHttpClient;
 
 /**
- * Android client emulation 
+ * Android client emulation
  */
 public class ContentWrapperAndroidClient {
 
     /**
-     * 
-     */    
+     *
+     */
     private static final String MEDIA_ITEM_SERVICE = "http://54.201.170.111:8080/IvaWrapperWeb/getMediaItem?n=";
 
     /**
@@ -38,8 +42,10 @@ public class ContentWrapperAndroidClient {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(getMediaItem(1));
-        System.out.println(getMedias(2, 5, "0", null, null));
+        System.out.println(getMediaItem(2));
+        System.out.println(getMediaItemUsingWebService(2));        
+        
+        //System.out.println(getMedias(2, 5, "0", null, null));
     }
 
     /**
@@ -74,7 +80,11 @@ public class ContentWrapperAndroidClient {
 
     @Deprecated
     public static String getString(String url) throws Exception {
-        return Request.Get(fixURL(url)).execute().returnContent().asString();
+        HttpClient httpclient = new DefaultHttpClient();
+        HttpGet getRequest = new HttpGet(fixURL(url));
+
+        ResponseHandler<String> responseHandler = new BasicResponseHandler();
+        return httpclient.execute(getRequest, responseHandler);
     }
 
     @Deprecated
