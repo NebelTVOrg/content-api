@@ -39,7 +39,7 @@ public class ConnectionUtils {
     private static Stack<String> ids = new Stack();
 
     /**
-     * 
+     *
      */
     private static void init() {
         ids.push("B43BF933-5CB5-434A-B0A8-717FC149FBED");
