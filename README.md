@@ -11,7 +11,7 @@ Wrapper now in LIVE mode, and works with IVA services using free developer key.
 
 How to use live wrapper (examples):
 
-JAVA code:
+Java code:
 
 	IIvaWrapper w = Wrapper.getWrapper(WrapperTypes.LIVE);
 	String item = w.getMediaItem(1);
@@ -44,7 +44,7 @@ Content Wrapper Web Service links:
 	- n - any valid publishedId
 
 
-JAVASCRIPT code:
+JavaScript code:
 
 	function reqListener () {
 		console.log(this.responseText);
@@ -71,6 +71,10 @@ Expected results:
 	  "author": "Stanley Donen",
 	  "date": "2013-11-18T15:06:00Z",
 	  "descr": "Three sailors team up to find the beautiful poster girl whose picture they saw in a New York City subway. Oscar-winning score by Bernstein, Comden and Green!"
+	  "rating": "3.54",
+	  "imdb_rating": "7.70", 
+	  "duration": "1:27:08", 
+	  "tagline": "Comedy, Musical, Romance" 	  
 	}
 
 	
