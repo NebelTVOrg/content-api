@@ -16,10 +16,6 @@
  */
 package com.nebel_tv.content.wrapper;
 
-import com.nebel_tv.content.utils.ConnectionUtils;
-import com.thoughtworks.xstream.io.xml.XppReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.URLEncoder;
 
 /**
@@ -48,19 +44,5 @@ public class ConnectionHelper {
             }
         }
         return fixedURL.toString();
-    }
-
-    /*public static InputStream getStream(String url) throws Exception {
-     return Request.Get(fixURL(url)).addHeader("Developerid", "B43BF933-5CB5-434A-B0A8-717FC149FBED").execute().returnContent().asStream();
-     }*/
-    public static InputStream getStream(String url) throws Exception {
-        return ConnectionUtils.getStream(fixURL(url));
-    }
-
-    public static XppReader getXppStreamReader(String url) throws Exception {
-        final InputStream stream = getStream(url);
-        InputStreamReader inputStreamReader = new InputStreamReader(stream);
-        XppReader reader = new XppReader(inputStreamReader);
-        return reader;
     }
 }

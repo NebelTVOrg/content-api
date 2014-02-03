@@ -36,7 +36,7 @@ public class ConnectionUtils {
     /**
      * Stack of developer IDs
      */
-    private static Stack<String> ids = new Stack();
+    private static Stack<String> ids = new Stack<String>();
 
     /**
      *
@@ -52,7 +52,7 @@ public class ConnectionUtils {
      * @return
      * @throws Exception
      */
-    public static InputStream getStream(String url) throws Exception {
+    public static InputStream getResponseAsStream(String url) throws Exception {
         HttpClient httpclient = new DefaultHttpClient();
         HttpGet getRequest = new HttpGet(url);
 
@@ -68,6 +68,39 @@ public class ConnectionUtils {
 
             ids.push(developerId);
             return new ByteArrayInputStream(responseBody.getBytes());
+
+        } catch (ClientProtocolException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     *
+     * @param url
+     * @return
+     * @throws Exception
+     */
+    public static String getResponseAsString(String url) throws Exception {
+        HttpClient httpclient = new DefaultHttpClient();
+        HttpGet getRequest = new HttpGet(url);
+
+        if (ids.empty()) {
+            init();
+        }
+        String developerId = ids.pop();
+        getRequest.addHeader("Developerid", developerId);
+        try {
+            // Execute HTTP Post Request
+            ResponseHandler<String> responseHandler = new BasicResponseHandler();
+            String responseBody = httpclient.execute(getRequest, responseHandler);
+
+            ids.push(developerId);
+            return responseBody;
 
         } catch (ClientProtocolException e) {
             // TODO Auto-generated catch block

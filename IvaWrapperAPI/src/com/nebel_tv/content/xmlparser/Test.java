@@ -16,19 +16,20 @@
  */
 package com.nebel_tv.content.xmlparser;
 
-import com.nebel_tv.content.xmlparser.nodes.Feed;
-import com.nebel_tv.content.xmlparser.nodes.Entry;
-import com.nebel_tv.content.wrapper.ConnectionHelper;
-import com.nebel_tv.content.wrapper.LiveWrapper;
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.XppDriver;
-import com.thoughtworks.xstream.io.xml.XppReader;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+
+import com.nebel_tv.content.utils.ConnectionUtils;
+import com.nebel_tv.content.wrapper.ConnectionHelper;
+import com.nebel_tv.content.wrapper.LiveWrapper;
+import com.nebel_tv.content.xmlparser.nodes.Entry;
+import com.nebel_tv.content.xmlparser.nodes.Feed;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.XppDriver;
 
 /**
  * @warning: move into the test package
@@ -61,15 +62,13 @@ public class Test {
         xStream.alias("entry", Entry.class);
         xStream.alias("feed", Feed.class);
         xStream.autodetectAnnotations(true);
-        xStream.ignoreUnknownElements();
+        //xStream.ignoreUnknownElements();
 
         String url = "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)?"
                 + "$expand=Poster,Description,Director&Developerid=2A702798-6DBA-417D-A8BC-175CAEFFD2D6";//B43BF933-5CB5-434A-B0A8-717FC149FBED";
 
-        XppReader reader = ConnectionHelper.getXppStreamReader(url);
-
         Feed feed;
-        Object result = xStream.unmarshal(reader);
+        Object result = xStream.fromXML(ConnectionUtils.getResponseAsString(ConnectionHelper.fixURL(url)));
         if (result instanceof Feed) {
             feed = (Feed) result;
         } else if (result instanceof Entry) {

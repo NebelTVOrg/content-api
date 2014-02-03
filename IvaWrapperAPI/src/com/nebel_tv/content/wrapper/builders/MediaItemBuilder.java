@@ -16,9 +16,12 @@
  */
 package com.nebel_tv.content.wrapper.builders;
 
+import java.io.Writer;
+
+import com.nebel_tv.content.cache.MediaItemCache;
+import com.nebel_tv.content.utils.ConnectionUtils;
 import com.nebel_tv.content.wrapper.ConnectionHelper;
 import com.nebel_tv.content.wrapper.entities.MediaItem;
-import com.nebel_tv.content.cache.MediaItemCache;
 import com.nebel_tv.content.xmlparser.nodes.Entry;
 import com.nebel_tv.content.xmlparser.nodes.Feed;
 import com.thoughtworks.xstream.XStream;
@@ -26,8 +29,6 @@ import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 import com.thoughtworks.xstream.io.json.JsonHierarchicalStreamDriver;
 import com.thoughtworks.xstream.io.json.JsonWriter;
 import com.thoughtworks.xstream.io.xml.XppDriver;
-import com.thoughtworks.xstream.io.xml.XppReader;
-import java.io.Writer;
 
 /**
  *
@@ -57,11 +58,9 @@ public class MediaItemBuilder extends MediaItemConverter {
             xStream.autodetectAnnotations(true);
             xStream.ignoreUnknownElements();
 
-            XppReader reader = ConnectionHelper.getXppStreamReader(queryUrl);
-
             Feed feed;
             // should be Entry, but lets check first
-            Object result = xStream.unmarshal(reader);
+            Object result = xStream.fromXML(ConnectionUtils.getResponseAsString(ConnectionHelper.fixURL(queryUrl)));
             if (result instanceof Feed) {
                 feed = (Feed) result;
             } else if (result instanceof Entry) {

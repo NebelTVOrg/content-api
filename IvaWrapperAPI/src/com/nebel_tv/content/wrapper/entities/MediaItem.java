@@ -43,10 +43,10 @@ package com.nebel_tv.content.wrapper.entities;
  * <b>imdb_rating</b> - IMDb media rating range [0.0 - 10.0]
  * </p>
  * <p>
- * <b>duration</b> -  media duration, format hh:mm:ss
+ * <b>duration</b> - media duration, format hh:mm:ss
  * </p>
  * <p>
- * <b>tagline</b> -  comma separated media tags 
+ * <b>tagline</b> - comma separated media tags
  * </p>
  *
  */
@@ -58,27 +58,27 @@ public class MediaItem {
     private String author;
     private String date;
     private String descr;
-    
+
     private String rating;
     private String imdb_rating;
-    
+
     private String duration;
     private String tagline;
 
     /**
-     * 
+     *
      */
     public MediaItem() {
-  
+
         rating = String.format("%.02f", (float) Math.random() * 5);
         imdb_rating = String.format("%.02f", (float) Math.random() * 10);
-        
-        long length = (long) (Math.random() * 3* 3600);        
-        duration = String.format("%d:%02d:%02d", length/3600, (length%3600)/60, (length%60));
-        
+
+        long length = (long) (Math.random() * 3 * 3600);
+        duration = String.format("%d:%02d:%02d", length / 3600, (length % 3600) / 60, (length % 60));
+
         tagline = "18+";
     }
-    
+
     /**
      * @return the mediaId
      */
@@ -106,7 +106,7 @@ public class MediaItem {
     public void setImage(String image) {
         this.image = image;
     }
-    
+
     /**
      * @return the title
      */
@@ -162,7 +162,7 @@ public class MediaItem {
     public void setDescr(String value) {
         this.descr = value;
     }
-    
+
     /**
      * @return the duration
      */
@@ -175,8 +175,8 @@ public class MediaItem {
      */
     public void setDuration(String value) {
         this.duration = value;
-    }    
-    
+    }
+
     /**
      * @return the tagline
      */
@@ -190,7 +190,7 @@ public class MediaItem {
     public void setTagline(String value) {
         this.tagline = value;
     }
-    
+
     /**
      * @return the rating
      */
@@ -203,8 +203,8 @@ public class MediaItem {
      */
     public void setRating(String value) {
         this.rating = value;
-    } 
-    
+    }
+
     /**
      * @return the IMDb rating
      */
@@ -217,5 +217,5 @@ public class MediaItem {
      */
     public void setImdbRating(String value) {
         this.imdb_rating = value;
-    }    
+    }
 }
