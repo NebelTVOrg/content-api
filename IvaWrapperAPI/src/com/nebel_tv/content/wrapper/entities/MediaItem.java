@@ -157,10 +157,10 @@ public class MediaItem {
     }
 
     /**
-     * @param descr the value to set
+     * @param value the descr to set
      */
     public void setDescr(String value) {
-        this.descr = descr;
+        this.descr = value;
     }
     
     /**
