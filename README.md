@@ -84,6 +84,10 @@ Expected results:
 		"author": "Edward Buzzell",
 		"date": "2013-10-25T15:51:00Z",
 		"descr": "A circus owner enlists the Marx Brothers' aid in saving his run-down circus from bankruptcy."
+		"rating": "4.07",
+		"imdb_rating": "6.90", 
+		"duration": "1:27:08", 
+		"tagline": "Comedy, Musical" 
 	  },
 	  {
 		"media_id": "115",
@@ -92,6 +96,10 @@ Expected results:
 		"author": "John Guillermin",
 		"date": "2013-11-27T12:05:00Z",
 		"descr": "During World War I, a young German aviator competes with other members of his squadron for the coveted Blue Max flying award. Terrific aerial photography!"
+		"rating": "3.35",
+		"imdb_rating": "7.10", 
+		"duration": "1:50:30", 
+		"tagline": "Adventure, Drama, War" 
 	  },
 	  {
 		"media_id": "116",
@@ -100,6 +108,10 @@ Expected results:
 		"author": "Charles Walters",
 		"date": "2013-10-28T11:15:00Z",
 		"descr": "A theatrical couple temporarily splits up over a disagreement. Astaire and Rogers' last film together!"
+		"rating": "4.70",
+		"imdb_rating": "7.0", 
+		"duration": "1:49:00", 
+		"tagline": "Comedy, Musical" 
 	  }
 	]
 
