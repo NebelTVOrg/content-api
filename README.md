@@ -11,7 +11,7 @@ Wrapper now in LIVE mode, and works with IVA services using free developer key.
 
 How to use live wrapper (examples):
 
-JAVA code:
+Java code:
 
 	IIvaWrapper w = Wrapper.getWrapper(WrapperTypes.LIVE);
 	String item = w.getMediaItem(1);
@@ -44,7 +44,7 @@ Content Wrapper Web Service links:
 	- n - any valid publishedId
 
 
-JAVASCRIPT code:
+JavaScript code:
 
 	function reqListener () {
 		console.log(this.responseText);
@@ -71,6 +71,10 @@ Expected results:
 	  "author": "Stanley Donen",
 	  "date": "2013-11-18T15:06:00Z",
 	  "descr": "Three sailors team up to find the beautiful poster girl whose picture they saw in a New York City subway. Oscar-winning score by Bernstein, Comden and Green!"
+	  "rating": "3.54",
+	  "imdb_rating": "7.70", 
+	  "duration": "1:27:08", 
+	  "tagline": "Comedy, Musical, Romance" 	  
 	}
 
 	
@@ -84,6 +88,10 @@ Expected results:
 		"author": "Edward Buzzell",
 		"date": "2013-10-25T15:51:00Z",
 		"descr": "A circus owner enlists the Marx Brothers' aid in saving his run-down circus from bankruptcy."
+		"rating": "4.07",
+		"imdb_rating": "6.90", 
+		"duration": "1:27:08", 
+		"tagline": "Comedy, Musical" 
 	  },
 	  {
 		"media_id": "115",
@@ -92,6 +100,10 @@ Expected results:
 		"author": "John Guillermin",
 		"date": "2013-11-27T12:05:00Z",
 		"descr": "During World War I, a young German aviator competes with other members of his squadron for the coveted Blue Max flying award. Terrific aerial photography!"
+		"rating": "3.35",
+		"imdb_rating": "7.10", 
+		"duration": "1:50:30", 
+		"tagline": "Adventure, Drama, War" 
 	  },
 	  {
 		"media_id": "116",
@@ -100,6 +112,10 @@ Expected results:
 		"author": "Charles Walters",
 		"date": "2013-10-28T11:15:00Z",
 		"descr": "A theatrical couple temporarily splits up over a disagreement. Astaire and Rogers' last film together!"
+		"rating": "4.70",
+		"imdb_rating": "7.0", 
+		"duration": "1:49:00", 
+		"tagline": "Comedy, Musical" 
 	  }
 	]
 
