@@ -70,7 +70,7 @@
     nbproject/build-impl.xml file. 
 
     -->
-   <target name="export" depends="jar">
+    <target name="export" depends="jar">
         <property name="export.jar.name" value="nebel-tv-mediawrapper-0.2.1"/>
         <property name="export.dir" value="export"/>
         <property name="export.jar" value="${export.dir}/${export.jar.name}.jar"/>
@@ -89,7 +89,7 @@
         </jar>
         <zip destfile="${export.jar}">
             <zipfileset src="${export.dir}/temp.jar"
-            excludes="META-INF/*.SF, META-INF/*.DSA, META-INF/*.RSA"/>
+                        excludes="META-INF/*.SF, META-INF/*.DSA, META-INF/*.RSA"/>
         </zip>
         <delete file="${export.dir}/temp.jar"/>
     </target>  
