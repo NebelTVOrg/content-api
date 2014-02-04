@@ -14,32 +14,40 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package com.nebel_tv.content.wrapper;
+package com.nebel_tv.content;
 
-import com.nebel_tv.content.wrapper.builders.MediasBuilder;
-import com.nebel_tv.content.wrapper.builders.MediaItemBuilder;
+import com.nebel_tv.content.wrapper.ConnectionHelperTest;
+import com.nebel_tv.content.wrapper.WrapperUtilsTest;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 
 /**
  *
  */
-public class LiveWrapper implements IWrapper {
+@RunWith(Suite.class)
+@Suite.SuiteClasses({
+    WrapperUtilsTest.class, 
+    ConnectionHelperTest.class
+})
+public class IvaWrapperAPITestSuite {
 
-    /**
-     * 
-     */
-    public LiveWrapper() {
+    @BeforeClass
+    public static void setUpClass() throws Exception {
     }
 
-    @Override
-    public String getMedias(Integer n, Integer skip, String category, String viewType, String viewTypePeriod) {
-        return new MediasBuilder(n, skip, category, viewType, viewTypePeriod).build().get();
+    @AfterClass
+    public static void tearDownClass() throws Exception {
     }
 
-    @Override
-    public String getMediaItem(Integer id) {
-        if (id != null) {
-            return new MediaItemBuilder(id.toString()).build().get();
-        }
-        return "-1";
+    @Before
+    public void setUp() throws Exception {
+    }
+
+    @After
+    public void tearDown() throws Exception {
     }
 }

@@ -20,7 +20,6 @@ import java.net.URLEncoder;
 
 /**
  *
- * @author dst
  */
 public class ConnectionHelper {
 

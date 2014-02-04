@@ -110,5 +110,4 @@ class TestWrapper implements IWrapper {
     public static TestWrapper getInstance() {
         return instance;
     }
-
 }

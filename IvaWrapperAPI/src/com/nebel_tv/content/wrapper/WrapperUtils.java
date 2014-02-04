@@ -16,6 +16,9 @@
  */
 package com.nebel_tv.content.wrapper;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  */
@@ -30,8 +33,8 @@ public class WrapperUtils {
     public static Integer getInt(final String number) {
         try {
             return Integer.parseInt(number);
-        } catch (NumberFormatException e) {
-            System.out.println("e: " + e);
+        } catch (NumberFormatException ex) {
+            Logger.getLogger(WrapperUtils.class.getName()).log(Level.INFO, "WrapperUtils parse int \"getInt\" exception", ex);
         }
         return null;
     }
