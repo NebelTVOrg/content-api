@@ -27,3 +27,5 @@
 /NebelTVContentAPI/build
 /NebelTVContentAPI/dist
 /NebelTVContentAPI/export
+
+*.xml~
