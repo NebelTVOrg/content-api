@@ -26,11 +26,16 @@ import static org.junit.Assert.*;
 /**
  *
  */
-public class WrapperUtilsTest {
+public class TestWrapperTest {
     /**
      * 
      */
-    public WrapperUtilsTest() {
+    private final IWrapper wrapper = TestWrapper.getInstance();
+    
+    /**
+     * 
+     */
+    public TestWrapperTest() {
     }
     
     @BeforeClass
@@ -48,18 +53,24 @@ public class WrapperUtilsTest {
     @After
     public void tearDown() {
     }
-    
+
     /**
-     * Test of getInt method, of class WrapperUtils.
+     * Test of getMedias method, of class TestWrapper.
      */
     @Test
-    public void testGetInt() {
-        assertEquals(new Integer(5), WrapperUtils.getInt("5"));
-        
-        assertNull(WrapperUtils.getInt(""));
-        assertNull(WrapperUtils.getInt("-"));
-        
-        assertNotSame(new Integer(0), WrapperUtils.getInt(""));
-        assertNotSame(new Integer(100), WrapperUtils.getInt("-100"));
+    public void testGetMedias() {
+        String result = wrapper.getMedias(2, 5, "0", null, null);
+        assertNotSame(result, "-1");
+        assertNotSame(result, "[]");        
+    }
+
+    /**
+     * Test of getMediaItem method, of class TestWrapper.
+     */
+    @Test
+    public void testGetMediaItem() {
+        String result = wrapper.getMediaItem(2);
+        assertNotSame(result, "-1");
+        assertNotSame(result, "{}");    
     }
 }

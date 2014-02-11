@@ -17,6 +17,9 @@
 package com.nebel_tv.content;
 
 import com.nebel_tv.content.wrapper.ConnectionHelperTest;
+import com.nebel_tv.content.wrapper.LiveWrapperTest;
+import com.nebel_tv.content.wrapper.TestWrapperTest;
+import com.nebel_tv.content.wrapper.WrapperTest;
 import com.nebel_tv.content.wrapper.WrapperUtilsTest;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -31,7 +34,10 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
     WrapperUtilsTest.class, 
-    ConnectionHelperTest.class
+    ConnectionHelperTest.class,    
+    WrapperTest.class,
+    LiveWrapperTest.class,    
+    TestWrapperTest.class   
 })
 public class IvaWrapperAPITestSuite {
 

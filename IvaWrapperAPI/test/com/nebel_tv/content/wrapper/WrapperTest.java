@@ -26,11 +26,11 @@ import static org.junit.Assert.*;
 /**
  *
  */
-public class WrapperUtilsTest {
+public class WrapperTest { 
     /**
      * 
      */
-    public WrapperUtilsTest() {
+    public WrapperTest() {
     }
     
     @BeforeClass
@@ -48,18 +48,22 @@ public class WrapperUtilsTest {
     @After
     public void tearDown() {
     }
-    
+
     /**
-     * Test of getInt method, of class WrapperUtils.
+     * Test of getWrapper method (Live), of class Wrapper.
      */
     @Test
-    public void testGetInt() {
-        assertEquals(new Integer(5), WrapperUtils.getInt("5"));
-        
-        assertNull(WrapperUtils.getInt(""));
-        assertNull(WrapperUtils.getInt("-"));
-        
-        assertNotSame(new Integer(0), WrapperUtils.getInt(""));
-        assertNotSame(new Integer(100), WrapperUtils.getInt("-100"));
+    public void testGetWrapperLive() {
+        IWrapper result = Wrapper.getWrapper(WrapperTypes.LIVE);
+        assertTrue(result instanceof LiveWrapper);
     }
+    
+    /**
+     * Test of getWrapper method (Test), of class Wrapper.
+     */
+    @Test
+    public void testGetWrapperTest() {
+        IWrapper result = Wrapper.getWrapper(WrapperTypes.TEST);
+        assertTrue(result instanceof TestWrapper);
+    }        
 }
