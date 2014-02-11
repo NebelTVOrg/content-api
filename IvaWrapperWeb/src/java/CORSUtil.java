@@ -1,4 +1,3 @@
-
 /**
  * Copyright (C) 2014 Nebel TV (http://nebel.tv)
  *
@@ -24,6 +23,12 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class CORSUtil {
 
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws IOException 
+     */
     public static void fixCORS(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // Get client's origin
         String clientOrigin = request.getHeader("origin");
