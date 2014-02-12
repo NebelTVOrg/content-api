@@ -12,7 +12,7 @@
         <div id="readme" class="blob instapaper_body">
 
             <h1>Nebel TV Content Wrapper Web Service</h1>
-            <p><i>ver.0.2.3</i></p>
+            <p><i>ver.0.2.x</i></p>
 
             <p>Wrapper works with IVA services using free developer key.</p>
             <p>How to use live wrapper (examples):</p>
@@ -31,6 +31,9 @@
             item = w.getMedias(10, 50, "1", null, null);
             System.out.println(item);
             item = w.getMedias(0, 2, "3", null, null);
+            System.out.println(item);
+
+            item = w.getVideoAssets(0);
             System.out.println(item);
             </code></pre>
             <p>Content Wrapper Web Service links:</p>
@@ -54,6 +57,14 @@
                         <li>port - server port, 8080 by default</li>
                         <li>n - any valid publishedId</li>
                     </ul>
+                </li>
+                <li>
+                    <p>http://[server]:8080/IvaWrapperWeb/getVideoAssets?id=0</p>
+                    <p>Where:</p>
+                    <ul>
+                        <li>id - media item id (PublishedID)</li>
+                    </ul>
+                    <p>Reference: <a href="http://www.internetvideoarchive.com/how-to-generate-urls-to-video-content-using-iva-odata-api">www.internetvideoarchive.com/how-to-generate-urls-to-video-content-using-iva-odata-api</a></p>                
                 </li>
             </ul><p><b>JavaScript</b> code:</p>
             <pre><code>
@@ -123,6 +134,21 @@
                 "imdb_rating": "7.0", 
                 "duration": "1:49:00", 
                 "tagline": "Comedy, Musical" 
+              }
+            ]
+            http://54.201.170.111:8080/IvaWrapperWeb/getVideoAssets?id=0
+            [
+              {
+                "url": "http://54.201.170.111/assets/001-180p-185kb.mp4",
+                "rate":"185"
+              },
+              {
+                "url": "http://54.201.170.111/assets/001-270p-686kb.mp4",
+                "rate":"686"
+              },
+              {
+                "url":"http://54.201.170.111/assets/001-720p-2500kb.mp4", 
+                "rate":"2500"
               }
             ]
             </code></pre>
