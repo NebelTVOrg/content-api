@@ -74,7 +74,6 @@ JavaScript code:
 Expected results:
 	
 	http://54.201.170.111:8080/IvaWrapperWeb/getMediaItem?n=2
-	
 	{
 	  "media_id": "2",
 	  "image": "http://content.internetvideoarchive.com/content/posters/005/223_562.jpg",
@@ -87,10 +86,7 @@ Expected results:
 	  "duration": "1:27:08", 
 	  "tagline": "Comedy, Musical, Romance" 	  
 	}
-
-	
 	http://54.201.170.111:8080/IvaWrapperWeb/getMedias?skip=100&n=3&category=0
-	
 	[
 	  {
 		"media_id": "114",
@@ -129,7 +125,6 @@ Expected results:
 		"tagline": "Comedy, Musical" 
 	  }
 	]
-	
 	http://54.201.170.111:8080/IvaWrapperWeb/getVideoAssets?id=0
 	[
 	  {
