@@ -47,8 +47,11 @@ Content Wrapper Web Service links:
 	- n - any valid publishedId
 
  - http://[server]:8080/IvaWrapperWeb/getVideoAssets?id=0
+ 
 	Where:
-	- id - media item id
+	- id - media item id (PublishedID)
+
+Reference: www.internetvideoarchive.com/how-to-generate-urls-to-video-content-using-iva-odata-api
 
 JavaScript code:
 
