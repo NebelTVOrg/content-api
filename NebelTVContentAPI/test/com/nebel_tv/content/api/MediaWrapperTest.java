@@ -56,9 +56,8 @@ public class MediaWrapperTest {
     /**
      * Test of getMediaData (<code>getMedias</code>) method, of class MediaWrapper.
      */
-    //@Test
+    @Test
     public void testGetMediaDataGetMedias() {
-        System.out.println("getMediaData");
         final String url = "http://54.201.170.111:8080/IvaWrapperWeb/getMedias?skip=100&n=3&category=0";
         
         MediaWrapper instance = new MediaWrapper();
@@ -104,7 +103,6 @@ public class MediaWrapperTest {
      */
     @Test
     public void testGetMediaDataGetVideoAssets() {
-        System.out.println("getVideoAssets");
         final String url = "http://54.201.170.111:8080/IvaWrapperWeb/getVideoAssets?id=0";
         
         MediaWrapper instance = new MediaWrapper();
