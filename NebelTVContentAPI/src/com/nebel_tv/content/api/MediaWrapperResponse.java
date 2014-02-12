@@ -25,7 +25,7 @@ public class MediaWrapperResponse {
      *
      */
     public enum ResponseType {
-        NA, VideoUrl
+        NA, VideoAssets
     }
 
     /**

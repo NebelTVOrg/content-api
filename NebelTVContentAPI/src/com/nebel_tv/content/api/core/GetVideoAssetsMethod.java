@@ -23,17 +23,16 @@ import java.util.Map;
 import com.nebel_tv.content.wrapper.WrapperUtils;
 
 /**
- *
- *
+ * 
  */
-public class GetMediasMethod extends WrapperMethod {
+public class GetVideoAssetsMethod extends WrapperMethod {
 
     /**
-     *
-     * @return
+     * 
+     * @return Wrapper method name <code>getVideoAssets</code>
      */
     public static String getName() {
-        return "getMedias";
+        return "getVideoAssets";
     }
 
     /**
@@ -44,20 +43,15 @@ public class GetMediasMethod extends WrapperMethod {
      */
     @Override
     public MediaWrapperResponse execute(Map<String, String> params) throws InvalidParameterException {
-        if (params == null || params.size() < 3) {
+        if (params == null || params.size() != 1) {
             throw new InvalidParameterException();
         }
 
-        final String n = params.get("n");
-        final String skip = params.get("skip");
-        final String category = params.get("category");
-        final String viewType = params.get("viewType");
-        final String viewTypePeriod = params.get("viewTypePeriod");
+        final String id = params.get("id");
+        Integer nId = WrapperUtils.getInt(id);
 
-        Integer nParsed = WrapperUtils.getInt(n);
-        Integer skipParsed = WrapperUtils.getInt(skip);
-
-        String data = wrapper.getMedias(nParsed, skipParsed, category, viewType, viewTypePeriod);
-        return new MediaWrapperResponse(data);
+        String data = wrapper.getVideoAssets(nId);
+        //@warning: data validation 
+        return new MediaWrapperResponse(MediaWrapperResponse.ResponseResult.Ok, MediaWrapperResponse.ResponseType.VideoAssets, data);
     }
 }

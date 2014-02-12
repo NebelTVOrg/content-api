@@ -56,7 +56,7 @@ public class MediaWrapperTest {
     /**
      * Test of getMediaData (<code>getMedias</code>) method, of class MediaWrapper.
      */
-    @Test
+    //@Test
     public void testGetMediaDataGetMedias() {
         System.out.println("getMediaData");
         final String url = "http://54.201.170.111:8080/IvaWrapperWeb/getMedias?skip=100&n=3&category=0";
@@ -97,7 +97,33 @@ public class MediaWrapperTest {
         } catch (JSONException e) {
             fail("JSON parsing failed" + e.getMessage());
         }        
-    }  
+    }
+    
+    /**
+     * Test of getMediaData (<code>getMedias</code>) method, of class MediaWrapper.
+     */
+    @Test
+    public void testGetMediaDataGetVideoAssets() {
+        System.out.println("getVideoAssets");
+        final String url = "http://54.201.170.111:8080/IvaWrapperWeb/getVideoAssets?id=0";
+        
+        MediaWrapper instance = new MediaWrapper();
+        MediaWrapperResponse result = instance.getMediaData(url);
+        assertTrue(result.responseType == MediaWrapperResponse.ResponseType.VideoAssets);       
+        assertTrue(result.responseResult == MediaWrapperResponse.ResponseResult.Ok);
+        
+        try {
+            JSONArray jsonVideoAssets = new JSONArray(result.responseData);
+            assertFalse(jsonVideoAssets.length() == 0);
+            
+            for (int i = 0; i < jsonVideoAssets.length(); i++) {
+                JSONObject jsonAsset = jsonVideoAssets.getJSONObject(i);
+                testJsonVideoAsset(jsonAsset);
+            }
+        } catch (JSONException e) {
+            fail("JSON parsing failed" + e.getMessage());
+        }
+    }
     
     /**
      * Test of getUrlLastSegment (<code>getMedias</code>) method, of class MediaWrapper.
@@ -128,6 +154,20 @@ public class MediaWrapperTest {
     }
 
     /**
+     * Test of getUrlLastSegment (<code>getVideoAssets</code>) method, of class MediaWrapper.
+     */
+    @Test
+    public void testGetUrlLastSegmentGetVideoAssets() {
+        String urlGetVideoAssets = "http://54.201.170.111:8080/IvaWrapperWeb/getVideoAssets?id=0";
+        String result = MediaWrapper.getUrlLastSegment(urlGetVideoAssets);
+        assertEquals(result, "getVideoAssets");
+        
+        urlGetVideoAssets = "http://google.com/IvaWrapperWeb/getVideoAssets?id=0";
+        result = MediaWrapper.getUrlLastSegment(urlGetVideoAssets);
+        assertEquals(result, "getVideoAssets");        
+    }
+    
+    /**
      * Test of JSON presentation of the media item
      * The following keys are mandatory <code>media_id, title, author, date</code>
      */
@@ -139,4 +179,17 @@ public class MediaWrapperTest {
         assertTrue(jsonItem.has("author"));
         assertTrue(jsonItem.has("date"));        
     }
+    
+    /**
+     * Test of JSON presentation of the video asset
+     * The following keys are mandatory <code>rate, url</code>
+     * 
+     * @param jsonAsset JSON object instance of the video asset
+     */
+    private void testJsonVideoAsset(JSONObject jsonAsset) {
+        assertNotNull(jsonAsset);
+        
+        assertTrue(jsonAsset.has("rate"));
+        assertTrue(jsonAsset.has("url"));       
+    }    
 }

@@ -58,8 +58,7 @@ public class MediaWrapper implements IMediaWrapper {
                 for (NameValuePair param : pairs) {
                     params.put(param.getName(), param.getValue());
                 }
-                String data = method.execute(params);
-                return new MediaWrapperResponse(data);
+                return method.execute(params);
             }
         } catch (URISyntaxException e) {
             e.printStackTrace();

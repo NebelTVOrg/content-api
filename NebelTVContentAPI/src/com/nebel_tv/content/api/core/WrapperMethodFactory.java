@@ -25,7 +25,7 @@ public class WrapperMethodFactory {
 
     /**
      *
-     * @param name
+     * @param name The name of wrapper method (Web Service interface)
      * @return
      */
     public static IWrapperMethod getMethodByName(String name) {
@@ -37,6 +37,8 @@ public class WrapperMethodFactory {
             return new GetMediaItemMethod();
         } else if (name.equals(GetMediasMethod.getName())) {
             return new GetMediasMethod();
+        }else if (name.equals(GetVideoAssetsMethod.getName())) {
+            return new GetVideoAssetsMethod();
         }
         return null;
     }
