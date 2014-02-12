@@ -68,14 +68,14 @@ public class VideoAssetsServiceTest {
     }
     
     /**
-     * Test of getMedias request of service IvaWrapperWeb (remote server).
+     * Test of getVideoAssets request of service IvaWrapperWeb (remote server).
      */
     @Test
     public void testServiceRequestRemote() {
         testServiceRequest("http://54.201.170.111:8080/IvaWrapperWeb/getVideoAssets?id=0");
     }
     /**
-     * Test of getMedias request of service IvaWrapperWeb (local server).
+     * Test of getVideoAssets request of service IvaWrapperWeb (local server).
      */
     @Test
     public void testServiceRequestLocal() {
@@ -83,7 +83,7 @@ public class VideoAssetsServiceTest {
     }
     
     /**
-     * Test of getMediaItem request of service IvaWrapperWeb (remote server).
+     * Test of getVideoAssets request of service IvaWrapperWeb 
      * @param url Service URL
      */
     public void testServiceRequest(String url) {    
@@ -110,16 +110,16 @@ public class VideoAssetsServiceTest {
     }
 
     /**
-     * Test of JSON presentation of the media items
-     * The following keys are mandatory <code>media_id, title, author, date</code>
+     * Test of JSON presentation of the video asset
+     * The following keys are mandatory <code>rate, url</code>
      * 
-     * @param jsonItem 
+     * @param jsonAsset JSON object instance of the video asset
      */
-    private void testJsonVideoAsset(JSONObject jsonItem) {
-        assertNotNull(jsonItem);
+    private void testJsonVideoAsset(JSONObject jsonAsset) {
+        assertNotNull(jsonAsset);
         
-        assertTrue(jsonItem.has("rate"));
-        assertTrue(jsonItem.has("url"));       
+        assertTrue(jsonAsset.has("rate"));
+        assertTrue(jsonAsset.has("url"));       
     }
         
     /**
