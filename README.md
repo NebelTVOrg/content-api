@@ -27,6 +27,9 @@ Java code:
 	System.out.println(item);
 	item = w.getMedias(0, 2, "3", null, null);
 	System.out.println(item);
+	
+	item = w.getVideoAssets(0);
+	System.out.println(item);
 
 
 Content Wrapper Web Service links:
@@ -43,6 +46,9 @@ Content Wrapper Web Service links:
 	- port - server port, 8080 by default
 	- n - any valid publishedId
 
+ - http://[server]:8080/IvaWrapperWeb/getVideoAssets?id=0
+	Where:
+	- id - media item id
 
 JavaScript code:
 
@@ -58,6 +64,11 @@ JavaScript code:
 	var oReq = new XMLHttpRequest();
 	oReq.onload = reqListener;
 	oReq.open("get", "http://54.201.170.111:8080/IvaWrapperWeb/getMedias?skip=100&n=3&category=0", true);
+	oReq.send();
+	
+	var oReq = new XMLHttpRequest();
+	oReq.onload = reqListener;
+	oReq.open("get", "http://54.201.170.111:8080/IvaWrapperWeb/getVideoAssets?id=0", true);
 	oReq.send();
 	
 Expected results:
@@ -116,6 +127,22 @@ Expected results:
 		"imdb_rating": "7.0", 
 		"duration": "1:49:00", 
 		"tagline": "Comedy, Musical" 
+	  }
+	]
+	
+	http://54.201.170.111:8080/IvaWrapperWeb/getVideoAssets?id=0
+	[
+	  {
+		"url": "http://54.201.170.111/assets/001-180p-185kb.mp4",
+		"rate":"185"
+	  },
+	  {
+		"url": "http://54.201.170.111/assets/001-270p-686kb.mp4",
+		"rate":"686"
+	  },
+	  {
+		"url":"http://54.201.170.111/assets/001-720p-2500kb.mp4", 
+		"rate":"2500"
 	  }
 	]
 
