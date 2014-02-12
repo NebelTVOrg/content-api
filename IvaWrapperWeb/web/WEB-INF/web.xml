@@ -8,6 +8,10 @@
         <servlet-name>MediaItemService</servlet-name>
         <servlet-class>MediaItemService</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VideoAssetsService</servlet-name>
+        <servlet-class>VideoAssetsService</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MediasService</servlet-name>
         <url-pattern>/getMedias</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>MediaItemService</servlet-name>
         <url-pattern>/getMediaItem</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VideoAssetsService</servlet-name>
+        <url-pattern>/getVideoAssets</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
