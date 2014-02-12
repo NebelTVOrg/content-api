@@ -73,4 +73,17 @@ public class TestWrapperTest {
         assertNotSame(result, "-1");
         assertNotSame(result, "{}");    
     }
+    
+    /**
+     * Test of getMedias method, of class TestWrapper.
+     */
+    @Test
+    public void testGetVideoAssets() {
+        String result = wrapper.getVideoAssets(0);
+        System.out.println(result);
+        
+        assertNotSame(result, "-1");
+        assertNotSame(result, "[]");        
+    }    
+    
 }

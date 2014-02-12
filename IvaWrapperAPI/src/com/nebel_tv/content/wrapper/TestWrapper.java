@@ -21,7 +21,6 @@ import java.util.Map;
 
 /**
  *
- * @author dst
  */
 class TestWrapper implements IWrapper {
 
@@ -29,6 +28,8 @@ class TestWrapper implements IWrapper {
     private final static Map<String, String> mediasData = new HashMap<String, String>();
     private final static Map<Integer, String> mediaItems = new HashMap<Integer, String>();
 
+    private final static Map<Integer, String> videoAssets = new HashMap<Integer, String>();    
+    
     static {
         // media items
         String media0 = "{\"media_id\":0,"
@@ -72,6 +73,21 @@ class TestWrapper implements IWrapper {
                 + "\"author\":\"author 23\","
                 + "\"date\":\"22 minute ago\","
                 + "\"descr\":\"BLUE LANTERN 2 description\"}";
+        
+        String asset0= "{"
+                + "\"url\":\"http://54.201.170.111/assets/001-180p-185kb.mp4\","
+                + "\"rate\":\"185\""
+                + "}";
+        
+        String asset1= "{"
+                + "\"url\":\"http://54.201.170.111/assets/001-270p-686kb.mp4\","
+                + "\"rate\":\"686\""
+                + "}";
+        
+        String asset2= "{"
+                + "\"url\":\"http://54.201.170.111/assets/001-720p-2500kb.mp4\","
+                + "\"rate\":\"2500\""
+                + "}";        
 
         // media data
         mediasData.put("1", '['
@@ -92,6 +108,12 @@ class TestWrapper implements IWrapper {
         mediaItems.put(3, media3);
         mediaItems.put(4, media4);
         mediaItems.put(5, media5);
+        
+        videoAssets.put(0, '['
+                + asset0 + ","
+                + asset1 + ","
+                + asset2
+                + "]");
     }
 
     private TestWrapper() {
@@ -109,5 +131,10 @@ class TestWrapper implements IWrapper {
 
     public static TestWrapper getInstance() {
         return instance;
+    }
+
+    @Override
+    public String getVideoAssets(Integer id) {
+        return videoAssets.get(id);
     }
 }

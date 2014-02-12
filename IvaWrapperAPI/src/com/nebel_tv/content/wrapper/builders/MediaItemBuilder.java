@@ -32,7 +32,6 @@ import com.thoughtworks.xstream.io.xml.XppDriver;
 
 /**
  *
- * @author dst
  */
 public class MediaItemBuilder extends MediaItemConverter {
 

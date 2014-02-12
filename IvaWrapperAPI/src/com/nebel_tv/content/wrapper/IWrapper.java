@@ -53,4 +53,11 @@ public interface IWrapper {
      * description
      */
     public String getMediaItem(Integer id);
+    
+    /**
+     * 
+     * @param id media id [integer] unique id of media
+     * @return 
+     */
+    public String getVideoAssets(Integer id);
 }
