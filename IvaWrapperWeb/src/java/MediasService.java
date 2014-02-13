@@ -66,7 +66,7 @@ public class MediasService extends HttpServlet {
                  * @param viewTypePeriod - period of type (for example, best for
                  * today/week/month, etc..) ['today', 'week', 'month']
                  */
-                out.println(w.getMedias(nParsed, skipParsed, category, viewType, viewTypePeriod));
+                out.print(w.getMedias(nParsed, skipParsed, category, viewType, viewTypePeriod));
             }
         } catch (Exception e) {
             System.out.println("e: " + e);

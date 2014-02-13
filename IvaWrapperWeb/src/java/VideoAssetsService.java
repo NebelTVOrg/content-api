@@ -51,7 +51,7 @@ public class VideoAssetsService extends HttpServlet {
         try {
             CORSUtil.fixCORS(request, response);
             final String id = request.getParameter("id");
-            out.println(w.getVideoAssets(WrapperUtils.getInt(id)));
+            out.print(w.getVideoAssets(WrapperUtils.getInt(id)));
         } finally {
             out.close();
         }

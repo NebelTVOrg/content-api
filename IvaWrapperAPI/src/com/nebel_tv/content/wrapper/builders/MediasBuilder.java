@@ -102,8 +102,6 @@ public class MediasBuilder extends MediaItemConverter {
         xstream.setMode(XStream.NO_REFERENCES);
         xstream.alias("item", MediaItem.class);
         json = xstream.toXML(items);
-
-        //System.out.println(json);
     }
 
     public MediasBuilder build() {

@@ -51,7 +51,7 @@ public class MediaItemService extends HttpServlet {
         try {
             CORSUtil.fixCORS(request, response);
             final String n = request.getParameter("n");
-            out.println(w.getMediaItem(WrapperUtils.getInt(n)));
+            out.print(w.getMediaItem(WrapperUtils.getInt(n)));
         } finally {
             out.close();
         }

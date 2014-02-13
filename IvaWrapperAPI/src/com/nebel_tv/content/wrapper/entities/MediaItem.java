@@ -70,13 +70,17 @@ public class MediaItem {
      */
     public MediaItem() {
 
-        rating = String.format("%.02f", (float) Math.random() * 5);
-        imdb_rating = String.format("%.02f", (float) Math.random() * 10);
+//        rating = String.format("%.02f", (float) Math.random() * 5);
+//        imdb_rating = String.format("%.02f", (float) Math.random() * 10);
+//
+//        long length = (long) (Math.random() * 3 * 3600);
+//        duration = String.format("%d:%02d:%02d", length / 3600, (length % 3600) / 60, (length % 60));
+        
+        rating = "5.0";
+        imdb_rating = "8.7";
+        duration = "02:15:18";
 
-        long length = (long) (Math.random() * 3 * 3600);
-        duration = String.format("%d:%02d:%02d", length / 3600, (length % 3600) / 60, (length % 60));
-
-        tagline = "18+";
+        tagline = "Adventure, Drama, War";
     }
 
     /**
