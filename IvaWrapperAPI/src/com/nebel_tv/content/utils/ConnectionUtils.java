@@ -19,14 +19,15 @@ package com.nebel_tv.content.utils;
 import java.util.Stack;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.ResponseHandler;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.BasicResponseHandler;
-import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+ 
+import org.apache.commons.io.IOUtils;
 
 /**
  *
@@ -36,7 +37,7 @@ public class ConnectionUtils {
     /**
      * Stack of developer IDs
      */
-    private static Stack<String> ids = new Stack<String>();
+    private static final Stack<String> ids = new Stack<String>();
 
     /**
      *
@@ -53,28 +54,20 @@ public class ConnectionUtils {
      * @throws Exception
      */
     public static InputStream getResponseAsStream(String url) throws Exception {
-        HttpClient httpclient = new DefaultHttpClient();
-        HttpGet getRequest = new HttpGet(url);
-
         if (ids.empty()) {
             init();
         }
         String developerId = ids.pop();
-        getRequest.addHeader("Developerid", developerId);
+        url = url + "&Developerid=" + developerId;        
         try {
-            // Execute HTTP Post Request
-            ResponseHandler<String> responseHandler = new BasicResponseHandler();
-            String responseBody = httpclient.execute(getRequest, responseHandler);
+            String result = IOUtils.toString(new URL(url));
 
             ids.push(developerId);
-            return new ByteArrayInputStream(responseBody.getBytes());
-
-        } catch (ClientProtocolException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            return new ByteArrayInputStream(result.getBytes());
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(ConnectionUtils.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ConnectionUtils.class.getName()).log(Level.WARNING, null, ex);
         }
         return null;
     }
@@ -86,28 +79,21 @@ public class ConnectionUtils {
      * @throws Exception
      */
     public static String getResponseAsString(String url) throws Exception {
-        HttpClient httpclient = new DefaultHttpClient();
-        HttpGet getRequest = new HttpGet(url);
-
         if (ids.empty()) {
             init();
         }
         String developerId = ids.pop();
-        getRequest.addHeader("Developerid", developerId);
+        
         try {
-            // Execute HTTP Post Request
-            ResponseHandler<String> responseHandler = new BasicResponseHandler();
-            String responseBody = httpclient.execute(getRequest, responseHandler);
+            url = url + "&Developerid=" + developerId;
+            String result = IOUtils.toString(new URL(url));
 
             ids.push(developerId);
-            return responseBody;
-
-        } catch (ClientProtocolException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            return result;            
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(ConnectionUtils.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ConnectionUtils.class.getName()).log(Level.WARNING, null, ex);
         }
         return null;
     }

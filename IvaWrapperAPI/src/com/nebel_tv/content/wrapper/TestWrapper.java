@@ -16,125 +16,79 @@
  */
 package com.nebel_tv.content.wrapper;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.StringWriter;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.apache.commons.io.IOUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  *
  */
 class TestWrapper implements IWrapper {
 
-    private final static TestWrapper instance = new TestWrapper();
+    private static TestWrapper instance = null;
+    
     private final static Map<String, String> mediasData = new HashMap<String, String>();
     private final static Map<Integer, String> mediaItems = new HashMap<Integer, String>();
 
     private final static Map<Integer, String> videoAssets = new HashMap<Integer, String>();    
     
     static {
-        // media items
-        String media0 = "{\"media_id\":0,"
-                + "\"image\":\"http://upload.wikimedia.org/wikipedia/commons/8/83/Red_2007.jpg\","
-                + "\"title\":\"RED LANTERN\","
-                + "\"author\":\"author 1\","
-                + "\"date\":\"1 minute ago\","
-                + "\"descr\":\"RED LANTERN description\"}";
 
-        String media1 = "{\"media_id\":1,"
-                + "\"image\":\"http://upload.wikimedia.org/wikipedia/commons/9/96/Dwarf_cavendish_leaf.JPG\","
-                + "\"title\":\"GREEN LANTERN\","
-                + "\"author\":\"author 2\","
-                + "\"date\":\"10 minute ago\","
-                + "\"descr\":\"GREEN LANTERN description\"}";
-
-        String media2 = "{\"media_id\":2, "
-                + "\"image\":\"http://upload.wikimedia.org/wikipedia/commons/6/65/Blue_morpho_butterfly.jpg\","
-                + "\"title\":\"BLUE LANTERN\","
-                + "\"author\":\"author 3\","
-                + "\"date\":\"20 minute ago\","
-                + "\"descr\":\"BLUE LANTERN description\"}";
-
-        String media3 = "{\"media_id\":3,"
-                + "\"image\":\"http://upload.wikimedia.org/wikipedia/commons/8/83/Red_2007.jpg\","
-                + "\"title\":\"RED LANTERN 2\","
-                + "\"author\":\"author 21\","
-                + "\"date\":\"21 minute ago\","
-                + "\"descr\":\"RED LANTERN 2 description\"}";
-
-        String media4 = "{\"media_id\":4,"
-                + "\"image\":\"http://upload.wikimedia.org/wikipedia/commons/9/96/Dwarf_cavendish_leaf.JPG\","
-                + "\"title\":\"GREEN LANTERN 2\","
-                + "\"author\":\"author 22\","
-                + "\"date\":\"12 minute ago\","
-                + "\"descr\":\"GREEN LANTERN 2 description\"}";
-
-        String media5 = "{\"media_id\":5,"
-                + "\"image\":\"http://upload.wikimedia.org/wikipedia/commons/6/65/Blue_morpho_butterfly.jpg\","
-                + "\"title\":\"BLUE LANTERN 2\","
-                + "\"author\":\"author 23\","
-                + "\"date\":\"22 minute ago\","
-                + "\"descr\":\"BLUE LANTERN 2 description\"}";
-        
-        String asset0= "{"
-                + "\"url\":\"http://54.201.170.111/assets/001-180p-185kb.mp4\","
-                + "\"rate\":\"185\""
-                + "}";
-        
-        String asset1= "{"
-                + "\"url\":\"http://54.201.170.111/assets/001-270p-686kb.mp4\","
-                + "\"rate\":\"686\""
-                + "}";
-        
-        String asset2= "{"
-                + "\"url\":\"http://54.201.170.111/assets/001-720p-2500kb.mp4\","
-                + "\"rate\":\"2500\""
-                + "}";        
-
-        // media data
-        mediasData.put("1", '['
-                + media0 + ","
-                + media1 + ","
-                + media2
-                + "]");
-
-        mediasData.put("2", '['
-                + media3 + ","
-                + media4 + ","
-                + media5
-                + "]");
-
-        mediaItems.put(0, media0);
-        mediaItems.put(1, media1);
-        mediaItems.put(2, media2);
-        mediaItems.put(3, media3);
-        mediaItems.put(4, media4);
-        mediaItems.put(5, media5);
-        
-        videoAssets.put(0, '['
-                + asset0 + ","
-                + asset1 + ","
-                + asset2
-                + "]");
     }
 
-    private TestWrapper() {
+    private TestWrapper()  {
+ 
     }
+    
+    private void init(){
+       try {
+            String response = IOUtils.toString( this.getClass().getResourceAsStream("test/getVideoAssets_encodes.json"), "UTF-8");           
+            
+            JSONObject root = new JSONObject(response);
+            JSONObject item = (JSONObject) root.get("d");                        
+            mediaItems.put(new Integer(749049), item.toString());
+            
+        } catch (IOException ex) {
+            Logger.getLogger(TestWrapper.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JSONException ex) {
+            Logger.getLogger(TestWrapper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //@todo: load test data from 
+       mediasData.toString();
+       mediaItems.toString();
+       videoAssets.toString();    
+    }
+    
+    public static TestWrapper getInstance() {
+        if(instance == null){
+             instance = new TestWrapper();
+             instance.init();
+        }
+        return instance;
+    }    
 
     @Override
     public String getMedias(Integer n, Integer skip, String category, String viewType, String viewTypePeriod) {
-        return mediasData.get(category);
+        return instance.mediasData.get(category);
     }
 
     @Override
     public String getMediaItem(Integer id) {
-        return mediaItems.get(id);
-    }
-
-    public static TestWrapper getInstance() {
-        return instance;
+        return instance.mediaItems.get(id);
     }
 
     @Override
     public String getVideoAssets(Integer id) {
-        return videoAssets.get(id);
+        return instance.videoAssets.get(id);
     }
 }

@@ -60,7 +60,7 @@ public class LiveWrapperTest {
     @Test
     public void testGetMediasLive() {
         String result = wrapper.getMedias(2, 5, "0", null, null);
-        assertNotSame(result, "-1");
+        assertNotNull(result);
         assertNotSame(result, "[]");        
     }
 
@@ -70,7 +70,7 @@ public class LiveWrapperTest {
     @Test
     public void testGetMediaItemLive() {
         String result = wrapper.getMediaItem(2);
-        assertNotSame(result, "-1");
+        assertNotNull(result);
         assertNotSame(result, "{}");    
     }
 }

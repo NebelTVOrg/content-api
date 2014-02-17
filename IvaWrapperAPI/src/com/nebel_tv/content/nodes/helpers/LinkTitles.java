@@ -14,37 +14,14 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package com.nebel_tv.content.xmlparser.nodes;
-
-import com.thoughtworks.xstream.annotations.XStreamAlias;
-import static org.apache.commons.lang3.builder.ToStringBuilder.reflectionToString;
-import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
+package com.nebel_tv.content.nodes.helpers;
 
 /**
  *
  */
-@XStreamAlias("author")
-public class Author {
+public class LinkTitles {
 
-    @XStreamAlias("name")
-    private String name;
-
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return reflectionToString(this, SHORT_PREFIX_STYLE);
-    }
+    public static final String POSTER = "Poster";
+    public static final String DESCRIPTION = "Description";
+    public static final String DIRECTOR = "Director";
 }

@@ -1,0 +1,170 @@
+{
+    "d": {
+        "__metadata": {
+            "id": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)",
+            "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)",
+            "type": "MediaModel.EntertainmentProgram"
+        },
+        "VideoAssets": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)/VideoAssets"
+            }
+        },
+        "Language": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)/Language"
+            }
+        },
+        "SongCategory": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)/SongCategory"
+            }
+        },
+        "SongRiaa": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)/SongRiaa"
+            }
+        },
+        "SongWarning": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)/SongWarning"
+            }
+        },
+        "MovieMpaa": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)/MovieMpaa"
+            }
+        },
+        "MovieCategory": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)/MovieCategory"
+            }
+        },
+        "TvCategory": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)/TvCategory"
+            }
+        },
+        "TvRating": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)/TvRating"
+            }
+        },
+        "Country": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)/Country"
+            }
+        },
+        "ReleaseEvents": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)/ReleaseEvents"
+            }
+        },
+        "GameWarning": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)/GameWarning"
+            }
+        },
+        "GameCategory": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)/GameCategory"
+            }
+        },
+        "Description": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)/Description"
+            }
+        },
+        "ProgramToPerformerMaps": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)/ProgramToPerformerMaps"
+            }
+        },
+        "VideoAssetScreenCapture": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)/VideoAssetScreenCapture"
+            }
+        },
+        "TitleAkas": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)/TitleAkas"
+            }
+        },
+        "Copyrightholder": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)/Copyrightholder"
+            }
+        },
+        "Director": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)/Director"
+            }
+        },
+        "Poster": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)/Poster"
+            }
+        },
+        "MediaType": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)/MediaType"
+            }
+        },
+        "ImageGalleryMaps": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)/ImageGalleryMaps"
+            }
+        },
+        "RelatedEntertainmentPrograms": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)/RelatedEntertainmentPrograms"
+            }
+        },
+        "ProgramToGameFormatMaps": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(749049)/ProgramToGameFormatMaps"
+            }
+        },
+        "Publishedid": 749049,
+        "Title": "GREEN LANTERN",
+        "DateCreated": "\/Date(1279655640000)\/",
+        "DateModified": "\/Date(1391431020000)\/",
+        "FirstReleasedYear": 2011,
+        "GameCategoryId": -1,
+        "GameWarningId": -1,
+        "MediaId": 0,
+        "MusicAlbumTitle": "",
+        "MusicCategoryId": -1,
+        "MusicRiaaId": -1,
+        "MusicWarningId": -1,
+        "PromotesPublishedId": -1,
+        "ProprietaryCustomerID": -1,
+        "StreamLengthinseconds": 162,
+        "MovieCategoryId": 1,
+        "MovieMpaaId": 5,
+        "MovieWarningId": -1,
+        "BoxOfficeInMillions": 116.6,
+        "MediaReceivedDate": "\/Date(1306313872000)\/",
+        "ExpirationDate": null,
+        "CountryOforiginId": 0,
+        "LanguageId": 0,
+        "OfficialSiteUrl": "http://www.greenlantern.com",
+        "OkToEncodeAndServe": true,
+        "IsATitle": true,
+        "Tagline": "",
+        "Sequence": -1,
+        "OverallSequence": -1,
+        "DisplayTitle": "Green Lantern",
+        "NormalizedTitle": "green lantern",
+        "TvCategoryid": -1,
+        "TvRatingId": -1,
+        "HasIvaContent": "true",
+        "HasYouTubeContent": "false",
+        "CopyrightholderId": 332,
+        "DirectorId": 5504,
+        "Rank1Day": 826,
+        "Rank7Day": 756,
+        "Rank30Day": 1000000,
+        "RankAllTime": 36
+    }
+}

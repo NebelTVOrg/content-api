@@ -60,7 +60,7 @@ public class TestWrapperTest {
     @Test
     public void testGetMedias() {
         String result = wrapper.getMedias(2, 5, "0", null, null);
-        assertNotSame(result, "-1");
+        assertNotNull(result);
         assertNotSame(result, "[]");        
     }
 
@@ -70,7 +70,7 @@ public class TestWrapperTest {
     @Test
     public void testGetMediaItem() {
         String result = wrapper.getMediaItem(2);
-        assertNotSame(result, "-1");
+        assertNotNull(result);
         assertNotSame(result, "{}");    
     }
     
@@ -82,7 +82,7 @@ public class TestWrapperTest {
         String result = wrapper.getVideoAssets(0);
         System.out.println(result);
         
-        assertNotSame(result, "-1");
+        assertNotNull(result);
         assertNotSame(result, "[]");        
     }    
     

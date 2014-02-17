@@ -67,7 +67,7 @@ public class LiveWrapper implements IWrapper {
         if (id != null) {
             return new MediaItemBuilder(id.toString()).build().get();
         }
-        return "-1";
+        return "{}";
     }
 
     @Override

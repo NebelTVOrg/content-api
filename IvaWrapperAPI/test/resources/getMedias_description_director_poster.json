@@ -1,0 +1,446 @@
+{
+    "d": [
+        {
+            "__metadata": {
+                "id": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(7)",
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(7)",
+                "type": "MediaModel.EntertainmentProgram"
+            },
+            "VideoAssets": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(7)/VideoAssets"
+                }
+            },
+            "Language": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(7)/Language"
+                }
+            },
+            "SongCategory": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(7)/SongCategory"
+                }
+            },
+            "SongRiaa": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(7)/SongRiaa"
+                }
+            },
+            "SongWarning": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(7)/SongWarning"
+                }
+            },
+            "MovieMpaa": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(7)/MovieMpaa"
+                }
+            },
+            "MovieCategory": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(7)/MovieCategory"
+                }
+            },
+            "TvCategory": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(7)/TvCategory"
+                }
+            },
+            "TvRating": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(7)/TvRating"
+                }
+            },
+            "Country": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(7)/Country"
+                }
+            },
+            "ReleaseEvents": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(7)/ReleaseEvents"
+                }
+            },
+            "GameWarning": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(7)/GameWarning"
+                }
+            },
+            "GameCategory": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(7)/GameCategory"
+                }
+            },
+            "Description": {
+                "__metadata": {
+                    "id": "http://api.internetvideoarchive.com/1.0/DataService/Descriptions(7)",
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/Descriptions(7)",
+                    "type": "MediaModel.Description"
+                },
+                "EntertainmentProgram": {
+                    "__deferred": {
+                        "uri": "http://api.internetvideoarchive.com/1.0/DataService/Descriptions(7)/EntertainmentProgram"
+                    }
+                },
+                "VideoAsset": {
+                    "__deferred": {
+                        "uri": "http://api.internetvideoarchive.com/1.0/DataService/Descriptions(7)/VideoAsset"
+                    }
+                },
+                "PublishedId": 7,
+                "ItemDescription": "Story of an American prisoner-of-war at the tail end of U.S. involvement in Vietnam. Trapped in a lame plot, clumsy direction, and muddled action, the inconsistant talents of Carradine go AWOL."
+            },
+            "ProgramToPerformerMaps": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(7)/ProgramToPerformerMaps"
+                }
+            },
+            "VideoAssetScreenCapture": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(7)/VideoAssetScreenCapture"
+                }
+            },
+            "TitleAkas": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(7)/TitleAkas"
+                }
+            },
+            "Copyrightholder": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(7)/Copyrightholder"
+                }
+            },
+            "Director": {
+                "__metadata": {
+                    "id": "http://api.internetvideoarchive.com/1.0/DataService/Performers(2932)",
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/Performers(2932)",
+                    "type": "MediaModel.Performer"
+                },
+                "PerformerScreenCapture": {
+                    "__deferred": {
+                        "uri": "http://api.internetvideoarchive.com/1.0/DataService/Performers(2932)/PerformerScreenCapture"
+                    }
+                },
+                "ProgramToPerformerMap": {
+                    "__deferred": {
+                        "uri": "http://api.internetvideoarchive.com/1.0/DataService/Performers(2932)/ProgramToPerformerMap"
+                    }
+                },
+                "EntertainmentProgramsDirected": {
+                    "__deferred": {
+                        "uri": "http://api.internetvideoarchive.com/1.0/DataService/Performers(2932)/EntertainmentProgramsDirected"
+                    }
+                },
+                "ImagesToTitleOrPerformerMaps": {
+                    "__deferred": {
+                        "uri": "http://api.internetvideoarchive.com/1.0/DataService/Performers(2932)/ImagesToTitleOrPerformerMaps"
+                    }
+                },
+                "PerformerID": 2932,
+                "LastName": "Amir",
+                "FirstName": "Gideon",
+                "FullName": "Gideon Amir",
+                "Datemodified": "\/Date(1315415230000)\/",
+                "NormalizedName": "gideon amir"
+            },
+            "Poster": {
+                "__metadata": {
+                    "id": "http://api.internetvideoarchive.com/1.0/DataService/Posters(7)",
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/Posters(7)",
+                    "type": "MediaModel.Poster"
+                },
+                "EntertainmentProgram": {
+                    "__deferred": {
+                        "uri": "http://api.internetvideoarchive.com/1.0/DataService/Posters(7)/EntertainmentProgram"
+                    }
+                },
+                "PublishedId": 7,
+                "DateAdded": "\/Date(1374149820000)\/",
+                "PosterUrl_125": "http://content.internetvideoarchive.com/content/posters/006/292_35.jpg",
+                "PosterUrl_172": "http://content.internetvideoarchive.com/content/posters/006/292_452.jpg"
+            },
+            "MediaType": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(7)/MediaType"
+                }
+            },
+            "ImageGalleryMaps": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(7)/ImageGalleryMaps"
+                }
+            },
+            "RelatedEntertainmentPrograms": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(7)/RelatedEntertainmentPrograms"
+                }
+            },
+            "ProgramToGameFormatMaps": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(7)/ProgramToGameFormatMaps"
+                }
+            },
+            "Publishedid": 7,
+            "Title": "P.O.W.:  THE ESCAPE",
+            "DateCreated": "\/Date(938449620000)\/",
+            "DateModified": "\/Date(1391439120000)\/",
+            "FirstReleasedYear": 1986,
+            "GameCategoryId": -1,
+            "GameWarningId": -1,
+            "MediaId": 0,
+            "MusicAlbumTitle": "",
+            "MusicCategoryId": -1,
+            "MusicRiaaId": -1,
+            "MusicWarningId": -1,
+            "PromotesPublishedId": -1,
+            "ProprietaryCustomerID": -1,
+            "StreamLengthinseconds": 106,
+            "MovieCategoryId": 11,
+            "MovieMpaaId": 6,
+            "MovieWarningId": -1,
+            "BoxOfficeInMillions": 0,
+            "MediaReceivedDate": null,
+            "ExpirationDate": null,
+            "CountryOforiginId": 0,
+            "LanguageId": 0,
+            "OfficialSiteUrl": "",
+            "OkToEncodeAndServe": true,
+            "IsATitle": false,
+            "Tagline": "",
+            "Sequence": -1,
+            "OverallSequence": -1,
+            "DisplayTitle": "P.O.W.:  The Escape",
+            "NormalizedTitle": "p o w the escape",
+            "TvCategoryid": -1,
+            "TvRatingId": -1,
+            "HasIvaContent": "true",
+            "HasYouTubeContent": "false",
+            "CopyrightholderId": 65,
+            "DirectorId": 2932,
+            "Rank1Day": 1000000,
+            "Rank7Day": 1000000,
+            "Rank30Day": 1000000,
+            "RankAllTime": 12444
+        },
+        {
+            "__metadata": {
+                "id": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(8)",
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(8)",
+                "type": "MediaModel.EntertainmentProgram"
+            },
+            "VideoAssets": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(8)/VideoAssets"
+                }
+            },
+            "Language": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(8)/Language"
+                }
+            },
+            "SongCategory": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(8)/SongCategory"
+                }
+            },
+            "SongRiaa": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(8)/SongRiaa"
+                }
+            },
+            "SongWarning": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(8)/SongWarning"
+                }
+            },
+            "MovieMpaa": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(8)/MovieMpaa"
+                }
+            },
+            "MovieCategory": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(8)/MovieCategory"
+                }
+            },
+            "TvCategory": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(8)/TvCategory"
+                }
+            },
+            "TvRating": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(8)/TvRating"
+                }
+            },
+            "Country": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(8)/Country"
+                }
+            },
+            "ReleaseEvents": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(8)/ReleaseEvents"
+                }
+            },
+            "GameWarning": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(8)/GameWarning"
+                }
+            },
+            "GameCategory": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(8)/GameCategory"
+                }
+            },
+            "Description": {
+                "__metadata": {
+                    "id": "http://api.internetvideoarchive.com/1.0/DataService/Descriptions(8)",
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/Descriptions(8)",
+                    "type": "MediaModel.Description"
+                },
+                "EntertainmentProgram": {
+                    "__deferred": {
+                        "uri": "http://api.internetvideoarchive.com/1.0/DataService/Descriptions(8)/EntertainmentProgram"
+                    }
+                },
+                "VideoAsset": {
+                    "__deferred": {
+                        "uri": "http://api.internetvideoarchive.com/1.0/DataService/Descriptions(8)/VideoAsset"
+                    }
+                },
+                "PublishedId": 8,
+                "ItemDescription": "A former ninja living in America avenges terroristic attacks against his family by gangsters."
+            },
+            "ProgramToPerformerMaps": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(8)/ProgramToPerformerMaps"
+                }
+            },
+            "VideoAssetScreenCapture": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(8)/VideoAssetScreenCapture"
+                }
+            },
+            "TitleAkas": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(8)/TitleAkas"
+                }
+            },
+            "Copyrightholder": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(8)/Copyrightholder"
+                }
+            },
+            "Director": {
+                "__metadata": {
+                    "id": "http://api.internetvideoarchive.com/1.0/DataService/Performers(2990)",
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/Performers(2990)",
+                    "type": "MediaModel.Performer"
+                },
+                "PerformerScreenCapture": {
+                    "__deferred": {
+                        "uri": "http://api.internetvideoarchive.com/1.0/DataService/Performers(2990)/PerformerScreenCapture"
+                    }
+                },
+                "ProgramToPerformerMap": {
+                    "__deferred": {
+                        "uri": "http://api.internetvideoarchive.com/1.0/DataService/Performers(2990)/ProgramToPerformerMap"
+                    }
+                },
+                "EntertainmentProgramsDirected": {
+                    "__deferred": {
+                        "uri": "http://api.internetvideoarchive.com/1.0/DataService/Performers(2990)/EntertainmentProgramsDirected"
+                    }
+                },
+                "ImagesToTitleOrPerformerMaps": {
+                    "__deferred": {
+                        "uri": "http://api.internetvideoarchive.com/1.0/DataService/Performers(2990)/ImagesToTitleOrPerformerMaps"
+                    }
+                },
+                "PerformerID": 2990,
+                "LastName": "Hessler",
+                "FirstName": "Gordon",
+                "FullName": "Gordon Hessler",
+                "Datemodified": "\/Date(1315421208000)\/",
+                "NormalizedName": "gordon hessler"
+            },
+            "Poster": {
+                "__metadata": {
+                    "id": "http://api.internetvideoarchive.com/1.0/DataService/Posters(8)",
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/Posters(8)",
+                    "type": "MediaModel.Poster"
+                },
+                "EntertainmentProgram": {
+                    "__deferred": {
+                        "uri": "http://api.internetvideoarchive.com/1.0/DataService/Posters(8)/EntertainmentProgram"
+                    }
+                },
+                "PublishedId": 8,
+                "DateAdded": "\/Date(1314109380000)\/",
+                "PosterUrl_125": "http://content.internetvideoarchive.com/content/posters/003/137_169.jpg",
+                "PosterUrl_172": "http://content.internetvideoarchive.com/content/posters/003/137_642.jpg"
+            },
+            "MediaType": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(8)/MediaType"
+                }
+            },
+            "ImageGalleryMaps": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(8)/ImageGalleryMaps"
+                }
+            },
+            "RelatedEntertainmentPrograms": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(8)/RelatedEntertainmentPrograms"
+                }
+            },
+            "ProgramToGameFormatMaps": {
+                "__deferred": {
+                    "uri": "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms(8)/ProgramToGameFormatMaps"
+                }
+            },
+            "Publishedid": 8,
+            "Title": "PRAY FOR DEATH",
+            "DateCreated": "\/Date(938449620000)\/",
+            "DateModified": "\/Date(1391439420000)\/",
+            "FirstReleasedYear": 1985,
+            "GameCategoryId": -1,
+            "GameWarningId": -1,
+            "MediaId": 0,
+            "MusicAlbumTitle": "",
+            "MusicCategoryId": -1,
+            "MusicRiaaId": -1,
+            "MusicWarningId": -1,
+            "PromotesPublishedId": -1,
+            "ProprietaryCustomerID": -1,
+            "StreamLengthinseconds": 79,
+            "MovieCategoryId": 1,
+            "MovieMpaaId": 6,
+            "MovieWarningId": 8,
+            "BoxOfficeInMillions": 0,
+            "MediaReceivedDate": null,
+            "ExpirationDate": null,
+            "CountryOforiginId": 0,
+            "LanguageId": 0,
+            "OfficialSiteUrl": "",
+            "OkToEncodeAndServe": true,
+            "IsATitle": false,
+            "Tagline": "",
+            "Sequence": -1,
+            "OverallSequence": -1,
+            "DisplayTitle": "Pray For Death",
+            "NormalizedTitle": "pray for death",
+            "TvCategoryid": -1,
+            "TvRatingId": -1,
+            "HasIvaContent": "true",
+            "HasYouTubeContent": "false",
+            "CopyrightholderId": 58,
+            "DirectorId": 2990,
+            "Rank1Day": 1000000,
+            "Rank7Day": 1000000,
+            "Rank30Day": 1000000,
+            "RankAllTime": 11667
+        }
+    ]
+}

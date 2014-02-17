@@ -16,36 +16,29 @@
  */
 package com.nebel_tv.content.wrapper.builders;
 
-import java.io.Writer;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import com.nebel_tv.content.cache.MediaItemCache;
 
 import org.apache.commons.lang3.StringUtils;
 
 import com.nebel_tv.content.utils.ConnectionUtils;
 import com.nebel_tv.content.wrapper.ConnectionHelper;
-import com.nebel_tv.content.wrapper.entities.MediaItem;
-import com.nebel_tv.content.xmlparser.nodes.Entry;
-import com.nebel_tv.content.xmlparser.nodes.Feed;
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
-import com.thoughtworks.xstream.io.json.JsonHierarchicalStreamDriver;
-import com.thoughtworks.xstream.io.json.JsonWriter;
-import com.thoughtworks.xstream.io.xml.XppDriver;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  *
  */
-public class MediasBuilder extends MediaItemConverter {
+public class MediasBuilder  {
 
     public static final String MEDIAS_QUERY_PART_1 = "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms()?$skip={skip}&$top={top}&";
     public static final String MEDIAS_QUERY_PART_2 = "$filter=MediaId eq {MediaId}&";
-    public static final String MEDIAS_QUERY_PART_3 = "$expand=Poster,Description,Director&Developerid=2A702798-6DBA-417D-A8BC-175CAEFFD2D6";//B43BF933-5CB5-434A-B0A8-717FC149FBED";
+    public static final String MEDIAS_QUERY_PART_3 = "$expand=Poster,Description,Director&format=json";
+    
     private String queryUrl;
-    private final List<Entry> entries = new ArrayList<Entry>();
-    private final List<MediaItem> items = new ArrayList<MediaItem>();
-    private String json;
+    private JSONArray items;       
+    
+    private String json = "{}";
 
     public MediasBuilder(Integer n, Integer skip, String category, String viewType, String viewTypePeriod) {
         this.queryUrl = MEDIAS_QUERY_PART_1;
@@ -65,43 +58,18 @@ public class MediasBuilder extends MediaItemConverter {
 
     private void executeQuery() {
         try {
-            XStream xStream = new XStream(new XppDriver());
-            xStream.alias("entry", Entry.class);
-            xStream.alias("feed", Feed.class);
-            xStream.autodetectAnnotations(true);
-            xStream.ignoreUnknownElements();
-
-            Feed feed;
-            // should be Entry, but lets check first
-            Object result = xStream.fromXML(ConnectionUtils.getResponseAsString(ConnectionHelper.fixURL(queryUrl)));
-            if (result instanceof Feed) {
-                feed = (Feed) result;
-            } else if (result instanceof Entry) {
-                feed = new Feed();
-                feed.addEntry((Entry) result);
-            } else {
-                feed = new Feed();
-            }
-
-            //System.out.println(feed.toString());
-            if (feed.getEntries() != null && !feed.getEntries().isEmpty()) {
-                entries.addAll(feed.getEntries());
-            }
+            String source = ConnectionUtils.getResponseAsString(ConnectionHelper.fixURL(queryUrl));
+            JSONObject root = new JSONObject(source);
+            items = (JSONArray) root.get("d");
         } catch (Exception ex) {
             System.out.println("ex: " + ex);
         }
     }
 
     private void generateJson() {
-        XStream xstream = new XStream(new JsonHierarchicalStreamDriver() {
-            @Override
-            public HierarchicalStreamWriter createWriter(Writer writer) {
-                return new JsonWriter(writer, JsonWriter.DROP_ROOT_MODE);
-            }
-        });
-        xstream.setMode(XStream.NO_REFERENCES);
-        xstream.alias("item", MediaItem.class);
-        json = xstream.toXML(items);
+        if(items != null){
+            json = items.toString();
+        } 
     }
 
     public MediasBuilder build() {
@@ -116,11 +84,21 @@ public class MediasBuilder extends MediaItemConverter {
     }
 
     private void createMediaItems() {
-        Iterator<Entry> it = entries.iterator();
-        while (it.hasNext()) {
-            Entry entry = it.next();
-            MediaItem item = convertMediaItem(entry);
-            items.add(item);
+        if(items == null)
+            return;
+        
+        for (int i = 0; i < items.length(); i++) {
+            try {
+                JSONObject item = items.getJSONObject(i);
+                if (item != null) {
+                    String id = null;
+                    //@todo: retreive id from JSON item
+                    if(id != null){
+                        MediaItemCache.addItem(id, item);                        
+                    }
+                }                        
+            } catch (JSONException e) {
+            }
         }
     }
 }

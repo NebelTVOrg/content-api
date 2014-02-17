@@ -16,22 +16,21 @@
  */
 package com.nebel_tv.content.cache;
 
-import com.nebel_tv.content.wrapper.entities.MediaItem;
 import java.util.HashMap;
+import org.json.JSONObject;
 
 /**
  *
  */
 public class MediaItemCache {
 
-    private static final HashMap<String, MediaItem> itemById = new HashMap<String, MediaItem>();
+    private static final HashMap<String, JSONObject> itemById = new HashMap<String, JSONObject>();
 
-    public static MediaItem getItem(String id) {
+    public static JSONObject getItem(String id) {
         return itemById.get(id);
     }
 
-    public static MediaItem addItem(MediaItem item) {
-        String id = item.getMediaId();
+    public static JSONObject addItem(String id, JSONObject item) {
         return itemById.put(id, item);
     }
 }

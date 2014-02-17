@@ -17,7 +17,6 @@
 package com.nebel_tv.content.wrapper.builders;
 
 /**
- *
  * 
  */
 public class VideoAssetsBuilder {
