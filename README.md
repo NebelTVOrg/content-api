@@ -11,6 +11,8 @@ Wrapper now in LIVE mode, and works with IVA services using free developer key.
 
 How to use live wrapper ver.1.0.5 (examples):
 
+###IVA Wrapper API###
+
  **Java code:**
 ```java
 	IIvaWrapper w = Wrapper.getWrapper(WrapperTypes.LIVE);
@@ -52,6 +54,7 @@ Content Wrapper Web Service links:
 
 Reference: www.internetvideoarchive.com/how-to-generate-urls-to-video-content-using-iva-odata-api
 
+###IVA Wrapper Web API###
  **JavaScript code:**
 ```java
 	function reqListener () {
@@ -70,8 +73,20 @@ Reference: www.internetvideoarchive.com/how-to-generate-urls-to-video-content-us
 	
 	var oReq = new XMLHttpRequest();
 	oReq.onload = reqListener;
-	oReq.open("get", "http://54.201.170.111:8080/IvaWrapperWeb/getVideoAssets?id=0", true);
+	oReq.open("get", "http://54.201.170.111:8080/IvaWrapperWeb/getVideoAssets?id=2", true);
 	oReq.send();
+```
+
+###Nebel TV Content Wrapper API###
+ **Java code:**
+```java
+	ContentWrapper instance = new ContentWrapper();
+        String url = "http://nebel.tv/IvaWrapperWeb/getMedias?skip=100&n=3&category=0";
+        WrapperResponse result = instance.getMediaData(url);
+        if(response == WrapperResponse.ResponseResult.Ok){
+        	JSONArray array = new JSONArray(result.responseData);
+		// todo something with JSON response
+        }
 ```
 
  **Expected results:**
