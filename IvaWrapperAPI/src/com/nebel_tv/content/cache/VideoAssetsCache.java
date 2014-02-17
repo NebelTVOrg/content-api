@@ -14,14 +14,23 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package com.nebel_tv.content.nodes.helpers;
+package com.nebel_tv.content.cache;
+
+import java.util.HashMap;
+import org.json.JSONArray;
 
 /**
  *
  */
-public class LinkTitles {
+public class VideoAssetsCache {
 
-    public static final String POSTER = "Poster";
-    public static final String DESCRIPTION = "Description";
-    public static final String DIRECTOR = "Director";
+    private static final HashMap<String, JSONArray> assetsById = new HashMap<String, JSONArray>();
+
+    public static JSONArray getAssets(String id) {
+        return assetsById.get(id);
+    }
+
+    public static JSONArray addAssets(String id, JSONArray item) {
+        return assetsById.put(id, item);
+    }
 }

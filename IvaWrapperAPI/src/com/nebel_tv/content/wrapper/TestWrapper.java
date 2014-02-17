@@ -16,11 +16,7 @@
  */
 package com.nebel_tv.content.wrapper;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.StringWriter;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -51,7 +47,7 @@ class TestWrapper implements IWrapper {
     
     private void init(){
        try {
-            String response = IOUtils.toString( this.getClass().getResourceAsStream("test/getVideoAssets_encodes.json"), "UTF-8");           
+            String response = IOUtils.toString( this.getClass().getResourceAsStream("resources/getVideoAssets_encodes.json"), "UTF-8");           
             
             JSONObject root = new JSONObject(response);
             JSONObject item = (JSONObject) root.get("d");                        
@@ -62,11 +58,6 @@ class TestWrapper implements IWrapper {
         } catch (JSONException ex) {
             Logger.getLogger(TestWrapper.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        //@todo: load test data from 
-       mediasData.toString();
-       mediaItems.toString();
-       videoAssets.toString();    
     }
     
     public static TestWrapper getInstance() {

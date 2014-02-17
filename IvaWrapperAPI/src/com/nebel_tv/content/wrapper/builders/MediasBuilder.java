@@ -22,6 +22,8 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.nebel_tv.content.utils.ConnectionUtils;
 import com.nebel_tv.content.wrapper.ConnectionHelper;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -62,7 +64,7 @@ public class MediasBuilder  {
             JSONObject root = new JSONObject(source);
             items = (JSONArray) root.get("d");
         } catch (Exception ex) {
-            System.out.println("ex: " + ex);
+            Logger.getLogger(MediasBuilder.class.getName()).log(Level.WARNING, null, ex);
         }
     }
 
@@ -92,12 +94,13 @@ public class MediasBuilder  {
                 JSONObject item = items.getJSONObject(i);
                 if (item != null) {
                     String id = null;
-                    //@todo: retreive id from JSON item
+                    //@todo: retreive id from JSON object instance
                     if(id != null){
                         MediaItemCache.addItem(id, item);                        
                     }
                 }                        
-            } catch (JSONException e) {
+            } catch (JSONException ex) {
+                Logger.getLogger(MediasBuilder.class.getName()).log(Level.WARNING, null, ex);
             }
         }
     }

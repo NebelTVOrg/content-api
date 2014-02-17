@@ -18,38 +18,12 @@ package com.nebel_tv.content.wrapper;
 
 import com.nebel_tv.content.wrapper.builders.MediasBuilder;
 import com.nebel_tv.content.wrapper.builders.MediaItemBuilder;
-import java.util.HashMap;
-import java.util.Map;
+import com.nebel_tv.content.wrapper.builders.VideoAssetsBuilder;
 
 /**
  *
  */
 public class LiveWrapper implements IWrapper {
-    
-    private final static Map<Integer, String> videoAssets = new HashMap<Integer, String>();    
-    
-    static {        
-        String asset0= "{"
-                + "\"url\":\"http://54.201.170.111/assets/001-180p-185kb.mp4\","
-                + "\"rate\":\"185\""
-                + "}";
-        
-        String asset1= "{"
-                + "\"url\":\"http://54.201.170.111/assets/001-270p-686kb.mp4\","
-                + "\"rate\":\"686\""
-                + "}";
-        
-        String asset2= "{"
-                + "\"url\":\"http://54.201.170.111/assets/001-720p-2500kb.mp4\","
-                + "\"rate\":\"2500\""
-                + "}";
-        
-        videoAssets.put(0, '['
-                + asset0 + ","
-                + asset1 + ","
-                + asset2
-                + "]");
-    }
 
     /**
      * 
@@ -72,6 +46,9 @@ public class LiveWrapper implements IWrapper {
 
     @Override
     public String getVideoAssets(Integer id) {
-        return videoAssets.get(0);
+        if (id != null) {
+            return new VideoAssetsBuilder(id.toString()).build().get();
+        }
+        return "{}";
     }
 }

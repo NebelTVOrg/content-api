@@ -31,6 +31,9 @@ public class MediaItemCache {
     }
 
     public static JSONObject addItem(String id, JSONObject item) {
-        return itemById.put(id, item);
+        if(!itemById.containsKey(id)){
+            return itemById.put(id, item);            
+        }
+        return item;
     }
 }

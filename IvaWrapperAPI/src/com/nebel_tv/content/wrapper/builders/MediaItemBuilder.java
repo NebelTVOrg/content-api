@@ -20,6 +20,8 @@ package com.nebel_tv.content.wrapper.builders;
 import com.nebel_tv.content.cache.MediaItemCache;
 import com.nebel_tv.content.utils.ConnectionUtils;
 import com.nebel_tv.content.wrapper.ConnectionHelper;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.json.JSONObject;
 
@@ -43,12 +45,15 @@ public class MediaItemBuilder {
     }
 
     private void executeQuery() {
-        try {
-            String source = ConnectionUtils.getResponseAsString(ConnectionHelper.fixURL(queryUrl));
-            JSONObject root = new JSONObject(source);
-            item = (JSONObject) root.get("d");
-        } catch (Exception ex) {
-            System.out.println("ex: " + ex);
+        item = MediaItemCache.getItem(id);
+        if(item == null){
+            try {
+                String source = ConnectionUtils.getResponseAsString(ConnectionHelper.fixURL(queryUrl));
+                JSONObject root = new JSONObject(source);
+                item = (JSONObject) root.get("d");
+            } catch (Exception ex) {
+                Logger.getLogger(MediaItemBuilder.class.getName()).log(Level.WARNING, null, ex);
+            }            
         }
     }
     

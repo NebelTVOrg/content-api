@@ -73,4 +73,14 @@ public class LiveWrapperTest {
         assertNotNull(result);
         assertNotSame(result, "{}");    
     }
+    
+    /**
+     * Test of GetVideoAssets method, of class LiveWrapper.
+     */
+    @Test
+    public void testGetVideoAssetsLive() {
+        String result = wrapper.getVideoAssets(2);
+        assertNotNull(result);
+        assertNotSame(result, "[]");    
+    }    
 }
