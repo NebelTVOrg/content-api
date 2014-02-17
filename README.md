@@ -84,8 +84,31 @@ Expected results:
 	[
 		//@todo: 
 	]
-	http://54.201.170.111:8080/IvaWrapperWeb/getVideoAssets?id=0
+	http://54.201.170.111:8080/IvaWrapperWeb/getVideoAssets?id=7
 	[
-		//@todo: 
+	    {
+	        "DateDigitized": "/Date(1356587061000)/",
+	        "StreamingFlavorId": 24,
+	        "ProprietaryCustomerId": -1,
+	        "RemoteURL": "false",
+	        "rate": 750,
+	        "PublishedId": 7,
+	        "FileType": "mp4",
+	        "ID": "7-24",
+	        "URL": "http://54.201.170.111/assets/001-720p-2500kb.mp4",
+	        "__metadata": {
+	            "id": "http://api.internetvideoarchive.com/1.0/DataService/Encodes('7-24')",
+	            "type": "MediaModel.Encode",
+	            "uri": "http://api.internetvideoarchive.com/1.0/DataService/Encodes('7-24')"
+	        },
+	        "VideoAsset": {
+	            "__deferred": {
+	                "uri": "http://api.internetvideoarchive.com/1.0/DataService/Encodes('7-24')/VideoAsset"
+	            }
+	        }
+	    },
+	    {
+	    	...
+	    },
 	]
 
