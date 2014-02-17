@@ -93,11 +93,8 @@ public class MediasBuilder  {
             try {
                 JSONObject item = items.getJSONObject(i);
                 if (item != null) {
-                    String id = null;
-                    //@todo: retreive id from JSON object instance
-                    if(id != null){
-                        MediaItemCache.addItem(id, item);                        
-                    }
+                    int id = item.getInt("Publishedid");
+                    MediaItemCache.addItem(String.valueOf(id) , item);                    
                 }                        
             } catch (JSONException ex) {
                 Logger.getLogger(MediasBuilder.class.getName()).log(Level.WARNING, null, ex);

@@ -61,7 +61,7 @@ public class LiveWrapperTest {
     public void testGetMediasLive() {
         String result = wrapper.getMedias(2, 5, "0", null, null);
         assertNotNull(result);
-        assertNotSame(result, "[]");        
+        assertNotSame(result, "[]");
     }
 
     /**
