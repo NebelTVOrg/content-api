@@ -17,12 +17,9 @@
 package com.nebel_tv.content.services;
 
 import java.io.IOException;
+import java.net.URL;
 import java.net.URLEncoder;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.ResponseHandler;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.BasicResponseHandler;
-import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,11 +34,6 @@ import static org.junit.Assert.*;
  *
  */
 public class VideoAssetsServiceTest {
-    
-    /**
-     * 
-     */
-    private HttpClient httpclient;
        
     /**
      * 
@@ -59,12 +51,10 @@ public class VideoAssetsServiceTest {
     
     @Before
     public void setUp() {
-        httpclient = new DefaultHttpClient();
     }
     
     @After
     public void tearDown() {
-        httpclient = null;
     }
     
     /**
@@ -87,12 +77,8 @@ public class VideoAssetsServiceTest {
      * @param url Service URL
      */
     public void testServiceRequest(String url) {    
-        HttpGet getRequest = new HttpGet(fixURL(url));
-        
         try {
-            ResponseHandler<String> responseHandler = new BasicResponseHandler();
-            String response = httpclient.execute(getRequest, responseHandler);
-            
+            String response = IOUtils.toString(new URL(url));            
             assertTrue(response != null && !response.isEmpty());
 
             JSONArray jsonVideoAssets = new JSONArray(response);
