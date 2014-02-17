@@ -16,7 +16,7 @@
  */
 package com.nebel_tv.content.api.core;
 
-import com.nebel_tv.content.api.MediaWrapperResponse;
+import com.nebel_tv.content.api.WrapperResponse;
 import java.security.InvalidParameterException;
 import java.util.Map;
 
@@ -43,7 +43,7 @@ public class GetMediasMethod extends WrapperMethod {
      * @throws InvalidParameterException 
      */
     @Override
-    public MediaWrapperResponse execute(Map<String, String> params) throws InvalidParameterException {
+    public WrapperResponse execute(Map<String, String> params) throws InvalidParameterException {
         if (params == null || params.size() < 3) {
             throw new InvalidParameterException();
         }
@@ -58,6 +58,6 @@ public class GetMediasMethod extends WrapperMethod {
         Integer skipParsed = WrapperUtils.getInt(skip);
 
         String data = wrapper.getMedias(nParsed, skipParsed, category, viewType, viewTypePeriod);
-        return new MediaWrapperResponse(data);
+        return new WrapperResponse(data);
     }
 }

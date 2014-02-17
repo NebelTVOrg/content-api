@@ -19,7 +19,7 @@ package com.nebel_tv.content.api;
 /**
  * 
  */
-public class MediaWrapperResponse {
+public class WrapperResponse {
 
     /**
      *
@@ -54,7 +54,7 @@ public class MediaWrapperResponse {
      *
      * @param data
      */
-    public MediaWrapperResponse(String data) {
+    public WrapperResponse(String data) {
         responseData = data;
     }
 
@@ -64,7 +64,7 @@ public class MediaWrapperResponse {
      * @param type
      * @param data
      */
-    public MediaWrapperResponse(ResponseResult result, ResponseType type, String data) {
+    public WrapperResponse(ResponseResult result, ResponseType type, String data) {
         responseResult = result;
         responseType = type;
 

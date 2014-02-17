@@ -26,15 +26,17 @@ import java.util.Map;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 
-import com.nebel_tv.content.api.MediaWrapperResponse.ResponseResult;
-import com.nebel_tv.content.api.MediaWrapperResponse.ResponseType;
+import com.nebel_tv.content.api.WrapperResponse.ResponseResult;
+import com.nebel_tv.content.api.WrapperResponse.ResponseType;
 import com.nebel_tv.content.api.core.WrapperMethodFactory;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  *
  */
-public class MediaWrapper implements IMediaWrapper {
+public class ContentWrapper implements IContentWrapper {
 
     /*
      * (non-Javadoc)
@@ -43,7 +45,7 @@ public class MediaWrapper implements IMediaWrapper {
      * java.lang.Integer, java.lang.String, java.lang.String, java.lang.String)
      */
     @Override
-    public MediaWrapperResponse getMediaData(String url) {
+    public WrapperResponse getMediaData(String url) {
 
         try {
             String name = getUrlLastSegment(url);
@@ -51,8 +53,7 @@ public class MediaWrapper implements IMediaWrapper {
             IWrapperMethod method = WrapperMethodFactory.getMethodByName(name);
 
             if (method != null) {
-                List<NameValuePair> pairs = URLEncodedUtils.parse(
-                        new URI(url), "UTF-8");
+                List<NameValuePair> pairs = URLEncodedUtils.parse(new URI(url), "UTF-8");
 
                 Map<String, String> params = new HashMap<String, String>();
                 for (NameValuePair param : pairs) {
@@ -60,13 +61,14 @@ public class MediaWrapper implements IMediaWrapper {
                 }
                 return method.execute(params);
             }
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        } catch (InvalidParameterException e) {
-            e.printStackTrace();
-            return new MediaWrapperResponse(ResponseResult.InvalidParams, ResponseType.NA, "");
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(ContentWrapper.class.getName()).log(Level.WARNING, null, ex);
+        } catch (InvalidParameterException ex) {
+            Logger.getLogger(ContentWrapper.class.getName()).log(Level.SEVERE, null, ex);
+            
+            return new WrapperResponse(ResponseResult.InvalidParams, ResponseType.NA, "");
         }
-        return new MediaWrapperResponse(ResponseResult.InvalidUrl, ResponseType.NA, "");
+        return new WrapperResponse(ResponseResult.InvalidUrl, ResponseType.NA, "");
     }
 
     /**
@@ -75,15 +77,5 @@ public class MediaWrapper implements IMediaWrapper {
      */
     public static String getUrlLastSegment(final String url) {
         return url.replaceFirst(".*/([^/?]+).*", "$1");
-    }
-
-    /**
-     * 
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        MediaWrapper wrapper = new MediaWrapper();
-        MediaWrapperResponse response = wrapper.getMediaData("http://54.201.170.111:8080/IvaWrapperWeb/getMedias?skip=100&n=3&category=0");
-        System.out.println(response.responseData);
     }
 }

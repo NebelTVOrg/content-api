@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Copyright (C) 2014 Nebel TV (http://nebel.tv)
     
  * This program is free software: you can redistribute it and/or modify
@@ -17,12 +17,8 @@
 package com.nebel_tv.content.api;
 
 import java.io.IOException;
+import java.net.URL;
 import java.net.URLEncoder;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.ResponseHandler;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.BasicResponseHandler;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,11 +28,14 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.apache.commons.io.IOUtils;
 
 /**
  *
  */
 public class MediaWrapperTest {
+    
+    private final ContentWrapper instance = new ContentWrapper();
     
     /**
      * 
@@ -67,10 +66,9 @@ public class MediaWrapperTest {
     public void testGetMediaDataGetMedias() {
         final String url = "http://nebel.tv/IvaWrapperWeb/getMedias?skip=100&n=9&category=0";
         
-        MediaWrapper instance = new MediaWrapper();
-        MediaWrapperResponse result = instance.getMediaData(url);
-        assertTrue(result.responseType == MediaWrapperResponse.ResponseType.NA);       
-        assertTrue(result.responseResult == MediaWrapperResponse.ResponseResult.Ok);
+        WrapperResponse result = instance.getMediaData(url);
+        assertTrue(result.responseType == WrapperResponse.ResponseType.NA);       
+        assertTrue(result.responseResult == WrapperResponse.ResponseResult.Ok);
         
         try {
             JSONArray jsonGetMedias = new JSONArray(result.responseData);
@@ -93,16 +91,10 @@ public class MediaWrapperTest {
         final String url = "http://127.0.0.1:8080/IvaWrapperWeb/getMedias?skip=100&n=9&category=0";
         
         try {
-            MediaWrapper instance = new MediaWrapper();
-            MediaWrapperResponse result = instance.getMediaData(url);
+            WrapperResponse response = instance.getMediaData(url);
 
-            HttpGet getRequest = new HttpGet(fixURL(url));        
-            HttpClient httpclient = new DefaultHttpClient();
-            
-            ResponseHandler<String> responseHandler = new BasicResponseHandler();
-            String response = httpclient.execute(getRequest, responseHandler);
-            
-            assertTrue(result.responseData.equals(response));
+            String result = IOUtils.toString(new URL(fixURL(url)));
+            assertTrue(response.responseData.equals(result));
         } catch (IOException e) {
             fail("Web service request failed " + e.getMessage());
         }
@@ -115,10 +107,9 @@ public class MediaWrapperTest {
     public void testGetMediaDataGetMediaItem() {
         final String url = "http://54.201.170.111:8080/IvaWrapperWeb/getMediaItem?n=2";
         
-        MediaWrapper instance = new MediaWrapper();
-        MediaWrapperResponse result = instance.getMediaData(url);
-        assertTrue(result.responseType == MediaWrapperResponse.ResponseType.NA);
-        assertTrue(result.responseResult == MediaWrapperResponse.ResponseResult.Ok);
+        WrapperResponse result = instance.getMediaData(url);
+        assertTrue(result.responseType == WrapperResponse.ResponseType.NA);
+        assertTrue(result.responseResult == WrapperResponse.ResponseResult.Ok);
         
         try {
             JSONObject jsonItem = new JSONObject(result.responseData);
@@ -135,16 +126,10 @@ public class MediaWrapperTest {
     public void testGetMediaItemCompare() {
         final String url = "http://127.0.0.1:8080/IvaWrapperWeb/getMediaItem?n=2";
         try {
-            MediaWrapper instance = new MediaWrapper();
-            MediaWrapperResponse result = instance.getMediaData(url);
+            WrapperResponse response = instance.getMediaData(url);
             
-            HttpGet getRequest = new HttpGet(fixURL(url));        
-            HttpClient httpclient = new DefaultHttpClient();
-            
-            ResponseHandler<String> responseHandler = new BasicResponseHandler();
-            String response = httpclient.execute(getRequest, responseHandler);
-            
-            assertTrue(result.responseData.equals(response));
+            String result = IOUtils.toString(new URL(fixURL(url)));            
+            assertTrue(response.responseData.equals(result));
         } catch (IOException e) {
             fail("Web service request failed " + e.getMessage());
         }
@@ -155,12 +140,11 @@ public class MediaWrapperTest {
      */
     @Test
     public void testGetMediaDataGetVideoAssets() {
-        final String url = "http://54.201.170.111:8080/IvaWrapperWeb/getVideoAssets?id=0";
+        final String url = "http://54.201.170.111:8080/IvaWrapperWeb/getVideoAssets?id=7";
         
-        MediaWrapper instance = new MediaWrapper();
-        MediaWrapperResponse result = instance.getMediaData(url);
-        assertTrue(result.responseType == MediaWrapperResponse.ResponseType.VideoAssets);       
-        assertTrue(result.responseResult == MediaWrapperResponse.ResponseResult.Ok);
+        WrapperResponse result = instance.getMediaData(url);
+        assertTrue(result.responseType == WrapperResponse.ResponseType.VideoAssets);       
+        assertTrue(result.responseResult == WrapperResponse.ResponseResult.Ok);
         
         try {
             JSONArray jsonVideoAssets = new JSONArray(result.responseData);
@@ -181,11 +165,11 @@ public class MediaWrapperTest {
     @Test
     public void testGetUrlLastSegmentGetMedias() {
         String urlGetMedias = "http://54.201.170.111:8080/IvaWrapperWeb/getMedias?skip=100&n=3&category=0";
-        String result = MediaWrapper.getUrlLastSegment(urlGetMedias);
+        String result = ContentWrapper.getUrlLastSegment(urlGetMedias);
         assertEquals(result, "getMedias");
         
-        urlGetMedias = "http://google.com/IvaWrapperWeb/getMedias?skip=100&n=3&category=0";
-        result = MediaWrapper.getUrlLastSegment(urlGetMedias);
+        urlGetMedias = "http://nebel.tv/IvaWrapperWeb/getMedias?skip=100&n=3&category=0";
+        result = ContentWrapper.getUrlLastSegment(urlGetMedias);
         assertEquals(result, "getMedias");        
     }
     
@@ -195,11 +179,11 @@ public class MediaWrapperTest {
     @Test
     public void testGetUrlLastSegmentGetMediaItem() {        
         String urlGetMediaItem = "http://54.201.170.111:8080/IvaWrapperWeb/getMediaItem?n=2";
-        String result = MediaWrapper.getUrlLastSegment(urlGetMediaItem);
+        String result = ContentWrapper.getUrlLastSegment(urlGetMediaItem);
         assertEquals(result, "getMediaItem");
         
-        urlGetMediaItem = "http://pravda.com.ua/IvaWrapperWeb/getMediaItem?n=2";
-        result = MediaWrapper.getUrlLastSegment(urlGetMediaItem);
+        urlGetMediaItem = "http://nebel.tv/IvaWrapperWeb/getMediaItem?n=2";
+        result = ContentWrapper.getUrlLastSegment(urlGetMediaItem);
         assertEquals(result, "getMediaItem");                
     }
 
@@ -209,11 +193,11 @@ public class MediaWrapperTest {
     @Test
     public void testGetUrlLastSegmentGetVideoAssets() {
         String urlGetVideoAssets = "http://54.201.170.111:8080/IvaWrapperWeb/getVideoAssets?id=0";
-        String result = MediaWrapper.getUrlLastSegment(urlGetVideoAssets);
+        String result = ContentWrapper.getUrlLastSegment(urlGetVideoAssets);
         assertEquals(result, "getVideoAssets");
         
-        urlGetVideoAssets = "http://google.com/IvaWrapperWeb/getVideoAssets?id=0";
-        result = MediaWrapper.getUrlLastSegment(urlGetVideoAssets);
+        urlGetVideoAssets = "http://nebel.tv/IvaWrapperWeb/getVideoAssets?id=0";
+        result = ContentWrapper.getUrlLastSegment(urlGetVideoAssets);
         assertEquals(result, "getVideoAssets");        
     }
     
@@ -221,28 +205,32 @@ public class MediaWrapperTest {
      * Test of JSON presentation of the media item
      * The following keys are mandatory <code>media_id, title, author, date</code>
      */
-    private void testJsonMediaItem(JSONObject jsonItem) {
-        assertNotNull(jsonItem);
+    private void testJsonMediaItem(JSONObject item) {
+        assertNotNull(item);
         
-        System.out.println(jsonItem);
+        System.out.println(item);
         
-        assertTrue(jsonItem.has("media_id"));
-        assertTrue(jsonItem.has("title"));
-        assertTrue(jsonItem.has("author"));
-        assertTrue(jsonItem.has("date"));        
+        assertTrue(item.has("Publishedid"));        
+        assertTrue(item.has("DisplayTitle"))
+                ;
+        assertTrue(item.has("Poster"));
+        assertTrue(item.has("Description"));
+        assertTrue(item.has("Director"));        
+        assertTrue(item.has("VideoAssets"));        
     }
     
     /**
      * Test of JSON presentation of the video asset
      * The following keys are mandatory <code>rate, url</code>
      * 
-     * @param jsonAsset JSON object instance of the video asset
+     * @param asset JSON object instance of the video asset
      */
-    private void testJsonVideoAsset(JSONObject jsonAsset) {
-        assertNotNull(jsonAsset);
+    private void testJsonVideoAsset(JSONObject asset) {
+        assertNotNull(asset);
         
-        assertTrue(jsonAsset.has("rate"));
-        assertTrue(jsonAsset.has("url"));       
+        assertTrue(asset.has("rate"));
+        assertTrue(asset.has("URL"));
+        assertTrue(asset.has("FileType"));        
     } 
     
     /**

@@ -30,6 +30,6 @@ public interface IWrapperMethod {
      * @return
      * @throws InvalidParameterException
      */
-    abstract MediaWrapperResponse execute(Map<String, String> params)
+    abstract WrapperResponse execute(Map<String, String> params)
             throws InvalidParameterException;
 }

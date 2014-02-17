@@ -20,12 +20,12 @@ package com.nebel_tv.content.api;
  * Interface IMediaWrapper
  *
  */
-public interface IMediaWrapper {
+public interface IContentWrapper {
 
     /**
      *
      * @param url
      * @return 
      */
-    public abstract MediaWrapperResponse getMediaData(String url);
+    public abstract WrapperResponse getMediaData(String url);
 }
