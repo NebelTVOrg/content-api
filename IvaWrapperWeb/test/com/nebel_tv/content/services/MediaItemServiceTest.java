@@ -93,15 +93,18 @@ public class MediaItemServiceTest {
      * Test of JSON presentation of the media items
      * The following keys are mandatory <code>media_id, title, author, date</code>
      * 
-     * @param jsonItem 
+     * @param item 
      */
-    private void testJsonMediaItem(JSONObject jsonItem) {
-        assertNotNull(jsonItem);
+    private void testJsonMediaItem(JSONObject item) {
+        assertNotNull(item);
         
-        assertTrue(jsonItem.has("media_id"));
-        assertTrue(jsonItem.has("title"));
-        assertTrue(jsonItem.has("author"));
-        assertTrue(jsonItem.has("date"));        
+        assertTrue(item.has("Publishedid"));        
+        assertTrue(item.has("DisplayTitle"))
+                ;
+        assertTrue(item.has("Poster"));
+        assertTrue(item.has("Description"));
+        assertTrue(item.has("Director"));     
+        assertTrue(item.has("VideoAssets"));
     }
         
     /**

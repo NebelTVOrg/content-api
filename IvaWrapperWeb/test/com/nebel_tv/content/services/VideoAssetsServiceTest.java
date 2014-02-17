@@ -101,11 +101,12 @@ public class VideoAssetsServiceTest {
      * 
      * @param jsonAsset JSON object instance of the video asset
      */
-    private void testJsonVideoAsset(JSONObject jsonAsset) {
-        assertNotNull(jsonAsset);
+    private void testJsonVideoAsset(JSONObject asset) {
+        assertNotNull(asset);
         
-        assertTrue(jsonAsset.has("rate"));
-        assertTrue(jsonAsset.has("url"));       
+        assertTrue(asset.has("rate"));
+        assertTrue(asset.has("URL"));
+        assertTrue(asset.has("FileType"));
     }
         
     /**

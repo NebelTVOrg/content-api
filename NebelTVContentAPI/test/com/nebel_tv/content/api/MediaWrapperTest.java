@@ -208,15 +208,13 @@ public class MediaWrapperTest {
     private void testJsonMediaItem(JSONObject item) {
         assertNotNull(item);
         
-        System.out.println(item);
-        
         assertTrue(item.has("Publishedid"));        
         assertTrue(item.has("DisplayTitle"))
                 ;
         assertTrue(item.has("Poster"));
         assertTrue(item.has("Description"));
-        assertTrue(item.has("Director"));        
-        assertTrue(item.has("VideoAssets"));        
+        assertTrue(item.has("Director"));     
+        assertTrue(item.has("VideoAssets"));
     }
     
     /**
@@ -230,7 +228,7 @@ public class MediaWrapperTest {
         
         assertTrue(asset.has("rate"));
         assertTrue(asset.has("URL"));
-        assertTrue(asset.has("FileType"));        
+        assertTrue(asset.has("FileType"));
     } 
     
     /**

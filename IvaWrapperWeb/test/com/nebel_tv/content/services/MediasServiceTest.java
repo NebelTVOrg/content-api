@@ -78,7 +78,7 @@ public class MediasServiceTest {
      */
     public void testServiceRequest(String url) {    
         try {
-            String response = IOUtils.toString(new URL(url));            
+            String response = IOUtils.toString(new URL(url));
             assertTrue(response != null && !response.isEmpty());
 
             JSONArray jsonGetMedias = new JSONArray(response);
@@ -101,13 +101,16 @@ public class MediasServiceTest {
      * 
      * @param jsonItem 
      */
-    private void testJsonMediaItem(JSONObject jsonItem) {
-        assertNotNull(jsonItem);
+    private void testJsonMediaItem(JSONObject item) {
+        assertNotNull(item);
         
-        assertTrue(jsonItem.has("media_id"));
-        assertTrue(jsonItem.has("title"));
-        assertTrue(jsonItem.has("author"));
-        assertTrue(jsonItem.has("date"));        
+        assertTrue(item.has("Publishedid"));        
+        assertTrue(item.has("DisplayTitle"))
+                ;
+        assertTrue(item.has("Poster"));
+        assertTrue(item.has("Description"));
+        assertTrue(item.has("Director"));     
+        assertTrue(item.has("VideoAssets"));
     }
         
     /**

@@ -71,7 +71,7 @@
 
     -->
     <target name="export" depends="jar">
-        <property name="export.jar.name" value="nebel-tv-mediawrapper-0.2.3"/>
+        <property name="export.jar.name" value="nebel-tv-wrapper-1.0.5"/>
         <property name="export.dir" value="export"/>
         <property name="export.jar" value="${export.dir}/${export.jar.name}.jar"/>
 
@@ -82,7 +82,7 @@
 
         <jar destfile="${export.dir}/temp.jar" filesetmanifest="skip">
             <zipgroupfileset dir="dist" includes="*.jar"/>
-            <zipgroupfileset dir="dist/lib" includes="nebel-tv-ivawrapper-0.2.3.jar"/>
+            <zipgroupfileset dir="dist/lib" includes="nebel-tv-ivawrapper-1.0.5.jar"/>
         </jar>
         <zip destfile="${export.jar}">
             <zipfileset src="${export.dir}/temp.jar"
