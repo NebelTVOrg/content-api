@@ -9,10 +9,10 @@ This module will be finally used as the part of native Android application (http
 
 Wrapper now in LIVE mode, and works with IVA services using free developer key.
 
-How to use live wrapper ver.0.2.3 (examples):
+How to use live wrapper ver.1.0.5 (examples):
 
-Java code:
-
+ **Java code:**
+```java
 	IIvaWrapper w = Wrapper.getWrapper(WrapperTypes.LIVE);
 	String item = w.getMediaItem(1);
 	System.out.println(item);
@@ -28,33 +28,32 @@ Java code:
 	item = w.getMedias(0, 2, "3", null, null);
 	System.out.println(item);
 	
-	item = w.getVideoAssets(0);
+	item = w.getVideoAssets(7);
 	System.out.println(item);
-
+```
 
 Content Wrapper Web Service links:
 
- - http://54.201.170.111:8080/IvaWrapperWeb/getMedias?skip=100&n=3&category=0    
-	Possible values: 
+ - http://[server:port]/IvaWrapperWeb/getMedias?skip=100&n=3&category=0    
+<br>Possible values:
 	 - n - up to 500 (entries)
 	 - skip - any integer
 	 - category - not provided, or any value from this table - http://www.internetvideoarchive.com/media-type-map-to-mediaids/
  
- - http://[server]:8080/IvaWrapperWeb/getMediaItem?n=2
-	Possible values:
+ - http://[server:port]/IvaWrapperWeb/getMediaItem?n=2
+<br>Possible values:
 	- server - content API wrapper server
 	- port - server port, 8080 by default
 	- n - any valid publishedId
 
- - http://[server]:8080/IvaWrapperWeb/getVideoAssets?id=0
- 
-	Where:
-	- id - media item id (PublishedID)
+ - http://[server:port]/IvaWrapperWeb/getVideoAssets?id=0
+<br>Where:
+ 	- id - media item id (PublishedID)
 
 Reference: www.internetvideoarchive.com/how-to-generate-urls-to-video-content-using-iva-odata-api
 
-JavaScript code:
-
+ **JavaScript code:**
+```java
 	function reqListener () {
 		console.log(this.responseText);
 	};
@@ -73,42 +72,66 @@ JavaScript code:
 	oReq.onload = reqListener;
 	oReq.open("get", "http://54.201.170.111:8080/IvaWrapperWeb/getVideoAssets?id=0", true);
 	oReq.send();
-	
-Expected results:
-	
-	http://54.201.170.111:8080/IvaWrapperWeb/getMediaItem?n=2
-	{
-		//@todo: 	  
-	}
-	http://54.201.170.111:8080/IvaWrapperWeb/getMedias?skip=100&n=3&category=0
-	[
-		//@todo: 
-	]
-	http://54.201.170.111:8080/IvaWrapperWeb/getVideoAssets?id=7
-	[
-	    {
-	        "DateDigitized": "/Date(1356587061000)/",
-	        "StreamingFlavorId": 24,
-	        "ProprietaryCustomerId": -1,
-	        "RemoteURL": "false",
-	        "rate": 750,
-	        "PublishedId": 7,
-	        "FileType": "mp4",
-	        "ID": "7-24",
-	        "URL": "http://54.201.170.111/assets/001-720p-2500kb.mp4",
-	        "__metadata": {
-	            "id": "http://api.internetvideoarchive.com/1.0/DataService/Encodes('7-24')",
-	            "type": "MediaModel.Encode",
-	            "uri": "http://api.internetvideoarchive.com/1.0/DataService/Encodes('7-24')"
-	        },
-	        "VideoAsset": {
-	            "__deferred": {
-	                "uri": "http://api.internetvideoarchive.com/1.0/DataService/Encodes('7-24')/VideoAsset"
-	            }
-	        }
-	    },
-	    {
-	    	...
-	    },
-	]
+```
+
+ **Expected results:**
+
+http://54.201.170.111:8080/IvaWrapperWeb/getMediaItem?n=2
+```json
+{
+	  
+}
+```
+http://54.201.170.111:8080/IvaWrapperWeb/getMedias?skip=100&n=3&category=0
+```json
+[
+]
+```	
+http://54.201.170.111:8080/IvaWrapperWeb/getVideoAssets?id=7
+```json
+[
+    {
+        "DateDigitized": "/Date(1356587061000)/",
+        "StreamingFlavorId": 24,
+        "ProprietaryCustomerId": -1,
+        "RemoteURL": "false",
+        "rate": 750,
+        "PublishedId": 7,
+        "FileType": "mp4",
+        "ID": "7-24",
+        "URL": "http://54.201.170.111/assets/001-720p-2500kb.mp4",
+        "__metadata": {
+            "id": "http://api.internetvideoarchive.com/1.0/DataService/Encodes('7-24')",
+            "type": "MediaModel.Encode",
+            "uri": "http://api.internetvideoarchive.com/1.0/DataService/Encodes('7-24')"
+        },
+        "VideoAsset": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/Encodes('7-24')/VideoAsset"
+            }
+        }
+    },
+    {
+        "DateDigitized": "/Date(1345468075347)/",
+        "StreamingFlavorId": 40,
+        "ProprietaryCustomerId": -1,
+        "RemoteURL": "false",
+        "rate": 600,
+        "PublishedId": 7,
+        "FileType": "adapt",
+        "ID": "7-40",
+        "URL": "http://54.201.170.111/assets/001-720p-2500kb.mp4",
+        "__metadata": {
+            "id": "http://api.internetvideoarchive.com/1.0/DataService/Encodes('7-40')",
+            "type": "MediaModel.Encode",
+            "uri": "http://api.internetvideoarchive.com/1.0/DataService/Encodes('7-40')"
+        },
+        "VideoAsset": {
+            "__deferred": {
+                "uri": "http://api.internetvideoarchive.com/1.0/DataService/Encodes('7-40')/VideoAsset"
+            }
+        }    
+    }
+]
+```
 
