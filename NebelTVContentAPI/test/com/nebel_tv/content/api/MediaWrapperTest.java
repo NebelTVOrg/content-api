@@ -105,7 +105,7 @@ public class MediaWrapperTest {
      */
     @Test
     public void testGetMediaDataGetMediaItem() {
-        final String url = "http://54.201.170.111:8080/IvaWrapperWeb/getMediaItem?n=2";
+        final String url = "http://54.201.170.111:8080/IvaWrapperWeb/getMediaItem?id=2";
         
         WrapperResponse result = instance.getMediaData(url);
         assertTrue(result.responseType == WrapperResponse.ResponseType.NA);
@@ -124,7 +124,7 @@ public class MediaWrapperTest {
      */
     @Test
     public void testGetMediaItemCompare() {
-        final String url = "http://127.0.0.1:8080/IvaWrapperWeb/getMediaItem?n=2";
+        final String url = "http://127.0.0.1:8080/IvaWrapperWeb/getMediaItem?id=2";
         try {
             WrapperResponse response = instance.getMediaData(url);
             
@@ -178,11 +178,11 @@ public class MediaWrapperTest {
      */
     @Test
     public void testGetUrlLastSegmentGetMediaItem() {        
-        String urlGetMediaItem = "http://54.201.170.111:8080/IvaWrapperWeb/getMediaItem?n=2";
+        String urlGetMediaItem = "http://54.201.170.111:8080/IvaWrapperWeb/getMediaItem?id=2";
         String result = ContentWrapper.getUrlLastSegment(urlGetMediaItem);
         assertEquals(result, "getMediaItem");
         
-        urlGetMediaItem = "http://nebel.tv/IvaWrapperWeb/getMediaItem?n=2";
+        urlGetMediaItem = "http://nebel.tv/IvaWrapperWeb/getMediaItem?id=2";
         result = ContentWrapper.getUrlLastSegment(urlGetMediaItem);
         assertEquals(result, "getMediaItem");                
     }

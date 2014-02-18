@@ -61,14 +61,14 @@ public class MediaItemServiceTest {
      */
     @Test
     public void testServiceRequestRemote() {
-        testServiceRequest("http://54.201.170.111:8080/IvaWrapperWeb/getMediaItem?n=2");
+        testServiceRequest("http://54.201.170.111:8080/IvaWrapperWeb/getMediaItem?id=2");
     }
     /**
      * Test of getMediaItem request of service IvaWrapperWeb (local server).
      */
     @Test
     public void testServiceRequestLocal() {
-        testServiceRequest("http://127.0.0.1:8080/IvaWrapperWeb/getMediaItem?n=2");        
+        testServiceRequest("http://127.0.0.1:8080/IvaWrapperWeb/getMediaItem?id=2");        
     }
     
     /**

@@ -50,7 +50,7 @@ public class MediaItemService extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             CORSUtil.fixCORS(request, response);
-            final String n = request.getParameter("n");
+            final String n = request.getParameter("id");
             out.print(w.getMediaItem(WrapperUtils.getInt(n)));
         } finally {
             out.close();

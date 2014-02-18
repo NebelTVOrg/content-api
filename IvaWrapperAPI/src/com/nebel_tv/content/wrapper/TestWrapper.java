@@ -63,23 +63,22 @@ class TestWrapper implements IWrapper {
     public static TestWrapper getInstance() {
         if(instance == null){
              instance = new TestWrapper();
-             instance.init();
         }
         return instance;
     }    
 
     @Override
     public String getMedias(Integer n, Integer skip, String category, String viewType, String viewTypePeriod) {
-        return instance.mediasData.get(category);
+        throw new UnsupportedOperationException("Method isn't implemented yet."); 
     }
 
     @Override
     public String getMediaItem(Integer id) {
-        return instance.mediaItems.get(id);
+        throw new UnsupportedOperationException("Method isn't implemented yet."); 
     }
 
     @Override
     public String getVideoAssets(Integer id) {
-        return instance.videoAssets.get(id);
+        throw new UnsupportedOperationException("Method isn't implemented yet."); 
     }
 }

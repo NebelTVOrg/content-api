@@ -37,7 +37,7 @@ import org.junit.runners.Suite;
     ConnectionHelperTest.class,    
     WrapperTest.class,
     LiveWrapperTest.class,    
-    TestWrapperTest.class   
+    TestWrapperTest.class
 })
 public class IvaWrapperAPITestSuite {
 

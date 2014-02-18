@@ -49,7 +49,7 @@
                     </ul>
                 </li>
                 <li>
-                    <p>http://[server]:8080/IvaWrapperWeb/getMediaItem?n=2
+                    <p>http://[server]:8080/IvaWrapperWeb/getMediaItem?id=2
                         Possible values:</p>
 
                     <ul>
@@ -59,7 +59,7 @@
                     </ul>
                 </li>
                 <li>
-                    <p>http://[server]:8080/IvaWrapperWeb/getVideoAssets?id=0</p>
+                    <p>http://[server]:8080/IvaWrapperWeb/getVideoAssets?id=2</p>
                     <p>Where:</p>
                     <ul>
                         <li>id - media item id (PublishedID)</li>
@@ -74,7 +74,7 @@
 
             var oReq = new XMLHttpRequest();
             oReq.onload = reqListener;
-            oReq.open("get", "http://54.201.170.111:8080/IvaWrapperWeb/getMediaItem?n=2", true);
+            oReq.open("get", "http://54.201.170.111:8080/IvaWrapperWeb/getMediaItem?id=2", true);
             oReq.send();
 
             var oReq = new XMLHttpRequest();
@@ -84,7 +84,7 @@
             </code></pre>
             <p>Expected results:</p>
             <pre><code>
-            <b>http://54.201.170.111:8080/IvaWrapperWeb/getMediaItem?n=2</b>
+            <b>http://54.201.170.111:8080/IvaWrapperWeb/getMediaItem?id=2</b>
             {
               "media_id": "2",
               "image": "http://content.internetvideoarchive.com/content/posters/005/223_562.jpg",
