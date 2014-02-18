@@ -42,15 +42,15 @@ Content Wrapper Web Service links:
 	 - skip - any integer
 	 - category - not provided, or any value from this table - http://www.internetvideoarchive.com/media-type-map-to-mediaids/
  
- - http://[server:port]/IvaWrapperWeb/getMediaItem?n=2
+ - http://[server:port]/IvaWrapperWeb/getMediaItem?id=2
 <br>Possible values:
 	- server - content API wrapper server
 	- port - server port, 8080 by default
-	- n - any valid publishedId
+	- id - media item id (PublishedId)
 
  - http://[server:port]/IvaWrapperWeb/getVideoAssets?id=0
 <br>Where:
- 	- id - media item id (PublishedID)
+ 	- id - media item id (PublishedId)
 
 Reference: www.internetvideoarchive.com/how-to-generate-urls-to-video-content-using-iva-odata-api
 
@@ -91,7 +91,7 @@ Reference: www.internetvideoarchive.com/how-to-generate-urls-to-video-content-us
 
  **Expected results:**
 
-http://54.201.170.111:8080/IvaWrapperWeb/getMediaItem?n=2
+http://54.201.170.111:8080/IvaWrapperWeb/getMediaItem?id=2
 ```json
 {
     "OfficialSiteUrl": "",
