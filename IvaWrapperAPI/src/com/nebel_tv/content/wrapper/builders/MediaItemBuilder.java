@@ -31,7 +31,7 @@ import org.json.JSONObject;
 public class MediaItemBuilder {
 
     public static final String MEDIA_ITEM_QUERY = "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms({publishedId})?"
-            + "$expand=Poster,Description,Director&format=json";
+            + "$expand=Poster,Description,Director,VideoAssets,VideoAssetScreenCapture&format=json";
 
     private final String queryUrl;
 

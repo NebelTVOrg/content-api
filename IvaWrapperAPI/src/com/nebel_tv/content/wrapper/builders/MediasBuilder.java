@@ -35,7 +35,7 @@ public class MediasBuilder  {
 
     public static final String MEDIAS_QUERY_PART_1 = "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms()?$skip={skip}&$top={top}&";
     public static final String MEDIAS_QUERY_PART_2 = "$filter=MediaId eq {MediaId}&";
-    public static final String MEDIAS_QUERY_PART_3 = "$expand=Poster,Description,Director&format=json";
+    public static final String MEDIAS_QUERY_PART_3 = "$expand=Poster,Description,Director,VideoAssets,VideoAssetScreenCapture&format=json";
     
     private String queryUrl;
     private JSONArray items;       
