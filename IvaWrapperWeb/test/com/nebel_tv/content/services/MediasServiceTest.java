@@ -34,104 +34,105 @@ import static org.junit.Assert.*;
  *
  */
 public class MediasServiceTest {
-      
-    /**
-     * 
-     */
-    public MediasServiceTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-    
-    /**
-     * Test of getMedias request of service IvaWrapperWeb (remote server).
-     */
-    @Test
-    public void testServiceRequestRemote() {
-        testServiceRequest("http://54.201.170.111:8080/IvaWrapperWeb/getMedias?skip=100&n=3&category=0");
-    }
-    /**
-     * Test of getMedias request of service IvaWrapperWeb (local server).
-     */
-    @Test
-    public void testServiceRequestLocal() {
-        testServiceRequest("http://127.0.0.1:8080/IvaWrapperWeb/getMedias?skip=100&n=3&category=0");        
-    }
-    
-    /**
-     * Test of getMediaItem request of service IvaWrapperWeb (remote server).
-     * @param url Service URL
-     */
-    public void testServiceRequest(String url) {    
-        try {
-            String response = IOUtils.toString(new URL(url));
-            assertTrue(response != null && !response.isEmpty());
 
-            JSONArray jsonGetMedias = new JSONArray(response);
-            assertFalse(jsonGetMedias.length() == 0);
-            
-            for (int i = 0; i < jsonGetMedias.length(); i++) {
-                JSONObject jsonItem = jsonGetMedias.getJSONObject(i);
-                testJsonMediaItem(jsonItem);
-            }
-        } catch (JSONException e) {
-            fail("JSON parsing failed" + e.getMessage());
-        } catch (IOException e) {
-            fail("Web service request failed " + e.getMessage());
-        }
-    }
+	/**
+	 *
+	 */
+	public MediasServiceTest() {
+	}
 
-    /**
-     * Test of JSON presentation of the media items
-     * The following keys are mandatory <code>media_id, title, author, date</code>
-     * 
-     * @param jsonItem 
-     */
-    private void testJsonMediaItem(JSONObject item) {
-        assertNotNull(item);
-        
-        assertTrue(item.has("Publishedid"));        
-        assertTrue(item.has("DisplayTitle"))
-                ;
-        assertTrue(item.has("Poster"));
-        assertTrue(item.has("Description"));
-        assertTrue(item.has("Director"));     
-        assertTrue(item.has("VideoAssets"));
-    }
-        
-    /**
-     * @param url
-     * @return
-     */
-    public static String fixURL(String url) {
-        StringBuilder fixedURL = new StringBuilder();
-        String[] urlParts = url.split("\\?");
-        fixedURL.append(urlParts[0]).append("?");
+	@BeforeClass
+	public static void setUpClass() {
+	}
 
-        if (urlParts.length > 1) {
-            String[] pairs = urlParts[1].split("&");
-            for (String pair : pairs) {
-                String[] nameValuePair = pair.split("=");
-                fixedURL.append("&")
-                        .append(nameValuePair[0])
-                        .append("=")
-                        .append(URLEncoder.encode(nameValuePair[1]));
-            }
-        }
-        return fixedURL.toString();
-    }    
+	@AfterClass
+	public static void tearDownClass() {
+	}
+
+	@Before
+	public void setUp() {
+	}
+
+	@After
+	public void tearDown() {
+	}
+
+	/**
+	 * Test of getMedias request of service IvaWrapperWeb (remote server).
+	 */
+	@Test
+	public void testServiceRequestRemote() {
+		testServiceRequest("http://54.201.170.111:8080/IvaWrapperWeb/getMedias?skip=100&n=3&category=0");
+	}
+
+	/**
+	 * Test of getMedias request of service IvaWrapperWeb (local server).
+	 */
+	@Test
+	public void testServiceRequestLocal() {
+		testServiceRequest("http://127.0.0.1:8080/IvaWrapperWeb/getMedias?skip=100&n=3&category=0");
+	}
+
+	/**
+	 * Test of getMediaItem request of service IvaWrapperWeb (remote server).
+	 *
+	 * @param url Service URL
+	 */
+	public void testServiceRequest(String url) {
+		try {
+			String response = IOUtils.toString(new URL(url));
+			assertTrue(response != null && !response.isEmpty());
+
+			JSONArray jsonGetMedias = new JSONArray(response);
+			assertFalse(jsonGetMedias.length() == 0);
+
+			for (int i = 0; i < jsonGetMedias.length(); i++) {
+				JSONObject jsonItem = jsonGetMedias.getJSONObject(i);
+				testJsonMediaItem(jsonItem);
+			}
+		} catch (JSONException e) {
+			fail("JSON parsing failed" + e.getMessage());
+		} catch (IOException e) {
+			fail("Web service request failed " + e.getMessage());
+		}
+	}
+
+	/**
+	 * Test of JSON presentation of the media items The following keys are
+	 * mandatory <code>media_id, title, author, date</code>
+	 *
+	 * @param jsonItem
+	 */
+	private void testJsonMediaItem(JSONObject item) {
+		assertNotNull(item);
+
+		assertTrue(item.has("Publishedid"));
+		assertTrue(item.has("DisplayTitle"));
+		assertTrue(item.has("Poster"));
+		assertTrue(item.has("Description"));
+		assertTrue(item.has("Director"));
+		assertTrue(item.has("VideoAssets"));
+	}
+
+	/**
+	 * @param url
+	 * @return
+	 */
+	public static String fixURL(String url) {
+		StringBuilder fixedURL = new StringBuilder();
+		String[] urlParts = url.split("\\?");
+		fixedURL.append(urlParts[0]).append("?");
+
+		if (urlParts.length > 1) {
+			String[] pairs = urlParts[1].split("&");
+			for (String pair : pairs) {
+				String[] nameValuePair = pair.split("=");
+				fixedURL.append("&")
+						.append(nameValuePair[0])
+						.append("=")
+						.append(URLEncoder.encode(nameValuePair[1]));
+			}
+		}
+		return fixedURL.toString();
+	}
 }
