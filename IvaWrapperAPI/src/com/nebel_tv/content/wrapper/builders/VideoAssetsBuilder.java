@@ -26,93 +26,101 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * 
+ *
  */
 public class VideoAssetsBuilder {
-    
-    public static final String VIDEO_ASSETS_QUERY = "http://api.internetvideoarchive.com/1.0/DataService/VideoAssets({publishedId})?$expand=Encodes&format=json";
 
-    private final String queryUrl;
+	public static final String VIDEO_ASSETS_QUERY = "http://api.internetvideoarchive.com/1.0/DataService/VideoAssets({publishedId})?$expand=Encodes&format=json";
 
-    private JSONArray assets;
-    private String json = "[]";
-    private final String id;
+	private final String queryUrl;
 
-    public VideoAssetsBuilder(String id) {
-        this.queryUrl = VIDEO_ASSETS_QUERY.replace("{publishedId}", id);
-        this.id = id;
-    }
+	private JSONArray assets;
+	private String json = "[]";
+	private final String id;
 
-    private void executeQuery() {
-        assets = VideoAssetsCache.getAssets(id);
-        
-        if(assets == null){
-            try {
-                String source = ConnectionUtils.getResponseAsString(ConnectionHelper.fixURL(queryUrl));
+	public VideoAssetsBuilder(String id) {
+		this.queryUrl = VIDEO_ASSETS_QUERY.replace("{publishedId}", id);
+		this.id = id;
+	}
 
-                JSONObject root = (JSONObject) (new JSONObject(source)).get("d");
-                JSONObject encodes = (JSONObject)root.get("Encodes");
+	private void executeQuery() {
+		assets = VideoAssetsCache.getAssets(id);
 
-                assets = (JSONArray) encodes.get("results");
-                fixVidoURL();
-            } catch (Exception ex) {
-                Logger.getLogger(VideoAssetsBuilder.class.getName()).log(Level.WARNING, null, ex);
-            }            
-        }
-    }
-    
-    public VideoAssetsBuilder build() {
-        executeQuery();
-        createVideoAsses();
-        generateJson();
-        
-        return this;
-    }    
+		if (assets == null) {
+			try {
+				String source = ConnectionUtils.getResponseAsString(ConnectionHelper.fixURL(queryUrl));
 
-    private void generateJson() {
-        if(assets != null){
-            json = assets.toString();
-        } 
-    }
-    
-    public String get() {
-        return this.json;
-    }
+				JSONObject root = (JSONObject) (new JSONObject(source)).get("d");
+				JSONObject encodes = (JSONObject) root.get("Encodes");
 
-    private void createVideoAsses() {
-        if (assets != null) {
-            VideoAssetsCache.addAssets(id, assets);
-        }
-    }
+				assets = (JSONArray) encodes.get("results");
+				fixVidoURL();
+			} catch (Exception ex) {
+				Logger.getLogger(VideoAssetsBuilder.class.getName()).log(Level.WARNING, null, ex);
+			}
+		}
+	}
 
-    /**
-     * 
-     */
-    private void fixVidoURL() {
-        if(assets == null)
-            return;
-        
-        for (int i = 0; i < assets.length(); i++) {
-            try {
-                JSONObject item = assets.getJSONObject(i);
-                if (item != null) {                    
-                    int rate = item.getInt("rate");
-                    switch (rate) {
-                        case 185:
-                            item.put("URL", "http://54.201.170.111/assets/001-180p-185kb.mp4");
-                            break;
-                        case 686:
-                            item.put("URL", "http://54.201.170.111/assets/001-270p-686kb.mp4");
-                            break;
-                        case 2500:
-                        default:
-                            item.put("URL", "http://54.201.170.111/assets/001-720p-2500kb.mp4");
-                            break;                            
-                    }
-                }                        
-            } catch (JSONException ex) {
-                Logger.getLogger(ConnectionUtils.class.getName()).log(Level.WARNING, null, ex);
-            }
-        }            
-    }
+	public VideoAssetsBuilder build() {
+		executeQuery();
+		createVideoAsses();
+		generateJson();
+
+		return this;
+	}
+
+	private void generateJson() {
+		if (assets != null) {
+			json = assets.toString();
+		}
+	}
+
+	public String get() {
+		return this.json;
+	}
+
+	private void createVideoAsses() {
+		if (assets != null) {
+			VideoAssetsCache.addAssets(id, assets);
+		}
+	}
+
+	/**
+	 *
+	 */
+	private void fixVidoURL() {
+		if (assets == null) {
+			return;
+		}
+
+		for (int i = 0; i < assets.length(); i++) {
+			try {
+				JSONObject item = assets.getJSONObject(i);
+				if (item != null) {
+					int rate = item.getInt("rate");
+					switch (rate) {
+						case 80:
+						case 212:
+						case 185:
+							item.put("URL", "http://54.201.170.111/assets/001-180p-185kb.mp4");
+							break;
+						case 450:
+						case 600:
+						case 686:
+						case 750:
+							item.put("URL", "http://54.201.170.111/assets/001-270p-686kb.mp4");
+							break;
+						case 1500:
+						case 2500:
+						case 8000:
+						default:
+							item.put("URL", "http://54.201.170.111/assets/001-720p-2500kb.mp4");
+							break;
+					}
+				}
+			} catch (JSONException ex) {
+				Logger.getLogger(ConnectionUtils.class.getName()).log(Level.WARNING, null, ex);
+			}
+		}
+	}
 }

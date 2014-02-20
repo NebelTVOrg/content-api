@@ -16,7 +16,6 @@
  */
 package com.nebel_tv.content.wrapper.builders;
 
-
 import com.nebel_tv.content.cache.MediaItemCache;
 import com.nebel_tv.content.utils.ConnectionUtils;
 import com.nebel_tv.content.wrapper.ConnectionHelper;
@@ -30,54 +29,54 @@ import org.json.JSONObject;
  */
 public class MediaItemBuilder {
 
-    public static final String MEDIA_ITEM_QUERY = "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms({publishedId})?"
-            + "$expand=Poster,Description,Director,VideoAssets,VideoAssetScreenCapture&format=json";
+	public static final String MEDIA_ITEM_QUERY = "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms({publishedId})?"
+			+ "$expand=Poster,Description,Director,VideoAssets,VideoAssetScreenCapture&format=json";
 
-    private final String queryUrl;
+	private final String queryUrl;
 
-    private JSONObject item;
-    private String json = "{}";
-    private final String id;
+	private JSONObject item;
+	private String json = "{}";
+	private final String id;
 
-    public MediaItemBuilder(String id) {
-        this.queryUrl = MEDIA_ITEM_QUERY.replace("{publishedId}", id);
-        this.id = id;
-    }
+	public MediaItemBuilder(String id) {
+		this.queryUrl = MEDIA_ITEM_QUERY.replace("{publishedId}", id);
+		this.id = id;
+	}
 
-    private void executeQuery() {
-        item = MediaItemCache.getItem(id);
-        if(item == null){
-            try {
-                String source = ConnectionUtils.getResponseAsString(ConnectionHelper.fixURL(queryUrl));
-                JSONObject root = new JSONObject(source);
-                item = (JSONObject) root.get("d");
-            } catch (Exception ex) {
-                Logger.getLogger(MediaItemBuilder.class.getName()).log(Level.WARNING, null, ex);
-            }            
-        }
-    }
-    
-    public MediaItemBuilder build() {
-        executeQuery();
-        createMediaItem();
-        generateJson();
-        
-        return this;
-    }    
+	private void executeQuery() {
+		item = MediaItemCache.getItem(id);
+		if (item == null) {
+			try {
+				String source = ConnectionUtils.getResponseAsString(ConnectionHelper.fixURL(queryUrl));
+				JSONObject root = new JSONObject(source);
+				item = (JSONObject) root.get("d");
+			} catch (Exception ex) {
+				Logger.getLogger(MediaItemBuilder.class.getName()).log(Level.WARNING, null, ex);
+			}
+		}
+	}
 
-    private void generateJson() {
-        if(item != null){
-            json = item.toString();
-        } 
-    }
-    
-    public String get() {
-        return this.json;
-    }
+	public MediaItemBuilder build() {
+		executeQuery();
+		createMediaItem();
+		generateJson();
 
-    private void createMediaItem() {
-        if (item != null) {
-            MediaItemCache.addItem(id, item);
-        }
-    }
+		return this;
+	}
+
+	private void generateJson() {
+		if (item != null) {
+			json = item.toString();
+		}
+	}
+
+	public String get() {
+		return this.json;
+	}
+
+	private void createMediaItem() {
+		if (item != null) {
+			MediaItemCache.addItem(id, item);
+		}
+	}
 }

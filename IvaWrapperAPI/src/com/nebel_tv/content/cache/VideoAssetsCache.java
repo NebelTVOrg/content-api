@@ -24,13 +24,13 @@ import org.json.JSONArray;
  */
 public class VideoAssetsCache {
 
-    private static final HashMap<String, JSONArray> assetsById = new HashMap<String, JSONArray>();
+	private static final HashMap<String, JSONArray> assetsById = new HashMap<String, JSONArray>();
 
-    public static JSONArray getAssets(String id) {
-        return assetsById.get(id);
-    }
+	public static JSONArray getAssets(String id) {
+		return assetsById.get(id);
+	}
 
-    public static JSONArray addAssets(String id, JSONArray item) {
-        return assetsById.put(id, item);
-    }
+	public static JSONArray addAssets(String id, JSONArray item) {
+		return assetsById.put(id, item);
+	}
 }

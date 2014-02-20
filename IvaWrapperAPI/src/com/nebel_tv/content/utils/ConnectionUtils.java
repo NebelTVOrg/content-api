@@ -26,7 +26,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
- 
+
 import org.apache.commons.io.IOUtils;
 
 /**
@@ -34,67 +34,67 @@ import org.apache.commons.io.IOUtils;
  */
 public class ConnectionUtils {
 
-    /**
-     * Stack of developer IDs
-     */
-    private static final Stack<String> ids = new Stack<String>();
+	/**
+	 * Stack of developer IDs
+	 */
+	private static final Stack<String> ids = new Stack<String>();
 
-    /**
-     *
-     */
-    private static void init() {
-        ids.push("B43BF933-5CB5-434A-B0A8-717FC149FBED");
-        ids.push("2A702798-6DBA-417D-A8BC-175CAEFFD2D6");
-    }
+	/**
+	 *
+	 */
+	private static void init() {
+		ids.push("B43BF933-5CB5-434A-B0A8-717FC149FBED");
+		ids.push("2A702798-6DBA-417D-A8BC-175CAEFFD2D6");
+	}
 
-    /**
-     *
-     * @param url
-     * @return
-     * @throws Exception
-     */
-    public static InputStream getResponseAsStream(String url) throws Exception {
-        if (ids.empty()) {
-            init();
-        }
-        String developerId = ids.pop();
-        url = url + "&Developerid=" + developerId;        
-        try {
-            String result = IOUtils.toString(new URL(url));
+	/**
+	 *
+	 * @param url
+	 * @return
+	 * @throws Exception
+	 */
+	public static InputStream getResponseAsStream(String url) throws Exception {
+		if (ids.empty()) {
+			init();
+		}
+		String developerId = ids.pop();
+		url = url + "&Developerid=" + developerId;
+		try {
+			String result = IOUtils.toString(new URL(url));
 
-            ids.push(developerId);
-            return new ByteArrayInputStream(result.getBytes());
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(ConnectionUtils.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(ConnectionUtils.class.getName()).log(Level.WARNING, null, ex);
-        }
-        return null;
-    }
+			ids.push(developerId);
+			return new ByteArrayInputStream(result.getBytes());
+		} catch (MalformedURLException ex) {
+			Logger.getLogger(ConnectionUtils.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (IOException ex) {
+			Logger.getLogger(ConnectionUtils.class.getName()).log(Level.WARNING, null, ex);
+		}
+		return null;
+	}
 
-    /**
-     *
-     * @param url
-     * @return
-     * @throws Exception
-     */
-    public static String getResponseAsString(String url) throws Exception {
-        if (ids.empty()) {
-            init();
-        }
-        String developerId = ids.pop();
-        
-        try {
-            url = url + "&Developerid=" + developerId;
-            String result = IOUtils.toString(new URL(url));
+	/**
+	 *
+	 * @param url
+	 * @return
+	 * @throws Exception
+	 */
+	public static String getResponseAsString(String url) throws Exception {
+		if (ids.empty()) {
+			init();
+		}
+		String developerId = ids.pop();
 
-            ids.push(developerId);
-            return result;            
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(ConnectionUtils.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(ConnectionUtils.class.getName()).log(Level.WARNING, null, ex);
-        }
-        return null;
-    }
+		try {
+			url = url + "&Developerid=" + developerId;
+			String result = IOUtils.toString(new URL(url));
+
+			ids.push(developerId);
+			return result;
+		} catch (MalformedURLException ex) {
+			Logger.getLogger(ConnectionUtils.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (IOException ex) {
+			Logger.getLogger(ConnectionUtils.class.getName()).log(Level.WARNING, null, ex);
+		}
+		return null;
+	}
 }

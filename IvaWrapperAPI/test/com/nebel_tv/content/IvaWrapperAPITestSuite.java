@@ -33,27 +33,27 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-    WrapperUtilsTest.class, 
-    ConnectionHelperTest.class,    
-    WrapperTest.class,
-    LiveWrapperTest.class,    
-    TestWrapperTest.class
+	WrapperUtilsTest.class,
+	ConnectionHelperTest.class,
+	WrapperTest.class,
+	LiveWrapperTest.class,
+	TestWrapperTest.class
 })
 public class IvaWrapperAPITestSuite {
 
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
+	@BeforeClass
+	public static void setUpClass() throws Exception {
+	}
 
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
+	@AfterClass
+	public static void tearDownClass() throws Exception {
+	}
 
-    @Before
-    public void setUp() throws Exception {
-    }
+	@Before
+	public void setUp() throws Exception {
+	}
 
-    @After
-    public void tearDown() throws Exception {
-    }
+	@After
+	public void tearDown() throws Exception {
+	}
 }

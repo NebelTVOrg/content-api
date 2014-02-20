@@ -26,44 +26,45 @@ import static org.junit.Assert.*;
 /**
  *
  */
-public class WrapperTest { 
-    /**
-     * 
-     */
-    public WrapperTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
+public class WrapperTest {
 
-    /**
-     * Test of getWrapper method (Live), of class Wrapper.
-     */
-    @Test
-    public void testGetWrapperLive() {
-        IWrapper result = Wrapper.getWrapper(WrapperTypes.LIVE);
-        assertTrue(result instanceof LiveWrapper);
-    }
-    
-    /**
-     * Test of getWrapper method (Test), of class Wrapper.
-     */
-    @Test
-    public void testGetWrapperTest() {
-        IWrapper result = Wrapper.getWrapper(WrapperTypes.TEST);
-        assertTrue(result instanceof TestWrapper);
-    }        
+	/**
+	 *
+	 */
+	public WrapperTest() {
+	}
+
+	@BeforeClass
+	public static void setUpClass() {
+	}
+
+	@AfterClass
+	public static void tearDownClass() {
+	}
+
+	@Before
+	public void setUp() {
+	}
+
+	@After
+	public void tearDown() {
+	}
+
+	/**
+	 * Test of getWrapper method (Live), of class Wrapper.
+	 */
+	@Test
+	public void testGetWrapperLive() {
+		IWrapper result = Wrapper.getWrapper(WrapperTypes.LIVE);
+		assertTrue(result instanceof LiveWrapper);
+	}
+
+	/**
+	 * Test of getWrapper method (Test), of class Wrapper.
+	 */
+	@Test
+	public void testGetWrapperTest() {
+		IWrapper result = Wrapper.getWrapper(WrapperTypes.TEST);
+		assertTrue(result instanceof TestWrapper);
+	}
 }

@@ -28,71 +28,71 @@ import static org.junit.Assert.*;
  */
 public class TestWrapperTest {
 
-    /**
-     *
-     */
-    private final IWrapper wrapper = TestWrapper.getInstance();
+	/**
+	 *
+	 */
+	private final IWrapper wrapper = TestWrapper.getInstance();
 
-    /**
-     *
-     */
-    public TestWrapperTest() {
-    }
+	/**
+	 *
+	 */
+	public TestWrapperTest() {
+	}
 
-    @BeforeClass
-    public static void setUpClass() {
-    }
+	@BeforeClass
+	public static void setUpClass() {
+	}
 
-    @AfterClass
-    public static void tearDownClass() {
-    }
+	@AfterClass
+	public static void tearDownClass() {
+	}
 
-    @Before
-    public void setUp() {
-    }
+	@Before
+	public void setUp() {
+	}
 
-    @After
-    public void tearDown() {
-    }
+	@After
+	public void tearDown() {
+	}
 
-    /**
-     * Test of getMedias method, of class TestWrapper.
-     */
-    @Test
-    public void testGetMedias() {
-        try {
-            String result = wrapper.getMedias(2, 5, "0", null, null);
-            assertNotNull(result);
-            assertNotSame(result, "[]");
-        } catch (Exception e) {
-        }
-    }
+	/**
+	 * Test of getMedias method, of class TestWrapper.
+	 */
+	@Test
+	public void testGetMedias() {
+		try {
+			String result = wrapper.getMedias(2, 5, "0", null, null);
+			assertNotNull(result);
+			assertNotSame(result, "[]");
+		} catch (Exception e) {
+		}
+	}
 
-    /**
-     * Test of getMediaItem method, of class TestWrapper.
-     */
-    @Test
-    public void testGetMediaItem() {
-        try {
-            String result = wrapper.getMediaItem(2);
-            assertNotNull(result);
-            assertNotSame(result, "{}");
-        } catch (Exception e) {
-        }
-    }
+	/**
+	 * Test of getMediaItem method, of class TestWrapper.
+	 */
+	@Test
+	public void testGetMediaItem() {
+		try {
+			String result = wrapper.getMediaItem(2);
+			assertNotNull(result);
+			assertNotSame(result, "{}");
+		} catch (Exception e) {
+		}
+	}
 
-    /**
-     * Test of getMedias method, of class TestWrapper.
-     */
-    @Test
-    public void testGetVideoAssets() {
-        try {
-            String result = wrapper.getVideoAssets(0);
-            System.out.println(result);
+	/**
+	 * Test of getMedias method, of class TestWrapper.
+	 */
+	@Test
+	public void testGetVideoAssets() {
+		try {
+			String result = wrapper.getVideoAssets(0);
+			System.out.println(result);
 
-            assertNotNull(result);
-            assertNotSame(result, "[]");
-        } catch (Exception e) {
-        }
-    }
+			assertNotNull(result);
+			assertNotSame(result, "[]");
+		} catch (Exception e) {
+		}
+	}
 }

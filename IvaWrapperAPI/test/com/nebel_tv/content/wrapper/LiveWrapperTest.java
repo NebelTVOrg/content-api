@@ -27,60 +27,61 @@ import static org.junit.Assert.*;
  *
  */
 public class LiveWrapperTest {
-    /**
-     * 
-     */
-    private final IWrapper wrapper = new LiveWrapper();
-    
-    /**
-     * 
-     */
-    public LiveWrapperTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
 
-    /**
-     * Test of getMedias method, of class LiveWrapper.
-     */
-    @Test
-    public void testGetMediasLive() {
-        String result = wrapper.getMedias(2, 5, "0", null, null);
-        assertNotNull(result);
-        assertNotSame(result, "[]");
-    }
+	/**
+	 *
+	 */
+	private final IWrapper wrapper = new LiveWrapper();
 
-    /**
-     * Test of getMediaItem method, of class LiveWrapper.
-     */
-    @Test
-    public void testGetMediaItemLive() {
-        String result = wrapper.getMediaItem(2);
-        assertNotNull(result);
-        assertNotSame(result, "{}");    
-    }
-    
-    /**
-     * Test of GetVideoAssets method, of class LiveWrapper.
-     */
-    @Test
-    public void testGetVideoAssetsLive() {
-        String result = wrapper.getVideoAssets(2);
-        assertNotNull(result);
-        assertNotSame(result, "[]");    
-    }    
+	/**
+	 *
+	 */
+	public LiveWrapperTest() {
+	}
+
+	@BeforeClass
+	public static void setUpClass() {
+	}
+
+	@AfterClass
+	public static void tearDownClass() {
+	}
+
+	@Before
+	public void setUp() {
+	}
+
+	@After
+	public void tearDown() {
+	}
+
+	/**
+	 * Test of getMedias method, of class LiveWrapper.
+	 */
+	@Test
+	public void testGetMediasLive() {
+		String result = wrapper.getMedias(2, 5, "0", null, null);
+		assertNotNull(result);
+		assertNotSame(result, "[]");
+	}
+
+	/**
+	 * Test of getMediaItem method, of class LiveWrapper.
+	 */
+	@Test
+	public void testGetMediaItemLive() {
+		String result = wrapper.getMediaItem(2);
+		assertNotNull(result);
+		assertNotSame(result, "{}");
+	}
+
+	/**
+	 * Test of GetVideoAssets method, of class LiveWrapper.
+	 */
+	@Test
+	public void testGetVideoAssetsLive() {
+		String result = wrapper.getVideoAssets(2);
+		assertNotNull(result);
+		assertNotSame(result, "[]");
+	}
 }

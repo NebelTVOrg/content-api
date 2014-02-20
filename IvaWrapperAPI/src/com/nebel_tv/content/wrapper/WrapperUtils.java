@@ -24,18 +24,18 @@ import java.util.logging.Logger;
  */
 public class WrapperUtils {
 
-    /**
-     * safe String to Integer converter
-     *
-     * @param number string to parse
-     * @return parsed Integer or null
-     */
-    public static Integer getInt(final String number) {
-        try {
-            return Integer.parseInt(number);
-        } catch (NumberFormatException ex) {
-            Logger.getLogger(WrapperUtils.class.getName()).log(Level.INFO, "WrapperUtils parse int \"getInt\" exception", ex);
-        }
-        return null;
-    }
+	/**
+	 * safe String to Integer converter
+	 *
+	 * @param number string to parse
+	 * @return parsed Integer or null
+	 */
+	public static Integer getInt(final String number) {
+		try {
+			return Integer.parseInt(number);
+		} catch (NumberFormatException ex) {
+			Logger.getLogger(WrapperUtils.class.getName()).log(Level.INFO, "WrapperUtils parse int \"getInt\" exception", ex);
+		}
+		return null;
+	}
 }

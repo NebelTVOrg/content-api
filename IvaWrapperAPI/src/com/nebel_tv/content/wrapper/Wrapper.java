@@ -21,13 +21,13 @@ package com.nebel_tv.content.wrapper;
  */
 public class Wrapper {
 
-    public static IWrapper getWrapper(int type) {
-        if (WrapperTypes.TEST == type) {
-            return TestWrapper.getInstance();
-        }
-        if (WrapperTypes.LIVE == type) {
-            return new LiveWrapper();
-        }
-        return null;
-    }
+	public static IWrapper getWrapper(int type) {
+		if (WrapperTypes.TEST == type) {
+			return TestWrapper.getInstance();
+		}
+		if (WrapperTypes.LIVE == type) {
+			return new LiveWrapper();
+		}
+		return null;
+	}
 }

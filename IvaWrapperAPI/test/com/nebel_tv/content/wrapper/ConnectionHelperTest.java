@@ -27,32 +27,32 @@ import static org.junit.Assert.*;
  *
  */
 public class ConnectionHelperTest {
-    
-    public ConnectionHelperTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
 
-    /**
-     * Test of fixURL method, of class ConnectionHelper.
-     */
-    @Test
-    public void testFixURL() {
-        assertEquals("http://54.201.170.111:8080/IvaWrapperWeb/getMedias?&skip=100&n=3&category=0",  
-                ConnectionHelper.fixURL("http://54.201.170.111:8080/IvaWrapperWeb/getMedias?skip=100&n=3&category=0"));
-    }    
+	public ConnectionHelperTest() {
+	}
+
+	@BeforeClass
+	public static void setUpClass() {
+	}
+
+	@AfterClass
+	public static void tearDownClass() {
+	}
+
+	@Before
+	public void setUp() {
+	}
+
+	@After
+	public void tearDown() {
+	}
+
+	/**
+	 * Test of fixURL method, of class ConnectionHelper.
+	 */
+	@Test
+	public void testFixURL() {
+		assertEquals("http://54.201.170.111:8080/IvaWrapperWeb/getMedias?&skip=100&n=3&category=0",
+				ConnectionHelper.fixURL("http://54.201.170.111:8080/IvaWrapperWeb/getMedias?skip=100&n=3&category=0"));
+	}
 }

@@ -30,55 +30,55 @@ import org.json.JSONObject;
  */
 class TestWrapper implements IWrapper {
 
-    private static TestWrapper instance = null;
-    
-    private final static Map<String, String> mediasData = new HashMap<String, String>();
-    private final static Map<Integer, String> mediaItems = new HashMap<Integer, String>();
+	private static TestWrapper instance = null;
 
-    private final static Map<Integer, String> videoAssets = new HashMap<Integer, String>();    
-    
-    static {
+	private final static Map<String, String> mediasData = new HashMap<String, String>();
+	private final static Map<Integer, String> mediaItems = new HashMap<Integer, String>();
 
-    }
+	private final static Map<Integer, String> videoAssets = new HashMap<Integer, String>();
 
-    private TestWrapper()  {
- 
-    }
-    
-    private void init(){
-       try {
-            String response = IOUtils.toString( this.getClass().getResourceAsStream("resources/getVideoAssets_encodes.json"), "UTF-8");           
-            
-            JSONObject root = new JSONObject(response);
-            JSONObject item = (JSONObject) root.get("d");                        
-            mediaItems.put(new Integer(749049), item.toString());
-            
-        } catch (IOException ex) {
-            Logger.getLogger(TestWrapper.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (JSONException ex) {
-            Logger.getLogger(TestWrapper.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    public static TestWrapper getInstance() {
-        if(instance == null){
-             instance = new TestWrapper();
-        }
-        return instance;
-    }    
+	static {
 
-    @Override
-    public String getMedias(Integer n, Integer skip, String category, String viewType, String viewTypePeriod) {
-        throw new UnsupportedOperationException("Method isn't implemented yet."); 
-    }
+	}
 
-    @Override
-    public String getMediaItem(Integer id) {
-        throw new UnsupportedOperationException("Method isn't implemented yet."); 
-    }
+	private TestWrapper() {
 
-    @Override
-    public String getVideoAssets(Integer id) {
-        throw new UnsupportedOperationException("Method isn't implemented yet."); 
-    }
+	}
+
+	private void init() {
+		try {
+			String response = IOUtils.toString(this.getClass().getResourceAsStream("resources/getVideoAssets_encodes.json"), "UTF-8");
+
+			JSONObject root = new JSONObject(response);
+			JSONObject item = (JSONObject) root.get("d");
+			mediaItems.put(new Integer(749049), item.toString());
+
+		} catch (IOException ex) {
+			Logger.getLogger(TestWrapper.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (JSONException ex) {
+			Logger.getLogger(TestWrapper.class.getName()).log(Level.SEVERE, null, ex);
+		}
+	}
+
+	public static TestWrapper getInstance() {
+		if (instance == null) {
+			instance = new TestWrapper();
+		}
+		return instance;
+	}
+
+	@Override
+	public String getMedias(Integer n, Integer skip, String category, String viewType, String viewTypePeriod) {
+		throw new UnsupportedOperationException("Method isn't implemented yet.");
+	}
+
+	@Override
+	public String getMediaItem(Integer id) {
+		throw new UnsupportedOperationException("Method isn't implemented yet.");
+	}
+
+	@Override
+	public String getVideoAssets(Integer id) {
+		throw new UnsupportedOperationException("Method isn't implemented yet.");
+	}
 }

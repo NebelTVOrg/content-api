@@ -25,30 +25,30 @@ import com.nebel_tv.content.wrapper.builders.VideoAssetsBuilder;
  */
 public class LiveWrapper implements IWrapper {
 
-    /**
-     * 
-     */
-    public LiveWrapper() {
-    }
+	/**
+	 *
+	 */
+	public LiveWrapper() {
+	}
 
-    @Override
-    public String getMedias(Integer n, Integer skip, String category, String viewType, String viewTypePeriod) {
-        return new MediasBuilder(n, skip, category, viewType, viewTypePeriod).build().get();
-    }
+	@Override
+	public String getMedias(Integer n, Integer skip, String category, String viewType, String viewTypePeriod) {
+		return new MediasBuilder(n, skip, category, viewType, viewTypePeriod).build().get();
+	}
 
-    @Override
-    public String getMediaItem(Integer id) {
-        if (id != null) {
-            return new MediaItemBuilder(id.toString()).build().get();
-        }
-        return "{}";
-    }
+	@Override
+	public String getMediaItem(Integer id) {
+		if (id != null) {
+			return new MediaItemBuilder(id.toString()).build().get();
+		}
+		return "{}";
+	}
 
-    @Override
-    public String getVideoAssets(Integer id) {
-        if (id != null) {
-            return new VideoAssetsBuilder(id.toString()).build().get();
-        }
-        return "{}";
-    }
+	@Override
+	public String getVideoAssets(Integer id) {
+		if (id != null) {
+			return new VideoAssetsBuilder(id.toString()).build().get();
+		}
+		return "{}";
+	}
 }

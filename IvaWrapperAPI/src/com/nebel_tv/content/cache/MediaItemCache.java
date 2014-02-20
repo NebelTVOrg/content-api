@@ -24,16 +24,16 @@ import org.json.JSONObject;
  */
 public class MediaItemCache {
 
-    private static final HashMap<String, JSONObject> itemById = new HashMap<String, JSONObject>();
+	private static final HashMap<String, JSONObject> itemById = new HashMap<String, JSONObject>();
 
-    public static JSONObject getItem(String id) {
-        return itemById.get(id);
-    }
+	public static JSONObject getItem(String id) {
+		return itemById.get(id);
+	}
 
-    public static JSONObject addItem(String id, JSONObject item) {
-        if(!itemById.containsKey(id)){
-            return itemById.put(id, item);            
-        }
-        return item;
-    }
+	public static JSONObject addItem(String id, JSONObject item) {
+		if (!itemById.containsKey(id)) {
+			return itemById.put(id, item);
+		}
+		return item;
+	}
 }

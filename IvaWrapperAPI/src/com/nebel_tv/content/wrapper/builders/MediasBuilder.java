@@ -31,74 +31,75 @@ import org.json.JSONObject;
 /**
  *
  */
-public class MediasBuilder  {
+public class MediasBuilder {
 
-    public static final String MEDIAS_QUERY_PART_1 = "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms()?$skip={skip}&$top={top}&";
-    public static final String MEDIAS_QUERY_PART_2 = "$filter=MediaId eq {MediaId}&";
-    public static final String MEDIAS_QUERY_PART_3 = "$expand=Poster,Description,Director,VideoAssetScreenCapture&format=json";
-    
-    private String queryUrl;
-    private JSONArray items;       
-    
-    private String json = "[]";
+	public static final String MEDIAS_QUERY_PART_1 = "http://api.internetvideoarchive.com/1.0/DataService/EntertainmentPrograms()?$skip={skip}&$top={top}&";
+	public static final String MEDIAS_QUERY_PART_2 = "$filter=MediaId eq {MediaId}&";
+	public static final String MEDIAS_QUERY_PART_3 = "$expand=Poster,Description,Director,VideoAssetScreenCapture&format=json";
 
-    public MediasBuilder(Integer n, Integer skip, String category, String viewType, String viewTypePeriod) {
-        this.queryUrl = MEDIAS_QUERY_PART_1;
-        if (n == null || n < 1) {
-            n = 5;
-        }
-        if (skip == null || skip < 0) {
-            skip = 0;
-        }
-        this.queryUrl = this.queryUrl.replace("{top}", n.toString());
-        this.queryUrl = this.queryUrl.replace("{skip}", skip.toString());
-        if (StringUtils.isNotBlank(category)) {
-            this.queryUrl += MEDIAS_QUERY_PART_2.replace("{MediaId}", "" + category);
-        }
-        this.queryUrl += MEDIAS_QUERY_PART_3;
-    }
+	private String queryUrl;
+	private JSONArray items;
 
-    private void executeQuery() {
-        try {
-            String source = ConnectionUtils.getResponseAsString(ConnectionHelper.fixURL(queryUrl));
-            JSONObject root = new JSONObject(source);
-            items = (JSONArray) root.get("d");
-        } catch (Exception ex) {
-            Logger.getLogger(MediasBuilder.class.getName()).log(Level.WARNING, null, ex);
-        }
-    }
+	private String json = "[]";
 
-    private void generateJson() {
-        if(items != null){
-            json = items.toString();
-        } 
-    }
+	public MediasBuilder(Integer n, Integer skip, String category, String viewType, String viewTypePeriod) {
+		this.queryUrl = MEDIAS_QUERY_PART_1;
+		if (n == null || n < 1) {
+			n = 5;
+		}
+		if (skip == null || skip < 0) {
+			skip = 0;
+		}
+		this.queryUrl = this.queryUrl.replace("{top}", n.toString());
+		this.queryUrl = this.queryUrl.replace("{skip}", skip.toString());
+		if (StringUtils.isNotBlank(category)) {
+			this.queryUrl += MEDIAS_QUERY_PART_2.replace("{MediaId}", "" + category);
+		}
+		this.queryUrl += MEDIAS_QUERY_PART_3;
+	}
 
-    public MediasBuilder build() {
-        executeQuery();
-        createMediaItems();
-        generateJson();
-        return this;
-    }
+	private void executeQuery() {
+		try {
+			String source = ConnectionUtils.getResponseAsString(ConnectionHelper.fixURL(queryUrl));
+			JSONObject root = new JSONObject(source);
+			items = (JSONArray) root.get("d");
+		} catch (Exception ex) {
+			Logger.getLogger(MediasBuilder.class.getName()).log(Level.WARNING, null, ex);
+		}
+	}
 
-    public String get() {
-        return this.json;
-    }
+	private void generateJson() {
+		if (items != null) {
+			json = items.toString();
+		}
+	}
 
-    private void createMediaItems() {
-        if(items == null)
-            return;
-        
-        for (int i = 0; i < items.length(); i++) {
-            try {
-                JSONObject item = items.getJSONObject(i);
-                if (item != null) {
-                    int id = item.getInt("Publishedid");
-                    MediaItemCache.addItem(String.valueOf(id) , item);                    
-                }                        
-            } catch (JSONException ex) {
-                Logger.getLogger(MediasBuilder.class.getName()).log(Level.WARNING, null, ex);
-            }
-        }
-    }
+	public MediasBuilder build() {
+		executeQuery();
+		createMediaItems();
+		generateJson();
+		return this;
+	}
+
+	public String get() {
+		return this.json;
+	}
+
+	private void createMediaItems() {
+		if (items == null) {
+			return;
+		}
+
+		for (int i = 0; i < items.length(); i++) {
+			try {
+				JSONObject item = items.getJSONObject(i);
+				if (item != null) {
+					int id = item.getInt("Publishedid");
+					MediaItemCache.addItem(String.valueOf(id), item);
+				}
+			} catch (JSONException ex) {
+				Logger.getLogger(MediasBuilder.class.getName()).log(Level.WARNING, null, ex);
+			}
+		}
+	}
 }
