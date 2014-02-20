@@ -17,74 +17,76 @@
 package com.nebel_tv.content.api;
 
 /**
- * 
+ *
  */
 public class WrapperResponse {
 
-    /**
-     *
-     */
-    public enum ResponseType {
-        NA, VideoAssets
-    }
+	/**
+	 *
+	 */
+	public enum ResponseType {
 
-    /**
-     *
-     */
-    public enum ResponseResult {
-        Ok, InvalidUrl, InvalidParams, ServiceError, ConnectionTimeout
-    }
+		Content, VideoAssets, MediaData
+	}
 
-    /**
-     *
-     */
-    public String responseData;
+	/**
+	 *
+	 */
+	public enum ResponseResult {
 
-    /**
-     *
-     */
-    public ResponseType responseType = ResponseType.NA;
+		Ok, InvalidUrl, InvalidParams, ServiceError, ConnectionTimeout
+	}
 
-    /**
-     *
-     */
-    public ResponseResult responseResult = ResponseResult.Ok;
+	/**
+	 *
+	 */
+	public String responseData;
 
-    /**
-     *
-     * @param data
-     */
-    public WrapperResponse(String data) {
-        responseData = data;
-    }
+	/**
+	 *
+	 */
+	public ResponseType responseType = ResponseType.Content;
 
-    /**
-     *
-     * @param result
-     * @param type
-     * @param data
-     */
-    public WrapperResponse(ResponseResult result, ResponseType type, String data) {
-        responseResult = result;
-        responseType = type;
+	/**
+	 *
+	 */
+	public ResponseResult responseResult = ResponseResult.Ok;
 
-        responseData = data;
-    }
+	/**
+	 *
+	 * @param data
+	 */
+	public WrapperResponse(String data) {
+		responseData = data;
+	}
 
-    /**
-     *
-     */
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("MediaWrapperResponse: [responseResult=");
-        builder.append(responseResult);
-        builder.append(", responseType=");
-        builder.append(responseType);
-        builder.append(", responseData=");
-        builder.append(responseData);
-        builder.append("]");
+	/**
+	 *
+	 * @param result
+	 * @param type
+	 * @param data
+	 */
+	public WrapperResponse(ResponseResult result, ResponseType type, String data) {
+		responseResult = result;
+		responseType = type;
 
-        return builder.toString();
-    }
+		responseData = data;
+	}
+
+	/**
+	 *
+	 */
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("MediaWrapperResponse: [responseResult=");
+		builder.append(responseResult);
+		builder.append(", responseType=");
+		builder.append(responseType);
+		builder.append(", responseData=");
+		builder.append(responseData);
+		builder.append("]");
+
+		return builder.toString();
+	}
 }

@@ -20,16 +20,16 @@ import java.security.InvalidParameterException;
 import java.util.Map;
 
 /**
- * 
+ *
  */
 public interface IWrapperMethod {
 
-    /**
-     *
-     * @param params
-     * @return
-     * @throws InvalidParameterException
-     */
-    abstract WrapperResponse execute(Map<String, String> params)
-            throws InvalidParameterException;
+	/**
+	 *
+	 * @param params
+	 * @return
+	 * @throws InvalidParameterException
+	 */
+	abstract WrapperResponse execute(Map<String, String> params)
+			throws InvalidParameterException;
 }

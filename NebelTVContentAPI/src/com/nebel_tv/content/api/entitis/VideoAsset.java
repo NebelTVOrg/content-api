@@ -14,18 +14,51 @@
  * You should have received a copy of the GNU General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package com.nebel_tv.content.api;
+package com.nebel_tv.content.api.entitis;
 
 /**
- * Interface IMediaWrapper
  *
  */
-public interface IContentWrapper {
+public class VideoAsset {
+
+	private String rate;
+	private String url;
 
 	/**
 	 *
-	 * @param url
-	 * @return
+	 * @param u Video URL
+	 * @param r String representation of the video bitrate (kbps)
 	 */
-	public abstract WrapperResponse getMediaData(String url);
+	public VideoAsset(String u, String r) {
+		this.url = u;
+		this.rate = r;
+	}
+
+	/**
+	 * @return the rate
+	 */
+	public String getRate() {
+		return rate;
+	}
+
+	/**
+	 * @param value The video rate to set
+	 */
+	public void setRate(String value) {
+		this.rate = value;
+	}
+
+	/**
+	 * @return The video remote URL
+	 */
+	public String getUrl() {
+		return url;
+	}
+
+	/**
+	 * @param value The video URL to set
+	 */
+	public void setURL(String value) {
+		this.url = value;
+	}
 }

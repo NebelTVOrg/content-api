@@ -23,35 +23,35 @@ import java.util.Map;
 import com.nebel_tv.content.wrapper.WrapperUtils;
 
 /**
- * 
+ *
  */
 public class GetVideoAssetsMethod extends WrapperMethod {
 
-    /**
-     * 
-     * @return Wrapper method name <code>getVideoAssets</code>
-     */
-    public static String getName() {
-        return "getVideoAssets";
-    }
+	/**
+	 *
+	 * @return Wrapper method name <code>getVideoAssets</code>
+	 */
+	public static String getName() {
+		return "getVideoAssets";
+	}
 
-    /**
-     * 
-     * @param params
-     * @return
-     * @throws InvalidParameterException 
-     */
-    @Override
-    public WrapperResponse execute(Map<String, String> params) throws InvalidParameterException {
-        if (params == null || params.size() != 1) {
-            throw new InvalidParameterException();
-        }
+	/**
+	 *
+	 * @param params
+	 * @return
+	 * @throws InvalidParameterException
+	 */
+	@Override
+	public WrapperResponse execute(Map<String, String> params) throws InvalidParameterException {
+		if (params == null || params.size() != 1) {
+			throw new InvalidParameterException();
+		}
 
-        final String id = params.get("id");
-        Integer nId = WrapperUtils.getInt(id);
+		final String id = params.get("id");
+		Integer nId = WrapperUtils.getInt(id);
 
-        String data = wrapper.getVideoAssets(nId);
-        //@warning: data validation 
-        return new WrapperResponse(WrapperResponse.ResponseResult.Ok, WrapperResponse.ResponseType.VideoAssets, data);
-    }
+		String data = wrapper.getVideoAssets(nId);
+		//@warning: data validation 
+		return new WrapperResponse(WrapperResponse.ResponseResult.Ok, WrapperResponse.ResponseType.VideoAssets, data);
+	}
 }

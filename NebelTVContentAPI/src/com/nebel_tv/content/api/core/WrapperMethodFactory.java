@@ -23,23 +23,23 @@ import com.nebel_tv.content.api.IWrapperMethod;
  */
 public class WrapperMethodFactory {
 
-    /**
-     *
-     * @param name The name of wrapper method (Web Service interface)
-     * @return
-     */
-    public static IWrapperMethod getMethodByName(String name) {
-        if (name == null || name.isEmpty()) {
-            return null;
-        }
+	/**
+	 *
+	 * @param name The name of wrapper method (Web Service interface)
+	 * @return
+	 */
+	public static IWrapperMethod getMethodByName(String name) {
+		if (name == null || name.isEmpty()) {
+			return null;
+		}
 
-        if (name.equals(GetMediaItemMethod.getName())) {
-            return new GetMediaItemMethod();
-        } else if (name.equals(GetMediasMethod.getName())) {
-            return new GetMediasMethod();
-        }else if (name.equals(GetVideoAssetsMethod.getName())) {
-            return new GetVideoAssetsMethod();
-        }
-        return null;
-    }
+		if (name.equals(GetMediaItemMethod.getName())) {
+			return new GetMediaItemMethod();
+		} else if (name.equals(GetMediasMethod.getName())) {
+			return new GetMediasMethod();
+		} else if (name.equals(GetVideoAssetsMethod.getName())) {
+			return new GetVideoAssetsMethod();
+		}
+		return null;
+	}
 }

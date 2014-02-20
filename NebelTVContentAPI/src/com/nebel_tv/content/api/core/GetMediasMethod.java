@@ -28,36 +28,36 @@ import com.nebel_tv.content.wrapper.WrapperUtils;
  */
 public class GetMediasMethod extends WrapperMethod {
 
-    /**
-     *
-     * @return
-     */
-    public static String getName() {
-        return "getMedias";
-    }
+	/**
+	 *
+	 * @return
+	 */
+	public static String getName() {
+		return "getMedias";
+	}
 
-    /**
-     * 
-     * @param params
-     * @return
-     * @throws InvalidParameterException 
-     */
-    @Override
-    public WrapperResponse execute(Map<String, String> params) throws InvalidParameterException {
-        if (params == null || params.size() < 3) {
-            throw new InvalidParameterException();
-        }
+	/**
+	 *
+	 * @param params
+	 * @return
+	 * @throws InvalidParameterException
+	 */
+	@Override
+	public WrapperResponse execute(Map<String, String> params) throws InvalidParameterException {
+		if (params == null || params.size() < 3) {
+			throw new InvalidParameterException();
+		}
 
-        final String n = params.get("n");
-        final String skip = params.get("skip");
-        final String category = params.get("category");
-        final String viewType = params.get("viewType");
-        final String viewTypePeriod = params.get("viewTypePeriod");
+		final String n = params.get("n");
+		final String skip = params.get("skip");
+		final String category = params.get("category");
+		final String viewType = params.get("viewType");
+		final String viewTypePeriod = params.get("viewTypePeriod");
 
-        Integer nParsed = WrapperUtils.getInt(n);
-        Integer skipParsed = WrapperUtils.getInt(skip);
+		Integer nParsed = WrapperUtils.getInt(n);
+		Integer skipParsed = WrapperUtils.getInt(skip);
 
-        String data = wrapper.getMedias(nParsed, skipParsed, category, viewType, viewTypePeriod);
-        return new WrapperResponse(data);
-    }
+		String data = wrapper.getMedias(nParsed, skipParsed, category, viewType, viewTypePeriod);
+		return new WrapperResponse(data);
+	}
 }

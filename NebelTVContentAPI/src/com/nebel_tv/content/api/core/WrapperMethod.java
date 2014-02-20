@@ -23,16 +23,16 @@ import com.nebel_tv.content.wrapper.WrapperTypes;
 
 public abstract class WrapperMethod implements IWrapperMethod {
 
-    /**
-     *
-     */
-    protected final IWrapper wrapper = Wrapper.getWrapper(WrapperTypes.LIVE);
+	/**
+	 *
+	 */
+	protected final IWrapper wrapper = Wrapper.getWrapper(WrapperTypes.LIVE);
 
-    /**
-     *
-     * @return IWrapper interface name
-     */
-    public static String getName() {
-        return "";
-    }
+	/**
+	 *
+	 * @return IWrapper interface name
+	 */
+	public static String getName() {
+		return "";
+	}
 }

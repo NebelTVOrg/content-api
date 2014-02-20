@@ -23,34 +23,34 @@ import java.util.Map;
 import com.nebel_tv.content.wrapper.WrapperUtils;
 
 /**
- * 
+ *
  */
 public class GetMediaItemMethod extends WrapperMethod {
 
-    /**
-     * 
-     * @return 
-     */
-    public static String getName() {
-        return "getMediaItem";
-    }
+	/**
+	 *
+	 * @return
+	 */
+	public static String getName() {
+		return "getMediaItem";
+	}
 
-    /**
-     * 
-     * @param params
-     * @return
-     * @throws InvalidParameterException 
-     */
-    @Override
-    public WrapperResponse execute(Map<String, String> params) throws InvalidParameterException {
-        if (params == null || params.size() != 1) {
-            throw new InvalidParameterException();
-        }
+	/**
+	 *
+	 * @param params
+	 * @return
+	 * @throws InvalidParameterException
+	 */
+	@Override
+	public WrapperResponse execute(Map<String, String> params) throws InvalidParameterException {
+		if (params == null || params.size() != 1) {
+			throw new InvalidParameterException();
+		}
 
-        final String n = params.get("n");
-        Integer nItem = WrapperUtils.getInt(n);
+		final String n = params.get("n");
+		Integer nItem = WrapperUtils.getInt(n);
 
-        String data = wrapper.getMediaItem(nItem);
-        return new WrapperResponse(data);
-    }
+		String data = wrapper.getMediaItem(nItem);
+		return new WrapperResponse(data);
+	}
 }
